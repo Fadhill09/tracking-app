@@ -11,5 +11,5 @@ class Pembelian extends Model
 
     protected $table = 'pembelian'; // Mengubah nama tabel menjadi pembelian
     protected $primaryKey = 'id'; // Primary key tetap sama
-    protected $fillable = ['seri', 'nama_barang', 'alamat', 'harga', 'ongkir']; // Mengubah kolom yang dapat diisi
+    protected $fillable = ['nama_pengguna', 'alamat', 'harga', ]; // Mengubah kolom yang dapat diisi
 }

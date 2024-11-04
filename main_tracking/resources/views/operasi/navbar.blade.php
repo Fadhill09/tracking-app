@@ -15,7 +15,7 @@
             {{-- <li><a href="{{ route ('berita')}}">Berita</a></li> --}}
             <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="{{ route ('pembelian.create')}}">Kirim Barang</a></li>
+                <li><a href="{{ route ('tambah')}}">Kirim Barang</a></li>
                 <li><a href="#">Cek Barang</a></li>
               </ul>
             </li>

@@ -14,4 +14,8 @@ class UserController extends Controller
         return view('page.tentang');
     }
     
+    public function view5() {
+        return view('page.tampilancek');
+    }
+    
 }
