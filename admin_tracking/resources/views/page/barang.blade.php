@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +48,7 @@
     @include('operasi.sidebar')<!-- End Sidebar-->
 
   <main id="main" class="main">
-    
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

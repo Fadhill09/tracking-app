@@ -1,6 +1,19 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
+=======
+@extends('page.kirim.layout')
+@section('content')
+
+<div class="card" style="margin:20px;">
+    <div class="card-header">Edit Kirim</div>
+    <div class="card-body">
+        <form action="{{ url('kirim/' . $kirim->id) }}" method="post">
+            {!! csrf_field() !!}
+            @method("PATCH")
+            <input type="hidden" name="id" id="id" value="{{ $kirim->id }}" />
+>>>>>>> cc210d07126d5fa4e2681abb24af1126e1fe0eac
 
 <head>
     <meta charset="utf-8">
@@ -34,24 +47,26 @@
             @method('PUT')
             {{-- <div class="form-group">
                 <label for="seri">Seri</label>
-                <input type="text" name="seri" id="seri" class="form-control" value="{{ $pembelian->seri }}" required>
-            </div> --}}
+                <input type="text" name="seri" id="seri" value="{{ $kirim->seri }}" class="form-control" required>
+            </div>
+
             <div class="form-group">
                 <label for="nama_barang">Nama Barang</label>
-                <input type="text" name="nama_barang" id="nama_barang" class="form-control" value="{{ $pembelian->nama_barang }}" required>
+                <input type="text" name="nama_barang" id="nama_barang" value="{{ $kirim->nama_barang }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" id="alamat" class="form-control" value="{{ $pembelian->alamat }}" required>
+                <input type="text" name="alamat" id="alamat" value="{{ $kirim->alamat }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="harga">Harga</label>
-                <input type="number" name="harga" id="harga" class="form-control" value="{{ $pembelian->harga }}" required>
+                <input type="number" name="harga" id="harga" value="{{ $kirim->harga }}" class="form-control" required>
             </div>
             {{-- <div class="form-group">
                 <label for="ongkir">Ongkir</label>
-                <input type="number" name="ongkir" id="ongkir" class="form-control" value="{{ $pembelian->ongkir }}" required>
-            </div> --}}
+                <input type="number" name="ongkir" id="ongkir" value="{{ $kirim->ongkir }}" class="form-control" required>
+            </div>
+
             <input type="submit" value="Update" class="btn btn-success">
         </form>
     </div>

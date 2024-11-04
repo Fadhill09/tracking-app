@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pembelian', function (Blueprint $table) {
+        Schema::create('kirim', function (Blueprint $table) {
             $table->id();
         
             $table->string('nama_pengguna'); // Kolom untuk nama barang
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembelian');
+        Schema::dropIfExists('kirim');
     }
 };

@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
+=======
+@extends('page.kirim.layout')
+@section('content')
+
+<div class="card" style="margin:20px;">
+    <div class="card-header">Create New Pembelian</div>
+    <div class="card-body">
+        <form action="{{ url('kirim') }}" method="post">
+            {!! csrf_field() !!}
+>>>>>>> cc210d07126d5fa4e2681abb24af1126e1fe0eac
 
 <head>
     <meta charset="utf-8">
