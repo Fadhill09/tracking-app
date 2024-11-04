@@ -1,10 +1,10 @@
-@extends('pembelian.layout')
+@extends('page.kirim.layout')
 @section('content')
 
 <div class="card" style="margin:20px;">
     <div class="card-header">Create New Pembelian</div>
     <div class="card-body">
-        <form action="{{ url('pembelian') }}" method="post">
+        <form action="{{ url('kirim') }}" method="post">
             {!! csrf_field() !!}
 
             <div class="form-group">
