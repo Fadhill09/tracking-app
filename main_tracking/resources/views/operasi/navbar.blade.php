@@ -15,8 +15,8 @@
             {{-- <li><a href="{{ route ('berita')}}">Berita</a></li> --}}
             <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>             
-                <li><a href="{{ route ('kirim')}}">Kirim Barang</a></li>           
-                <li><a href="{{ route ('cek')}}">Cek Barang</a></li>
+                <li><a href="{{ route ()}}">Kirim Barang</a></li>           
+                <li><a href="{{ route ()}}">Cek Barang</a></li>
               </ul>
             </li> 
             <li><a href="{{ route ('tentang')}}">Tentang</a></li>  

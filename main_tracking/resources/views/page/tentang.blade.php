@@ -87,7 +87,7 @@
                     <div class="col-md-4">
                         <div class="card shadow  m-2">
                             <div class="card-body">
-                                <h4 class="fw-bold text-center">Zein Iahaq Rahawaeh</h4>
+                                <h4 class="fw-bold text-center">Zein Ishaq Rahawaeh</h4>
                                 <a href="https://www.instagram.com/rahawaeh_113/"></a>
                             </div>
                         </div>
