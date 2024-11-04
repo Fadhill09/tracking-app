@@ -3,20 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pembelian; // Menggunakan model Pembelian
+use App\Models\Kirim; // Menggunakan model Kirim
 
-class PembelianController extends Controller
+class KirimController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pembelian = Pembelian::all();
-        return view('pembelian.index')->with('pembelian', $pembelian);
+        $searchId = $request->get('search_id');
+
+        if ($searchId) {
+            // Cari berdasarkan ID jika ada input pencarian
+            $kirim = Kirim::where('id', $searchId)->get();
+        } else {
+            // Ambil semua data jika tidak ada input pencarian
+            $kirim = Kirim::all();
+        }
+
+        return view('page.kirim.index')->with('kirim', $kirim); // Pastikan ini sesuai dengan path view yang benar
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +35,7 @@ class PembelianController extends Controller
      */
     public function create()
     {
-        return view('pembelian.create');
+        return view('page.kirim.create'); // Mengarah ke folder page/kirim
     }
 
     /**
@@ -37,8 +47,8 @@ class PembelianController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        Pembelian::create($input);
-        return redirect('pembelian')->with('flash_message', 'Pembelian ditambahkan!');
+        Kirim::create($input);
+        return redirect('kirim')->with('flash_message', 'Kirim ditambahkan!');
     }
 
     /**
@@ -49,8 +59,8 @@ class PembelianController extends Controller
      */
     public function show($id)
     {
-        $pembelian = Pembelian::find($id);
-        return view('pembelian.show')->with('pembelian', $pembelian);
+        $kirim = Kirim::find($id);
+        return view('page.kirim.show')->with('kirim', $kirim); // Mengarah ke folder page/kirim
     }
 
     /**
@@ -61,8 +71,8 @@ class PembelianController extends Controller
      */
     public function edit($id)
     {
-        $pembelian = Pembelian::find($id);
-        return view('pembelian.edit')->with('pembelian', $pembelian);
+        $kirim = Kirim::find($id);
+        return view('page.kirim.edit')->with('kirim', $kirim); // Mengarah ke folder page/kirim
     }
 
     /**
@@ -74,10 +84,10 @@ class PembelianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pembelian = Pembelian::find($id);
+        $kirim = Kirim::find($id);
         $input = $request->all();
-        $pembelian->update($input);
-        return redirect('pembelian')->with('flash_message', 'Pembelian diperbarui!');
+        $kirim->update($input);
+        return redirect('kirim')->with('flash_message', 'Kirim diperbarui!');
     }
 
     /**
@@ -88,7 +98,9 @@ class PembelianController extends Controller
      */
     public function destroy($id)
     {
-        Pembelian::destroy($id);
-        return redirect('pembelian')->with('flash_message', 'Pembelian dihapus!');
+        Kirim::destroy($id);
+        return redirect('kirim')->with('flash_message', 'Kirim dihapus!');
     }
+
+    
 }
