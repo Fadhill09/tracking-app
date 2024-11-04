@@ -36,7 +36,7 @@ class KirimController extends Controller
      */
     public function create()
     {
-        return view('page.kirim.create'); // Mengarah ke folder page/kirim
+        return view('page.kirim.create')->with('kirim'); // Mengarah ke folder page/kirim
     }
 
     // Menyimpan data pembelian ke database
