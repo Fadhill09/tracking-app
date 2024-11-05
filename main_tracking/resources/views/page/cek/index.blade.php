@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Daftar Tracking Barang</title>
+    <title>Daftar Barang</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
     @include('style.gaya')
 
     <style>
-        /* Style tambahan untuk efek hover pada card */
+
         .tracking-card {
             position: relative;
             transition: box-shadow 0.3s ease;
@@ -23,7 +23,6 @@
             text-align: center;
         }
 
-        /* Tabel data yang akan muncul hanya saat card di-hover */
         .tracking-data {
             display: none;
             position: absolute;
@@ -38,7 +37,7 @@
             border-radius: 8px;
         }
 
-        /* Tampilkan tabel saat card di-hover */
+
         .tracking-card:hover .tracking-data {
             display: block;
         }

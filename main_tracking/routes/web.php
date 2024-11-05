@@ -6,7 +6,7 @@ use App\Http\Controllers\TrackingController;
 
 
 Route::resource('trackings', TrackingController::class);
-Route::get('Cek-data-barang', [TrackingController:: class, 'index'])->name('tampil');
+Route::get('Cek-data-barang', [TrackingController:: class, 'index'])->name('kirim');
 
 Route::get('Tambah/Data-Barang', [TrackingController:: class, 'create'])->name('create');
 
