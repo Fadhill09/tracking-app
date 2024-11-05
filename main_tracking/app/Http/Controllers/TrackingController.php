@@ -10,7 +10,7 @@ class TrackingController extends Controller
     public function index()
     {
         $trackings = Tracking::all();
-        return view('page.kirim.index', compact('trackings'));
+        return view('page.cek.index', compact('trackings'));
     }
 
     public function create()
@@ -37,12 +37,12 @@ class TrackingController extends Controller
 
         Tracking::create($validated);
 
-        return redirect()->route('kirim')->with('success', 'Data tracking berhasil ditambahkan');
+        return redirect()->route('tampil')->with('success', 'Data tracking berhasil ditambahkan');
     }
 
-    public function edit(Tracking $tracking)
+    public function edit()
     {
-        return view('page.kirim.edit', compact('tracking'));
+        return view('page.cek.edit', compact('tracking'));
     }
 
     public function update(Request $request, Tracking $tracking)
@@ -64,12 +64,12 @@ class TrackingController extends Controller
 
         $tracking->update($validated);
 
-        return redirect()->route('kirim')->with('success', 'Data tracking berhasil diperbarui');
+        return redirect()->route('tampil');
     }
 
     public function destroy(Tracking $tracking)
     {
         $tracking->delete();
-        return redirect()->route('kirim')->with('success', 'Data tracking berhasil dihapus');
+        return redirect()->route('tampil');
     }
 }

@@ -52,61 +52,52 @@
     <main class="main">
 
         <div class="container mt-4">
-            <h1 class="mb-4">Daftar Tracking Barang</h1>
-            <a href="{{ route('create') }}" class="btn btn-primary mb-3">Tambah Tracking</a>
-
-            <!-- Card untuk tracking barang -->
-            <div class="tracking-card">
-                <h5 class="card-title">Tracking Barang</h5>
-                <p class="card-text">Arahkan kursor ke sini untuk melihat daftar tracking barang</p>
-
-                <!-- Tabel yang akan muncul saat hover -->
-                <div class="tracking-data">
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Pengirim</th>
-                                <th>No Pengirim</th>
-                                <th>Penerima</th>
-                                <th>No Penerima</th>
-                                <th>Barang</th>
-                                <th>Jumlah Barang</th>
-                                <th>Jenis Pengiriman</th>
-                                <th>Biaya Pengiriman</th>
-                                <th>Pesan Pengirim</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($trackings as $tracking)
-                                <tr>
-                                    <td>{{ $tracking->nama_pengirim }}</td>
-                                    <td>{{ $tracking->no_hp_pengirim }}</td>
-                                    <td>{{ $tracking->nama_penerima }}</td>
-                                    <td>{{ $tracking->no_hp_penerima }}</td>
-                                    <td>{{ $tracking->nama_barang }}</td>
-                                    <td>{{ $tracking->jumlah_barang }}</td>
-                                    <td>{{ ucfirst($tracking->jenis_pengiriman) }}</td>
-                                    <td>Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }}</td>
-                                    <td>{{ $tracking->pesan_pengirim }}</td>
-                                    <td>
-                                        <a href="{{ route('trackings.edit', $tracking) }}" class="btn btn-sm btn-warning">Edit</a>
-                                        <!-- Uncomment form untuk menghapus jika diperlukan -->
-                                        <!--
-                                        <form action="{{ route('trackings.destroy', $tracking) }}" method="POST" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                                        </form>
-                                        -->
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <h1 class="mb-4">Daftar Barang</h1>
+            <a href="{{ route('create') }}" class="btn btn-primary mb-3">Tambah Barang</a>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No Resi</th>
+                        <th>Pengirim</th>
+                        <th>No Pengirim</th>
+                        <th>Penerima</th>
+                        <th>No Penerima</th>
+                        <th>Barang</th>
+                        <th>jumlah Barang</th>
+                        <th>Jenis Pengiriman</th>
+                        <th>Biaya Pengiriman</th>
+                        <th>Pesan Pengirim</th>
+                        <th>Aksi</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($trackings as $tracking)
+                        <tr>
+                            <td>{{ $tracking->id}}</td>
+                            <td>{{ $tracking->nama_pengirim }} </td>
+                            <td>{{ $tracking->no_hp_pengirim }}</td>
+                            <td> {{ $tracking->no_hp_penerima }}</td>
+                            <td>{{ $tracking->nama_penerima }}</td>
+                            <td>{{ $tracking->nama_barang }}</td>
+                            <td>{{ $tracking->jumlah_barang }}</td>
+                            <td>{{ ucfirst($tracking->jenis_pengiriman) }}</td>
+                            <td>Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }}</td>
+                            <td>{{ $tracking->pesan_pengirim}}</td>
+                            <td>
+                                <a href="{{ route('edit', $tracking) }}" 
+                                     class="btn btn-sm btn-warning">Edit</a>
+                                 <form action="{{ route('hapus', $tracking) }}" method="POST"
+                                    class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger">Batal</button>
+                                </form>
+                            </td> 
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
 
     </main>

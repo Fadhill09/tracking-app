@@ -19,7 +19,7 @@
     <main class="main">
 
             <div class="container mt-4">
-                <h1 class="mb-4">Tambah Tracking Barang</h1>
+                <h1 class="mb-4">Tambah Barang</h1>
 
                 <form action="{{ route('store') }}" method="POST" class="p-4 border rounded shadow-sm">
                     @csrf
@@ -83,7 +83,7 @@
                         <textarea class="form-control" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Tambah Tracking</button>
+                    <button type="submit" class="btn btn-primary">Tambah Barang</button>
                 </form>
             </div>
 
