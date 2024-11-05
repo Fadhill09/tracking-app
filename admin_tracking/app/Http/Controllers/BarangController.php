@@ -10,4 +10,8 @@ class BarangController extends Controller
         return view('page.barang');
 
     }
+    function detail(){
+        return view('page.detail-barang');
+
+    }
 }
