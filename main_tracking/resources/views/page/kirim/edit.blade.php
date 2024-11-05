@@ -1,83 +1,95 @@
-<<<<<<< HEAD
-
 <!DOCTYPE html>
 <html lang="en">
-=======
-@extends('page.kirim.layout')
-@section('content')
-
-<div class="card" style="margin:20px;">
-    <div class="card-header">Edit Kirim</div>
-    <div class="card-body">
-        <form action="{{ url('kirim/' . $kirim->id) }}" method="post">
-            {!! csrf_field() !!}
-            @method("PATCH")
-            <input type="hidden" name="id" id="id" value="{{ $kirim->id }}" />
->>>>>>> cc210d07126d5fa4e2681abb24af1126e1fe0eac
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title></title>
+    <title>Edit Tracking Barang</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
     @include('style.gaya')
 
-    <!-- =======================================================
-  * Template Name: Impact
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
 
     @include('operasi.navbar')
 
-    @extends('layouts.app')
+    <main class="main">
+        <div class="container mt-4">
+            <h1 class="mb-4">Edit Tracking Barang</h1>
 
-    @section('content')
-    <div class="container">
-        <h2>Edit Pembelian</h2>
-        <form action="{{ route('update', $pembelian->id) }}" method="post">
-            @csrf
-            @method('PUT')
-            {{-- <div class="form-group">
-                <label for="seri">Seri</label>
-                <input type="text" name="seri" id="seri" value="{{ $kirim->seri }}" class="form-control" required>
-            </div>
+            <form action="{{ route('trackings.update', $tracking->id) }}" method="POST" class="p-4 border rounded shadow-sm">
+                @csrf
+                @method('PUT')
 
-            <div class="form-group">
-                <label for="nama_barang">Nama Barang</label>
-                <input type="text" name="nama_barang" id="nama_barang" value="{{ $kirim->nama_barang }}" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" id="alamat" value="{{ $kirim->alamat }}" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="harga">Harga</label>
-                <input type="number" name="harga" id="harga" value="{{ $kirim->harga }}" class="form-control" required>
-            </div>
-            {{-- <div class="form-group">
-                <label for="ongkir">Ongkir</label>
-                <input type="number" name="ongkir" id="ongkir" value="{{ $kirim->ongkir }}" class="form-control" required>
-            </div>
+                <div class="form-group">
+                    <label for="nama_pengirim">Nama Pengirim:</label>
+                    <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" value="{{ $tracking->nama_pengirim }}" required>
+                </div>
 
-            <input type="submit" value="Update" class="btn btn-success">
-        </form>
-    </div>
-    @endsection
-    
+                <div class="form-group">
+                    <label for="no_hp_pengirim">No HP Pengirim:</label>
+                    <input type="text" class="form-control" id="no_hp_pengirim" name="no_hp_pengirim" value="{{ $tracking->no_hp_pengirim }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat_pengirim">Alamat Pengirim:</label>
+                    <textarea class="form-control" id="alamat_pengirim" name="alamat_pengirim" rows="3" required>{{ $tracking->alamat_pengirim }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="nama_penerima">Nama Penerima:</label>
+                    <input type="text" class="form-control" id="nama_penerima" name="nama_penerima" value="{{ $tracking->nama_penerima }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="no_hp_penerima">No HP Penerima:</label>
+                    <input type="text" class="form-control" id="no_hp_penerima" name="no_hp_penerima" value="{{ $tracking->no_hp_penerima }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat_penerima">Alamat Penerima:</label>
+                    <textarea class="form-control" id="alamat_penerima" name="alamat_penerima" rows="3" required>{{ $tracking->alamat_penerima }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="nama_barang">Nama Barang:</label>
+                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="{{ $tracking->nama_barang }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="jumlah_barang">Jumlah Barang:</label>
+                    <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang" value="{{ $tracking->jumlah_barang }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Jenis Pengiriman:</label>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="reguler" name="jenis_pengiriman" value="reguler" {{ $tracking->jenis_pengiriman === 'reguler' ? 'checked' : '' }} required>
+                        <label for="reguler" class="form-check-label">Reguler (Rp 10.000)</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="cepat" name="jenis_pengiriman" value="cepat" {{ $tracking->jenis_pengiriman === 'cepat' ? 'checked' : '' }} required>
+                        <label for="cepat" class="form-check-label">Cepat (Rp 20.000)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan_pengirim">Pesan Pengirim:</label>
+                    <textarea class="form-control" id="pesan_pengirim" name="pesan_pengirim" rows="3">{{ $tracking->pesan_pengirim }}</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Tracking</button>
+            </form>
+        </div>
+    </main>
 
     @include('operasi.footer')
 
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Preloader -->
     <div id="preloader"></div>
@@ -86,7 +98,4 @@
     @include('style.gaya')
 
 </body>
-
 </html>
-
-
