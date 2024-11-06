@@ -11,13 +11,13 @@
     @include('style.gaya')
 </head>
 
-<body class="index-page">
+<body class="index-page" style="background-color: #01796f;">
 
     @include('operasi.navbar')
-    <main class="main">
-        <div class="container">
+    <main class="main"  style="background-color: #01796f;">
+        <div class="container" style="background-color: #01796f;">
             <div class="row" style="margin-top: 100px;">
-                    <div class="col-lg-12 col-sm-12 "> 
+                    <div class="col-lg-12 col-sm-12 ">
                         <div class="card shadow-sm">
                             <div class="card-body">
                                 <h3 class="mb-2 text-center fw-bold">Keterangan</h3>
