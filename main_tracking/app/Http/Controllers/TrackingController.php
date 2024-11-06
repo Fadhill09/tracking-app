@@ -40,7 +40,7 @@ class TrackingController extends Controller
         return redirect()->route('tampil')->with('success', 'Data tracking berhasil ditambahkan');
     }
 
-    public function edit()
+    public function edit(Tracking $tracking)
     {
         return view('page.cek.edit', compact('tracking'));
     }

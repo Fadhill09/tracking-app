@@ -9,96 +9,62 @@
     <meta name="keywords" content="">
 
     @include('style.gaya')
-
-    <style>
-
-        .tracking-card {
-            position: relative;
-            transition: box-shadow 0.3s ease;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .tracking-data {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #ffffff;
-            z-index: 10;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 1rem;
-            margin-top: 10px;
-            border-radius: 8px;
-        }
-
-
-        .tracking-card:hover .tracking-data {
-            display: block;
-        }
-    </style>
 </head>
 
 <body class="index-page">
 
     @include('operasi.navbar')
-
     <main class="main">
+        <div class="container">
+            <div class="row" style="margin-top: 100px;">
+                @foreach ($trackings as $tracking)
+                    <div class="col-12 col-sm-6 col-md-4 mb-4"> 
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p>No Resi: <b>{{ $tracking->id }}</b></p>
+                                <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
+                                <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
+                                <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
+                                <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b></p>
+                                <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
+                                <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
+                                <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }}</b></p>
+                                <p>Biaya Pengiriman: <b>Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }}</b></p>
+                                <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
+                                <div class="d-flex">
+                                    <a href="{{ route('edit', $tracking) }}" class="btn btn-sm btn-warning fw-bold">Edit</a>
+                                    <form action="{{ route('hapus', $tracking) }}" method="POST" class="d-inline ms-2" onsubmit="return confirmDelete()">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">Batal</button>
+                                    </form>
+                                </div>
+                            </div>
 
-        <div class="container mt-4">
-            <h1 class="mb-4">Daftar Barang</h1>
-            <a href="{{ route('create') }}" class="btn btn-primary mb-3">Tambah Barang</a>
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>No Resi</th>
-                        <th>Pengirim</th>
-                        <th>No Pengirim</th>
-                        <th>Penerima</th>
-                        <th>No Penerima</th>
-                        <th>Barang</th>
-                        <th>jumlah Barang</th>
-                        <th>Jenis Pengiriman</th>
-                        <th>Biaya Pengiriman</th>
-                        <th>Pesan Pengirim</th>
-                        <th>Aksi</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($trackings as $tracking)
-                        <tr>
-                            <td>{{ $tracking->id}}</td>
-                            <td>{{ $tracking->nama_pengirim }} </td>
-                            <td>{{ $tracking->no_hp_pengirim }}</td>
-                            <td> {{ $tracking->no_hp_penerima }}</td>
-                            <td>{{ $tracking->nama_penerima }}</td>
-                            <td>{{ $tracking->nama_barang }}</td>
-                            <td>{{ $tracking->jumlah_barang }}</td>
-                            <td>{{ ucfirst($tracking->jenis_pengiriman) }}</td>
-                            <td>Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }}</td>
-                            <td>{{ $tracking->pesan_pengirim}}</td>
-                            <td>
-                                <a href="{{ route('edit', $tracking) }}" 
-                                     class="btn btn-sm btn-warning">Edit</a>
-                                 <form action="{{ route('hapus', $tracking) }}" method="POST"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Batal</button>
-                                </form>
-                            </td> 
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                            <div class="card border border-1 mx-2 my-2">
+                                <div class="card-body">
+                                    <span class="badge text-secondary">10/11/2024</span><br>
+                                    <span class="badge text-secondary">Paket anda sedang di kemas</span>
+                                    <div class="border mt-2"></div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge text-secondary">11/11/2024</span><br>
+                                    <span class="badge text-secondary">Paket anda sedang di jalan</span>
+                                    <p class="badge text-secondary">Paket anda sedang menuju transit cakung</p>
+                                    <div class="border mt-2"></div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge text-secondary">11/12/2024</span><br>
+                                    <span class="badge text-secondary">Paket anda sedang di jalan</span>
+                                    <p class="badge text-secondary">Paket anda sedang menuju transit pondok gede</p>
+                                    <div class="border mt-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
-
     </main>
 
     @include('operasi.footer')
@@ -114,6 +80,11 @@
     <!-- Vendor JS Files -->
     @include('style.gaya')
 
+    <script>
+        function confirmDelete() {
+            return confirm("Apakah Anda yakin ingin membatalkan pesanan?");
+        }
+    </script>
 </body>
 
 </html>
