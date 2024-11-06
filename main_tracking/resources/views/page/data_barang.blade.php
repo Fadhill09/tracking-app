@@ -26,13 +26,13 @@
                                 <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
                                 <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
                                 <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b></p>
-                                <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
+                                <p>Jenis Barang: <b>{{ $tracking->nama_barang }}</b></p>
                                 <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
                                 <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} ( Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }} )</b></p>
                                 <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
 
                                 <div class="mt-2">
-                                    <a href="{{ route('isidaftar', $tracking) }}" class="btn btn-sm btn-warning fw-bold">Lihat</a>
+                                    <a href="{{ route('isidaftar', $tracking) }}" class="btn btn-sm btn-success fw-bold">Lihat</a>
                                 </div>
                             </div>
                         </div>

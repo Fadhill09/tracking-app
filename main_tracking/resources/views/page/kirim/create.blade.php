@@ -94,9 +94,10 @@
                     <label for="pesan_pengirim">Pesan Pengirim:</label>
                     <textarea class="form-control" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
                 </div>
+
                 <div class="d-flex  justify-content-between ">
-                <button type="submit" class="btn btn-primary mt-3">Tambah Barang</button>
-                <a href="{{ route('tampil') }}" class="btn btn-danger mt-3">Batal</a>
+                <button type="submit" class="btn btn-primary mt-2">Tambah Barang</button>
+                <a href="{{ route('tampil') }}" class="btn btn-danger mt-2">Batal</a>
             </div>
             </form>
         </div>
