@@ -70,10 +70,10 @@
                             </div>
                             <div class="mt-3">
                                 <label class="form-label" for="">Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi" ></textarea>
+                                <textarea class="form-control" name="deskripsi"></textarea>
                             </div>
                             <div class="mt-5 d-flex justify-content-between">
-                                <button class="btn btn-danger">Batal</button>
+                                <button type="reset" class="btn btn-danger">Batal</button>
                                 <button class="btn btn-primary">Lanjut</button>
                             </div>
                         </div>
@@ -85,23 +85,33 @@
                     <div class="card-header">
                         <h4>Detail barang</h4>
                     </div>
+                    @foreach($trackings as $key => $tracking)
                     <div class="card-body mt-3">
-                        <p>Pengirim :</p>
-                        <p>No HP Pengirim :</p>
-                        <p>Penerima :</p>
-                        <p>No HP Penerima :</p>
-                        <p>Nama barang :</p>
-                        <p>Jumlah barang :</p>
-                        <p>Jenis pengiriman :</p>
-                        <p>Biaya pengiriman :</p>
-                        <p>Pesan pengirim :</p>
+                        <p>No resi : <p>{{ $tracking->id }}</p></p>
+                        <p>Pengirim : <p>{{ $tracking->nama_pengirim }}</p></p>
+                        <p>No HP Pengirim : <p>{{ $tracking->no_hp_pengirim }}</p></p>
+                        <p>Penerima : <p>{{ $tracking->nama_penerima }}</p></p>
+                        <p>No HP Penerima : <p>{{ $tracking->no_hp_penerima }}</p></p>
+                        <p>Nama barang : <p>{{ $tracking->nama_barang }}</p></p>
+                        <p>Jumlah barang : <p>{{ $tracking->jumlah_barang }}</p></p>
+                        <p>Jenis pengiriman : <p>{{ ucfirst$tracking->jenis_barang }}</p></p>
+                        <p>Biaya pengiriman : <p>{{ number_format$tracking->biaya_pengiriman }}</p></p>
+                        <p>Pesan pengirim : <p>{{ $tracking->pesan_pengirim,0, ',', '.' }}</p></p>
+                    </div>
+                    @endforeach
+                    <div class="card border border-1 mx-2 my-2">
+                        @foreach($barang as $key => $data)
+                        <div class="card-body">
+                            <hr>
+                            <span class="badge text-secondary">{{ $data->date }}</span><i class="bi bi-calendar-fill"></i><br>
+                            <span class="badge text-secondary">{{ $data->keterangan }}</span><i class="bi bi-geo-alt-fill"></i><br>
+                            <span class="badge text-secondary">{{ $data->deskripsi }}</span>
+                         <hr>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
-                <div class="card">
-
-                </div>
             </div>
-        </div>
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

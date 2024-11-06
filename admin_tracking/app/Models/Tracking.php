@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Barang extends Model
+class Tracking extends Model
 {
-    protected $table = 'barang';
     protected $fillable = [
         'nama_pengirim',
         'no_hp_pengirim',

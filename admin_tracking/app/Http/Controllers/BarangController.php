@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Tracking;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -13,8 +14,8 @@ class BarangController extends Controller
     }
     function detail(){
         $barang = Barang::get();
-        dd($barang);
-        return view('page.detail-barang', compact('barang'));
+        $trackings = Barang::get();
+        return view('page.detail-barang', compact('barang', 'trackings'));
 
     }
     function submit(Request $request){
