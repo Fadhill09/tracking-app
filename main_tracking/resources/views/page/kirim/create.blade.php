@@ -91,7 +91,7 @@
                         <div class="form-check">
                             <input type="radio" class="form-check-input" id="cepat" name="jenis_pengiriman" value="cepat" required>
                             <label for="cepat" class="form-check-label">
-                                <i class="bi bi-truck-fast"></i> Cepat <span class="text-muted">(Rp 20.000) 1 - 3 Hari</span>
+                                <i class="bi bi-rocket"></i> Cepat <span class="text-muted">(Rp 20.000) 1 - 3 Hari</span>
                             </label>
                         </div>
                     </div>
