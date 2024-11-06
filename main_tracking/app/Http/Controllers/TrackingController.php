@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 
 class TrackingController extends Controller
 {
+
+    public function view(Tracking $tracking)
+    {
+        return view('page.cek.isi_barang', compact('tracking'));
+    }
+    
+
     public function index()
     {
         $trackings = Tracking::all();
-        return view('page.cek.index', compact('trackings'));
+        return view('page.data_barang', compact('trackings'));
     }
 
     public function create()
