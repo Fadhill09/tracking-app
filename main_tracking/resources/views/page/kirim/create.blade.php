@@ -18,7 +18,7 @@
 
     <main class="main">
 
-        <div class="container mt-4">
+        <div class="container mt-4 mb-4 col-lg-8 ">
             <h1 class="mb-4">Tambah Barang</h1>
 
             <form action="{{ route('store') }}" method="POST" class="p-4 border rounded shadow-sm">
@@ -26,48 +26,48 @@
 
                 <h3 class="fw-bold mb-2">Bio Pengirim</h3>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group">
                     <label for="nama_pengirim">Nama Pengirim:</label>
-                    <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" required>
+                    <input type="text" class="form-control border border-2" id="nama_pengirim" name="nama_pengirim" required>
                 </div>
 
                 <div class="form-group">
                     <label for="no_hp_pengirim">No HP Pengirim:</label>
-                    <input type="text" class="form-control" id="no_hp_pengirim" name="no_hp_pengirim" required>
+                    <input type="text" class="form-control border border-2" id="no_hp_pengirim" name="no_hp_pengirim" required>
                 </div>
 
                 <div class="form-group">
                     <label for="alamat_pengirim">Alamat Pengirim:</label>
-                    <textarea class="form-control" id="alamat_pengirim" name="alamat_pengirim" rows="3" required></textarea>
+                    <textarea class="form-control border border-2" id="alamat_pengirim" name="alamat_pengirim" rows="3" required></textarea>
                 </div>
 
                 <h3 class="fw-bold mt-3 mb-2">Bio Penerima</h3>
 
                 <div class="form-group">
                     <label for="nama_penerima">Nama Penerima:</label>
-                    <input type="text" class="form-control" id="nama_penerima" name="nama_penerima" required>
+                    <input type="text" class="form-control border border-2" id="nama_penerima" name="nama_penerima" required>
                 </div>
 
                 <div class="form-group">
                     <label for="no_hp_penerima">No HP Penerima:</label>
-                    <input type="text" class="form-control" id="no_hp_penerima" name="no_hp_penerima" required>
+                    <input type="text" class="form-control border border-2" id="no_hp_penerima" name="no_hp_penerima" required>
                 </div>
 
                 <div class="form-group">
                     <label for="alamat_penerima">Alamat Penerima:</label>
-                    <textarea class="form-control" id="alamat_penerima" name="alamat_penerima" rows="3" required></textarea>
+                    <textarea class="form-control border border-2" id="alamat_penerima" name="alamat_penerima" rows="3" required></textarea>
                 </div>
 
                 <h3 class="fw-bold mt-3 mb-2">Bio Barang</h3>
 
                 <div class="form-group">
-                    <label for="nama_barang">Nama Barang:</label>
-                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" required>
+                    <label for="nama_barang">Jenis Barang:</label>
+                    <input type="text" class="form-control border border-2" id="nama_barang" name="nama_barang" required>
                 </div>
 
                 <div class="form-group">
                     <label for="jumlah_barang">Jumlah Barang:</label>
-                    <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang" required>
+                    <input type="number" class="form-control border border-2" id="jumlah_barang" name="jumlah_barang" required>
                 </div>
 
                 <div class="form-group">
@@ -92,7 +92,7 @@
 
                 <div class="form-group">
                     <label for="pesan_pengirim">Pesan Pengirim:</label>
-                    <textarea class="form-control" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
+                    <textarea class="form-control border border-2" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
                 </div>
 
                 <div class="d-flex  justify-content-between ">
