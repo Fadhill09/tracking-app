@@ -14,7 +14,7 @@ Route::get('Data-Barang/{tracking}/Edit', [TrackingController:: class, 'edit'])-
 
 Route::post('new', [TrackingController:: class, 'store'])->name('store');
 
-Route::put('update', [TrackingController::class, 'update'])->name('update');
+Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('update');
 
 Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
 

@@ -1,6 +1,6 @@
   <!-- Favicons -->
   <link href="{{ asset('logo altie putih.png') }}" rel="icon">
-  <link href="{{ asset ('template/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  {{-- <link href="{{ asset ('template/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">

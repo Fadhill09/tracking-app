@@ -16,7 +16,7 @@
             <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="{{ route('create')}}">Kirim Barang</a></li>
-                <li><a href="{{ route('kirim') }}">Cek Barang</a></li>
+                <li><a href="{{ route('tampil') }}">Cek Barang</a></li>
               </ul>
             </li>
             <li><a href="{{ route ('tentang')}}">Tentang</a></li>

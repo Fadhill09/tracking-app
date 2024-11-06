@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Edit Tracking Barang</title>
+    <title>Edit Barang</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -81,7 +81,7 @@
                     <textarea class="form-control" id="pesan_pengirim" name="pesan_pengirim" rows="3">{{ $tracking->pesan_pengirim }}</textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update Tracking</button>
+                <button type="submit" class="btn btn-primary mt-2">Update Tracking</button>
             </form>
         </div>
     </main>
