@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="no_hp_penerima" class="form-label">No HP Penerima</label>
-                        <input type="text" class="form-control" id="no_hp_penerima" name="no_hp_penerima" required>
+                        <input type="text" class="form-control" id="no_hp_pengirim" name="no_hp_pengirim" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                     </div>
                 </div>
 
