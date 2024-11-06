@@ -7,7 +7,15 @@ use Illuminate\Http\Request;
 
 class TrackingController extends Controller
 {
+    public function dasboard() {
+        return view('beranda');
+    }
 
+    
+    public function about() {
+        return view('page.tentang');
+    }
+    
     public function view(Tracking $tracking)
     {
         return view('page.cek.isi_barang', compact('tracking'));

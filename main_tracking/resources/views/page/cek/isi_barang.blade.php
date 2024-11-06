@@ -22,6 +22,10 @@
                             <div class="card-body">
                                 <h3 class="mb-2 text-center fw-bold">Keterangan</h3>
 
+                                <div class="mb-3">
+                                    <a href="{{ route('tampil') }}" class="btn btn-sm btn-primary fw-bold">kembali</a>
+                                </div>
+                              
                                 <p>No Resi: <b>{{ $tracking->id }}</b></p>
                                 <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
                                 <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
@@ -32,7 +36,7 @@
                                 <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} ( Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }} )</b></p>
                                 <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
                                 <div class="d-flex ">
-                                    <a href="{{ route('edit', $tracking) }}" class="btn btn-sm btn-warning fw-bold">Edit</a>
+                                    <a href="{{ route('edit', $tracking) }}" class="btn btn-sm btn-warning fw-bold">Edit Pesanan</a>
                                     <form action="{{ route('hapus', $tracking) }}" method="POST" class="d-inline ms-2" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('DELETE')
