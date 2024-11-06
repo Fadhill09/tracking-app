@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TrackingController extends Controller
 {
     public function dasboard() {
-        return view('beranda');
+        return view('page.beranda');
     }
 
     
@@ -52,7 +52,7 @@ class TrackingController extends Controller
 
         Tracking::create($validated);
 
-        return redirect()->route('tampil')->with('success', 'Data tracking berhasil ditambahkan');
+        return redirect()->route('tampil');
     }
 
     public function edit(Tracking $tracking)

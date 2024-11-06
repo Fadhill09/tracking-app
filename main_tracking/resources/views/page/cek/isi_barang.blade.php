@@ -85,7 +85,7 @@
 
     <script>
         function confirmDelete() {
-            return confirm("Apakah Anda yakin ingin membatalkan pesanan?");
+            return confirm("Apakah Anda yakin ingin membatalkan pesanan ?");
         }
     </script>
 </body>
