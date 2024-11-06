@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/barang/detail', [BarangController::class, 'detail'])->name('detail');
+Route::post('/barang/submit', [BarangController::class, 'submit'])->name('submit');

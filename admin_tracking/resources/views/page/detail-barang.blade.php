@@ -51,31 +51,34 @@
     <main id="main" class="main">
         <div class="row">
             <div class="col-lg-5 col-sm-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mt-3">
-                            <label class="form-label" for="">Tanggal</label>
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="mt-3">
-                            <label class="form-label" for="">Keterangan</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Paket--</option>
-                                <option value="1">Di kemas</option>
-                                <option value="2">Di perjalanan</option>
-                                <option value="3">Sampai</option>
-                            </select>
-                        </div>
-                        <div class="mt-3">
-                            <label class="form-label" for="">Deskripsi</label>
-                            <textarea class="form-control"></textarea>
-                        </div>
-                        <div class="mt-5 d-flex justify-content-between">
-                            <button class="btn btn-danger">Batal</button>
-                            <button class="btn btn-primary">Lanjut</button>
+                <form action="{{ route('submit') }}" method="POST">
+                    @csrf
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mt-3">
+                                <label class="form-label" for="">Tanggal</label>
+                                <input type="date" name="date" class="form-control">
+                            </div>
+                            <div class="mt-3">
+                                <label class="form-label" for="">Keterangan</label>
+                                <select class="form-select" name="keterangan" aria-label="Default select example">
+                                    <option selected>--Paket--</option>
+                                    <option value="Kemas">Di kemas</option>
+                                    <option value="Perjalanan">Di perjalanan</option>
+                                    <option value="Sampai">Sampai</option>
+                                </select>
+                            </div>
+                            <div class="mt-3">
+                                <label class="form-label" for="">Deskripsi</label>
+                                <textarea class="form-control" name="deskripsi" ></textarea>
+                            </div>
+                            <div class="mt-5 d-flex justify-content-between">
+                                <button class="btn btn-danger">Batal</button>
+                                <button class="btn btn-primary">Lanjut</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="col-lg-7 col-sm-12">
                 <div class="card">
