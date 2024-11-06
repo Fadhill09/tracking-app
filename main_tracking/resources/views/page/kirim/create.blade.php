@@ -26,7 +26,7 @@
 
                 <h3 class="fw-bold mb-2">Bio Pengirim</h3>
 
-                <div class="form-group">
+                <div class="form-group col-lg-4">
                     <label for="nama_pengirim">Nama Pengirim:</label>
                     <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" required>
                 </div>
