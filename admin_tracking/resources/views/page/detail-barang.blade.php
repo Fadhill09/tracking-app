@@ -55,7 +55,6 @@
                     @csrf
                     <div class="card">
                         <div class="card-body">
-
                             <div class="mt-3">
                                 <label class="form-label" for="">Tanggal</label>
                                 <input type="date" name="date" class="form-control">
@@ -80,6 +79,7 @@
                         </div>
                     </div>
                 </form>
+
             </div>
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
                 <div class="card">
@@ -104,7 +104,8 @@
                                     <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
                                     <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
                                     <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
-                                    <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
+                                    <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp
+                                            {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
                                     <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
                                 </div>
                             </div>
@@ -138,6 +139,7 @@
                                 </div>
                                 <hr>
                             @endforeach
+
                         </div>
                     </div>
                 </div>
