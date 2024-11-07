@@ -24,15 +24,17 @@
                                 <h5 class="card-title text-dark">No Resi: <b>{{ $tracking->id }}</b></h5>
                                 <p class="card-text">Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
                                 <p class="card-text">No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
+                                <p class="card-text">Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p><br>
                                 <p class="card-text">Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
                                 <p class="card-text">No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b></p>
+                                <p class="card-text">Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p><br>
                                 <p class="card-text">Jenis Barang: <b>{{ $tracking->nama_barang }}</b></p>
                                 <p class="card-text">Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
                                 <p class="card-text">Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} ( Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }} )</b></p>
                                 <p class="card-text">Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
 
                                 <div class="mt-3">
-                                    <a href="{{ route('isidaftar', $tracking) }}" class="btn btn-sm btn-success fw-bold shadow-sm">Lihat</a>
+                                    <a href="{{ route('isidaftar', $tracking) }}" class="btn btn-sm btn-success fw-bold shadow-sm"><i class="bi bi-arrow-right-square me-1"></i>  Lihat</a>
                                 </div>
                             </div>
                         </div>
