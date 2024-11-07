@@ -12,10 +12,16 @@ class BarangController extends Controller
         return view('page.barang');
 
     }
+    function cek(){
+        return view('page.cek-barang');
+    }
+    function cekdetail(){
+        $barang = Barang::get();
+        return view('page.detail-cek-barang', compact('barang'));
+    }
     function detail(){
         $barang = Barang::get();
-        $trackings = Barang::get();
-        return view('page.detail-barang', compact('barang', 'trackings'));
+        return view('page.detail-barang', compact('barang'));
 
     }
     function submit(Request $request){
@@ -26,7 +32,9 @@ class BarangController extends Controller
         $barang->save();
         return redirect()->route('detail');
     }
-    function asdasd(){
-
+    function delete($id){
+        $barang = Barang::find($id);
+        $barang->delete();
+        return redirect()->route('detail');
     }
 }

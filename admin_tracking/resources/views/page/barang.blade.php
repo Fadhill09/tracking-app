@@ -51,128 +51,280 @@
     <main id="main" class="main">
         <div class="row">
             <div class="col-lg-3 col-sm-12">
-                <a href="{{ route('detail') }}">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
-                            <div class="mt-5 d-flex justify-content-between">
-                                <button class="btn btn-danger">Batal</button>
-                                <button class="btn btn-primary">Lanjut</button>
-                            </div>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-lg-3 col-sm-12">
-                <a href="###">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-lg-3 col-sm-12">
-                <a href="###">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-lg-3 col-sm-12">
-                <a href="###">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-lg-3 col-sm-12">
-                <a href="###">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-lg-3 col-sm-12">
-                <a href="###">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-lg-3 col-sm-12">
-                <a href="###">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-lg-3 col-sm-12">
-                <a href="###">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
                         </div>
                     </div>
-                </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Nama barang</h4>
+                        <p class="card-text">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
+                            incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
+                        </p>
+                        <div class="mt-5 d-flex justify-content-between">
+                            <form action="" method="post">
+                                @csrf
+                                <button class="btn btn-danger">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail') }}" method="get">
+                                @csrf
+                                <button class="btn btn-success">Terima</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main><!-- End #main -->

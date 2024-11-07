@@ -26,7 +26,7 @@ return new class extends Migration
         $table->text('pesan_pengirim')->nullable();
         $table->timestamps();
     });
-    
+
     }
 
     /**
