@@ -20,67 +20,62 @@
 
     <main class="main">
         <div class="container mt-5">
-            <h1 class="mb-4 text-center text-primary pt-5">Tambah Barang</h1>
-
-
+            <h1 class="mb-4 text-center pt-5">Tambah Barang</h1>
+        <div class="container mt-4 mb-4 ">
             <form action="{{ route('store') }}" method="POST" class="p-4 border rounded shadow-sm bg-light">
                 @csrf
 
                 <!-- Bio Pengirim -->
                 <h3 class="fw-bold mb-3 text-dark"><i class="bi bi-person-circle"></i> Bio Pengirim</h3>
 
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="nama_pengirim" class="form-label">Nama Pengirim</label>
-                        <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="no_hp_pengirim" class="form-label">No HP Pengirim</label>
-                        <input type="text" class="form-control" id="no_hp_pengirim" name="no_hp_pengirim" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-                    </div>
+                <div class="form-group">
+                    <label for="nama_pengirim">Nama Pengirim:</label>
+                    <input type="text" class="form-control border border-2" id="nama_pengirim" name="nama_pengirim" required>
                 </div>
 
-                <div class="mb-3">
-                    <label for="alamat_pengirim" class="form-label">Alamat Pengirim</label>
-                    <textarea class="form-control" id="alamat_pengirim" name="alamat_pengirim" rows="3" required></textarea>
+                <div class="form-group">
+                    <label for="no_hp_pengirim">No HP Pengirim:</label>
+                    <input type="text" class="form-control border border-2" id="no_hp_pengirim" name="no_hp_pengirim" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat_pengirim">Alamat Pengirim:</label>
+                    <textarea class="form-control border border-2" id="alamat_pengirim" name="alamat_pengirim" rows="3" required></textarea>
                 </div>
 
                 <!-- Bio Penerima -->
                 <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-person-check"></i> Bio Penerima</h3>
 
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="nama_penerima" class="form-label">Nama Penerima</label>
-                        <input type="text" class="form-control" id="nama_penerima" name="nama_penerima" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="no_hp_penerima" class="form-label">No HP Penerima</label>
-                        <input type="text" class="form-control" id="no_hp_pengirim" name="no_hp_pengirim" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">
-                    </div>
+                <div class="form-group">
+                    <label for="nama_penerima">Nama Penerima:</label>
+                    <input type="text" class="form-control border border-2" id="nama_penerima" name="nama_penerima" required>
                 </div>
 
-                <div class="mb-3">
-                    <label for="alamat_penerima" class="form-label">Alamat Penerima</label>
-                    <textarea class="form-control" id="alamat_penerima" name="alamat_penerima" rows="3" required></textarea>
+                <div class="form-group">
+                    <label for="no_hp_penerima">No HP Penerima:</label>
+                    <input type="text" class="form-control border border-2" id="no_hp_penerima" name="no_hp_penerima" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat_penerima">Alamat Penerima:</label>
+                    <textarea class="form-control border border-2" id="alamat_penerima" name="alamat_penerima" rows="3" required></textarea>
                 </div>
 
                 <!-- Bio Barang -->
                 <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-box"></i> Bio Barang</h3>
 
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="nama_barang" class="form-label">Nama Barang</label>
-                        <input type="text" class="form-control" id="nama_barang" name="nama_barang" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="jumlah_barang" class="form-label">Jumlah Barang</label>
-                        <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang" required>
-                    </div>
+                <div class="form-group">
+                    <label for="nama_barang">Jenis Barang:</label>
+                    <input type="text" class="form-control border border-2" id="nama_barang" name="nama_barang" required>
                 </div>
 
-                <!-- Jenis Pengiriman -->
-                <div class="mb-4">
-                    <label class="form-label">Jenis Pengiriman</label>
+                <div class="form-group">
+                    <label for="jumlah_barang">Jumlah Barang:</label>
+                    <input type="number" class="form-control border border-2" id="jumlah_barang" name="jumlah_barang" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Jenis Pengiriman:</label>
                     <div class="d-flex mt-2">
                         <div class="form-check me-3">
                             <input type="radio" class="form-check-input" id="reguler" name="jenis_pengiriman" value="reguler" required>
@@ -97,10 +92,9 @@
                     </div>
                 </div>
 
-                <!-- Pesan Pengirim -->
-                <div class="mb-3">
-                    <label for="pesan_pengirim" class="form-label">Pesan Pengirim</label>
-                    <textarea class="form-control" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
+                <div class="form-group">
+                    <label for="pesan_pengirim">Pesan Pengirim:</label>
+                    <textarea class="form-control border border-2" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
                 </div>
 
                 <!-- Tombol Submit -->
