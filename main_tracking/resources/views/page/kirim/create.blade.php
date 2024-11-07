@@ -20,12 +20,11 @@
 
     <main class="main">
         <div class="container mt-5">
-            <h1 class="mb-4 text-center pt-5">Tambah Barang</h1>
+            <h1 class="mb-4 text-center fw-bold"  style="margin-top:100px;">Tambah Barang</h1>
         <div class="container mt-4 mb-4 ">
             <form action="{{ route('store') }}" method="POST" class="p-4 border rounded shadow-sm bg-light">
                 @csrf
 
-                <!-- Bio Pengirim -->
                 <h3 class="fw-bold mb-3 text-dark"><i class="bi bi-person-circle"></i> Bio Pengirim</h3>
 
                 <div class="form-group">
@@ -43,7 +42,7 @@
                     <textarea class="form-control border border-2" id="alamat_pengirim" name="alamat_pengirim" rows="3" required></textarea>
                 </div>
 
-                <!-- Bio Penerima -->
+            
                 <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-person-check"></i> Bio Penerima</h3>
 
                 <div class="form-group">
@@ -61,7 +60,7 @@
                     <textarea class="form-control border border-2" id="alamat_penerima" name="alamat_penerima" rows="3" required></textarea>
                 </div>
 
-                <!-- Bio Barang -->
+             
                 <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-box"></i> Bio Barang</h3>
 
                 <div class="form-group">
@@ -97,9 +96,10 @@
                     <textarea class="form-control border border-2" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
                 </div>
 
-                <!-- Tombol Submit -->
+           
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary mt-2"><i class="bi bi-check-circle"></i> Tambah Barang</button>
+                    
                     <a href="{{ route('tampil') }}" class="btn btn-danger mt-2"><i class="bi bi-x-circle"></i> Batal</a>
                 </div>
             </form>

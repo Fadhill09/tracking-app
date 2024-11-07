@@ -19,11 +19,24 @@ class BarangController extends Controller
         $barang = Barang::get();
         return view('page.detail-cek-barang', compact('barang'));
     }
-    function detail(){
-        $barang = Barang::get();
-        return view('page.detail-barang', compact('barang'));
+    public function detail($id)
+{
+    // Ambil data tracking berdasarkan ID
+    $tracking = Tracking::find($id);
 
+    // Jika data tracking tidak ditemukan, redirect kembali ke halaman barang
+    if (!$tracking) {
+        return redirect()->route('barang')->with('error', 'Data tidak ditemukan');
     }
+
+    // Ambil data barang
+    $barang = Barang::all(); // atau bisa menggunakan metode lain sesuai dengan kebutuhan
+
+    // Kirimkan data tracking dan barang ke view
+    return view('page.detail-barang', compact('tracking', 'barang'));
+}
+
+
     function submit(Request $request){
         $barang = new Barang();
         $barang->date =$request->date;
