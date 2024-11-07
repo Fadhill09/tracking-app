@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="/">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -16,12 +16,12 @@
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('barang') }}">
-              <i class="bi bi-circle"></i><span>Barang</span>
+              <i class="bi bi-box2 fs-3"></i><span>Barang</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
+            <a href="{{ route('cek') }}">
+              <i class="bi bi-truck fs-3"></i><span>Cek Barang</span>
             </a>
           </li>
         </ul>

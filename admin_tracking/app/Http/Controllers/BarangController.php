@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Tracking;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -11,9 +12,15 @@ class BarangController extends Controller
         return view('page.barang');
 
     }
+    function cek(){
+        return view('page.cek-barang');
+    }
+    function cekdetail(){
+        $barang = Barang::get();
+        return view('page.detail-cek-barang', compact('barang'));
+    }
     function detail(){
         $barang = Barang::get();
-        dd($barang);
         return view('page.detail-barang', compact('barang'));
 
     }
@@ -25,7 +32,9 @@ class BarangController extends Controller
         $barang->save();
         return redirect()->route('detail');
     }
-    function asdasd(){
-
+    function delete($id){
+        $barang = Barang::find($id);
+        $barang->delete();
+        return redirect()->route('detail');
     }
 }

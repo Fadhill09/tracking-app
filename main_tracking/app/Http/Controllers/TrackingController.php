@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tracking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class TrackingController extends Controller
 {
@@ -18,9 +20,10 @@ class TrackingController extends Controller
     
     public function view(Tracking $tracking)
     {
+        
         return view('page.cek.isi_barang', compact('tracking'));
     }
-    
+
 
     public function index()
     {
@@ -84,7 +87,12 @@ class TrackingController extends Controller
 
     public function destroy(Tracking $tracking)
     {
+        // Menghapus data tracking
         $tracking->delete();
+
+        // Mereset auto-increment ID agar dimulai dari 1
+        DB::statement('ALTER TABLE trackings AUTO_INCREMENT = 1');
+
         return redirect()->route('tampil');
     }
 }

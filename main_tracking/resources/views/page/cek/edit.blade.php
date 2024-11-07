@@ -20,16 +20,16 @@
         <div class="container mt-4">
             <h1 class="mb-4">Edit Data Barang</h1>
 
-            <div class="d-flex justify-content-between">
+           
                 <form action="{{ route('update', $tracking->id) }}" method="POST" class="p-4 border rounded shadow-sm">
                     @csrf
                     @method('PUT')
-                    <div class="col-lg-5">
+                
                         <div class="form-group">
                             <label for="nama_pengirim">Nama Pengirim:</label>
                             <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim"
                                 value="{{ $tracking->nama_pengirim }}" required>
-                        </div>
+                  
 
                         <div class="form-group">
                             <label for="no_hp_pengirim">No HP Pengirim:</label>
@@ -70,9 +70,8 @@
                             </div>
                         </div>
 
-                    </div>
 
-                    <div class="col-lg-5">
+                 
                         <div class="form-group">
                             <label for="nama_penerima">Nama Penerima:</label>
                             <input type="text" class="form-control" id="nama_penerima" name="nama_penerima"
@@ -94,7 +93,7 @@
                             <label for="pesan_pengirim">Pesan Pengirim:</label>
                             <textarea class="form-control" id="pesan_pengirim" name="pesan_pengirim" rows="3">{{ $tracking->pesan_pengirim }}</textarea>
                         </div>
-                    </div>
+                
 
 
 
@@ -105,7 +104,7 @@
                         <a href="{{ route('isidaftar', $tracking) }}" class="btn btn-danger mt-2">Batal </a>
                     </div>
                 </form>
-            </div>
+         
         </div>
     </main>
 

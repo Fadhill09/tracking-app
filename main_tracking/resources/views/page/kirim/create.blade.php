@@ -7,7 +7,9 @@
     <title>Tambah Barang</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <style>
 
+    </style>
     @include('style.gaya')
 
 </head>
@@ -17,14 +19,14 @@
     @include('operasi.navbar')
 
     <main class="main">
-
-        <div class="container mt-4 mb-4 col-lg-8 ">
-            <h1 class="mb-4">Tambah Barang</h1>
-
-            <form action="{{ route('store') }}" method="POST" class="p-4 border rounded shadow-sm">
+        <div class="container mt-5">
+            <h1 class="mb-4 text-center pt-5">Tambah Barang</h1>
+        <div class="container mt-4 mb-4 ">
+            <form action="{{ route('store') }}" method="POST" class="p-4 border rounded shadow-sm bg-light">
                 @csrf
 
-                <h3 class="fw-bold mb-2">Bio Pengirim</h3>
+                <!-- Bio Pengirim -->
+                <h3 class="fw-bold mb-3 text-dark"><i class="bi bi-person-circle"></i> Bio Pengirim</h3>
 
                 <div class="form-group">
                     <label for="nama_pengirim">Nama Pengirim:</label>
@@ -41,7 +43,8 @@
                     <textarea class="form-control border border-2" id="alamat_pengirim" name="alamat_pengirim" rows="3" required></textarea>
                 </div>
 
-                <h3 class="fw-bold mt-3 mb-2">Bio Penerima</h3>
+                <!-- Bio Penerima -->
+                <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-person-check"></i> Bio Penerima</h3>
 
                 <div class="form-group">
                     <label for="nama_penerima">Nama Penerima:</label>
@@ -58,7 +61,8 @@
                     <textarea class="form-control border border-2" id="alamat_penerima" name="alamat_penerima" rows="3" required></textarea>
                 </div>
 
-                <h3 class="fw-bold mt-3 mb-2">Bio Barang</h3>
+                <!-- Bio Barang -->
+                <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-box"></i> Bio Barang</h3>
 
                 <div class="form-group">
                     <label for="nama_barang">Jenis Barang:</label>
@@ -73,18 +77,16 @@
                 <div class="form-group">
                     <label>Jenis Pengiriman:</label>
                     <div class="d-flex mt-2">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="reguler" name="jenis_pengiriman"
-                                value="reguler" required>
-                            <label for="reguler" class="form-check-label">Reguler
-                                <p>(Rp 10.000) 4 - 8 Hari</p>
+                        <div class="form-check me-3">
+                            <input type="radio" class="form-check-input" id="reguler" name="jenis_pengiriman" value="reguler" required>
+                            <label for="reguler" class="form-check-label">
+                                <i class="bi bi-truck"></i> Reguler <span class="text-muted">(Rp 10.000) 4 - 8 Hari</span>
                             </label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="cepat" name="jenis_pengiriman"
-                                value="cepat" required>
-                            <label for="cepat" class="form-check-label">Cepat
-                                <p>(Rp 20.000) 1 - 3 Hari </p>
+                            <input type="radio" class="form-check-input" id="cepat" name="jenis_pengiriman" value="cepat" required>
+                            <label for="cepat" class="form-check-label">
+                                <i class="bi bi-rocket"></i> Cepat <span class="text-muted">(Rp 20.000) 1 - 3 Hari</span>
                             </label>
                         </div>
                     </div>
@@ -95,15 +97,16 @@
                     <textarea class="form-control border border-2" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
                 </div>
 
-                <div class="d-flex  justify-content-between ">
-                <button type="submit" class="btn btn-primary mt-2">Tambah Barang</button>
-                <a href="{{ route('tampil') }}" class="btn btn-danger mt-2">Batal</a>
-            </div>
+                <!-- Tombol Submit -->
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary mt-2"><i class="bi bi-check-circle"></i> Tambah Barang</button>
+                    <a href="{{ route('tampil') }}" class="btn btn-danger mt-2"><i class="bi bi-x-circle"></i> Batal</a>
+                </div>
             </form>
         </div>
-
-
     </main>
+
+
 
     @include('operasi.footer')
 
