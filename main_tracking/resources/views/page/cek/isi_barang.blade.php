@@ -13,17 +13,6 @@
 
 <body class="index-page">
     @include('operasi.navbar')
-<<<<<<< HEAD
-    <main class="main"  style="background-color: #01796f;">
-        <div class="container" style="background-color: #01796f;">
-            <div class="row" style="margin-top: 100px;">
-                @foreach ($trackings as $tracking)
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h3 class="mb-2 text-center fw-bold">Keterangan</h3>
-=======
->>>>>>> ac04178225ce6eb078c18c00ae6a27710183047b
 
     <main class="main">
         <div class="container">
