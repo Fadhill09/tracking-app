@@ -92,20 +92,28 @@
                             <img src="{{ asset('gambar/350x200.png') }}" alt="Gambar Barang" class="img-fluid mt-3">
                         </div>
 
-                        <!-- Bagian Detail Barang -->
-                        <div class="col-12 col-sm-7 mt-3 mt-3">
-                            <div class="card-body">
-                                <p><strong>Pengirim :</strong></p>
-                                <p><strong>No HP Pengirim :</strong></p>
-                                <p><strong>Penerima :</strong></p>
-                                <p><strong>No HP Penerima :</strong></p>
-                                <p><strong>Nama Barang :</strong> </p>
-                                <p><strong>Jumlah Barang :</strong></p>
-                                <p><strong>Jenis Pengiriman :</strong> </p>
-                                <p><strong>Biaya Pengiriman :</strong> </p>
-                                <p><strong>Pesan Pengirim :</strong> </p>
+                        <div class="col-12">
+                            <div class="card shadow-lg rounded-3">
+                                <div class="card-body">
+                                    <p>No Resi: <b>{{ $tracking->id }}</b></p>
+                                    <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
+                                    <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
+                                    <p>Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p>
+                                    <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
+                                    <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b> </p>
+                                    <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
+                                    <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
+                                    <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
+                                    <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
+                                    <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
+                                </div>
                             </div>
                         </div>
+
+
+
+
+
                     </div>
 
                     <!-- Card Riwayat Pengiriman -->
@@ -113,20 +121,22 @@
                         <div class="card-body">
                             <hr>
                             @foreach ($barang as $data)
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="badge text-secondary">{{ $data->date }} <i class="bi bi-calendar-fill"></i></span>
-                                    <span class="badge text-secondary">{{ $data->keterangan }} <i class="bi bi-geo-alt-fill"></i></span>
-                                    <span class="badge text-secondary">{{ $data->deskripsi }}</span>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge text-secondary">{{ $data->date }} <i
+                                                class="bi bi-calendar-fill"></i></span>
+                                        <span class="badge text-secondary">{{ $data->keterangan }} <i
+                                                class="bi bi-geo-alt-fill"></i></span>
+                                        <span class="badge text-secondary">{{ $data->deskripsi }}</span>
+                                    </div>
+                                    <form action="{{ route('delete', $data->id) }}" method="post">
+                                        @csrf
+                                        <button class="btn" type="submit">
+                                            <i class="bi bi-trash3-fill"></i>
+                                        </button>
+                                    </form>
                                 </div>
-                                <form action="{{ route('delete', $data->id) }}" method="post">
-                                    @csrf
-                                    <button class="btn" type="submit">
-                                        <i class="bi bi-trash3-fill"></i>
-                                    </button>
-                                </form>
-                            </div>
-                            <hr>
+                                <hr>
                             @endforeach
                         </div>
                     </div>

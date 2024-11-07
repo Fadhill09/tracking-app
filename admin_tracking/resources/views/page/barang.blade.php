@@ -50,33 +50,33 @@
 
     <main id="main" class="main">
         <div class="row">
-            <div class="col-lg-3 col-sm-12">
-                <div class="card">
-                    <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
-                    <div class="card-body">
-                        @foreach ($data as $tracking)
-                        <div class="card">
+            @foreach ($data as $tracking)
+                <div class="col-lg-3 col-sm-12">
+                    <div class="card">
+                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                        <div class="card-body">
                             <h4 class="card-title">Resi Barang :<b>{{ $tracking->id }}</b></h4>
                             <!-- Tampilkan atribut lainnya sesuai kebutuhan -->
-                        </div>
-                    @endforeach
+                            <p class="card-text">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                            </p>
+                            <div class="mt-5 d-flex justify-content-between">
+                                <form action="" method="post">
+                                    @csrf
+                                    <button class="btn btn-danger">Tolak</button>
+                                </form>
+                                <form action="{{ route('detail', $tracking->id) }}" method="get">
+                                    <button class="btn btn-success">Terima</button>
+                                </form>
 
-                        <p class="card-text">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                        </p>
-                        <div class="mt-5 d-flex justify-content-between">
-                            <form action="" method="post">
-                                @csrf
-                                <button class="btn btn-danger">Tolak</button>
-                            </form>
-                            <form action="{{ route('detail') }}" method="get">
-                                @csrf
-                                <button class="btn btn-success">Terima</button>
-                            </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
+        </div>
+
 
     </main><!-- End #main -->
 

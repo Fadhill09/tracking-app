@@ -15,4 +15,5 @@ Route::get('/barang/detail', [BarangController::class, 'detail'])->name('detail'
 Route::post('/barang/submit', [BarangController::class, 'submit'])->name('submit');
 Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('delete');
 Route::get('/barang', [TampilController::class, 'index'])->name('barang');
+Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 

@@ -19,6 +19,16 @@ class TampilController extends Controller
         return view('page.barang', compact('data'));
     }
 
+    public function detail($id)
+{
+    // Ambil data tracking berdasarkan ID yang diterima
+    $tracking = Tracking::findOrFail($id);
+
+    // Kirim data ke view
+    return view('page.detail-barang', compact('tracking'));
+}
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -38,12 +48,15 @@ class TampilController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        // Jika menggunakan show, pastikan ada logika untuk mencari data berdasarkan ID
-        $tracking = Tracking::findOrFail($id);
-        return view('page.detail_barang', compact('tracking'));
-    }
+    public function show($id)
+{
+    $tracking = Tracking::findOrFail($id);
+    dd($tracking);  // Memastikan data ada
+
+    return view('page.barang-detail', compact('tracking'));
+}
+
+
 
     /**
      * Show the form for editing the specified resource.
