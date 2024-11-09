@@ -29,10 +29,17 @@ class BarangController extends Controller
         $tracking = Tracking::find($id);
 
 
+<<<<<<< HEAD
         if (!$tracking) {
             return redirect()->route('barang')->with('error', 'Data tidak ditemukan');
         }
 
+=======
+        // Ambil data tracking berdasarkan ID
+        $tracking = Tracking::find($id);
+
+        // Jika data tidak ditemukan, redirect kembali ke halaman barang
+>>>>>>> 9dcb4de3972c0933327a50c8b2a8837f05337c6f
         $barang = Barang::all();
         return view('page.detail-barang', compact('tracking', 'barang'));
     }
