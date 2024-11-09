@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -31,11 +31,11 @@ class AuthenticatedSessionController extends Controller
         if($request->user()->usertype === 'admin'){
             return redirect('admin/dasboard');
         }else if($request->user()->usertype === 'user'){
-            return redirect('user/index');
+            return redirect('user/dasboard');
         }
 
 
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('dasboard'));
     }
 
     /**

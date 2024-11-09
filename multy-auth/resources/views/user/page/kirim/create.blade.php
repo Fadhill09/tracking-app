@@ -10,13 +10,13 @@
     <style>
 
     </style>
-    @include('style.gaya')
+    @include('user.style.gaya')
 
 </head>
 
 <body class="index-page">
 
-    @include('operasi.navbar')
+    @include('user.operasi.navbar')
 
     <main class="main">
         <div class="container mt-5">
@@ -42,7 +42,7 @@
                     <textarea class="form-control border border-2" id="alamat_pengirim" name="alamat_pengirim" rows="3" required></textarea>
                 </div>
 
-            
+
                 <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-person-check"></i> Bio Penerima</h3>
 
                 <div class="form-group">
@@ -60,7 +60,7 @@
                     <textarea class="form-control border border-2" id="alamat_penerima" name="alamat_penerima" rows="3" required></textarea>
                 </div>
 
-             
+
                 <h3 class="fw-bold mt-4 mb-3 text-dark"><i class="bi bi-box"></i> Bio Barang</h3>
 
                 <div class="form-group">
@@ -96,10 +96,10 @@
                     <textarea class="form-control border border-2" id="pesan_pengirim" name="pesan_pengirim" rows="3"></textarea>
                 </div>
 
-           
+
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary mt-2"><i class="bi bi-check-circle"></i> Tambah Barang</button>
-                    
+
                     <a href="{{ route('tampil') }}" class="btn btn-danger mt-2"><i class="bi bi-x-circle"></i> Batal</a>
                 </div>
             </form>
@@ -108,7 +108,7 @@
 
 
 
-    @include('operasi.footer')
+    @include('user.operasi.footer')
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
@@ -118,7 +118,7 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    @include('style.gaya')
+    @include('user.style.gaya')
 
 </body>
 

@@ -8,11 +8,11 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    @include('style.gaya')
+    @include('user.style.gaya')
 </head>
 
 <body class="index-page">
-    @include('operasi.navbar')
+    @include('user.operasi.navbar')
     <main class="main">
         <div class="container">
 
@@ -34,13 +34,13 @@
                                     <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p><br>
                             </div>
                         </div>
-                        
+
                             <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
                             <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
                             <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (
                                     Rp{{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
                             <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
-                       
+
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <a href="{{ route('edit', $tracking) }}" class="btn btn-sm btn-primary "><i
                                     class="bi bi-pencil-square"></i> Edit</a>
@@ -91,7 +91,7 @@
 
 
 
-@include('operasi.footer')
+@include('user.operasi.footer')
 
 <!-- Scroll Top -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
@@ -102,7 +102,7 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
-@include('style.gaya')
+@include('user.style.gaya')
 
 <script>
     function confirmDelete() {

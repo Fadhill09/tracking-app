@@ -10,6 +10,6 @@ class HomeController extends Controller
         return view('admin.dasboard');
     }
     function user(){
-        return view('user.index');
+        return view('user.dashboard');
     }
 }

@@ -10,30 +10,30 @@ use Illuminate\Support\Facades\DB;
 class TrackingController extends Controller
 {
     public function dasboard() {
-        return view('page.beranda');
+        return view('user.dashboard');
     }
 
 
     public function about() {
-        return view('page.tentang');
+        return view('user.tentang');
     }
 
     public function view(Tracking $tracking)
     {
 
-        return view('page.cek.isi_barang', compact('tracking'));
+        return view('user.page.cek.isi_barang', compact('tracking'));
     }
 
 
     public function index()
     {
         $trackings = Tracking::all();
-        return view('page.data_barang', compact('trackings'));
+        return view('user.data_barang', compact('trackings'));
     }
 
     public function create()
     {
-        return view('page.kirim.create');
+        return view('user.page.kirim.create');
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class TrackingController extends Controller
 
     public function edit(Tracking $tracking)
     {
-        return view('page.cek.edit', compact('tracking'));
+        return view('user.page.cek.edit', compact('tracking'));
     }
 
     public function update(Request $request, Tracking $tracking)

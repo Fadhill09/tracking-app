@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    @include('style.gaya')
+    @include('user.style.gaya')
 
     <!-- =======================================================
   * Template Name: Impact
@@ -21,7 +21,7 @@
 
 <body class="index-page">
 
-    @include('operasi.navbar')
+    @include('user.operasi.navbar')
 
     <main class="main">
 
@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
 
 
@@ -103,7 +103,7 @@
 
     </main>
 
-    @include('operasi.footer')
+    @include('user.operasi.footer')
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
@@ -113,7 +113,7 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    @include('style.gaya')
+    @include('user.style.gaya')
 
 </body>
 

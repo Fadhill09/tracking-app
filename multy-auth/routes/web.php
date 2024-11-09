@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrackingController;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -35,7 +36,6 @@ Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('de
 Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
-
 Route::get('Cek-data-barang', [TrackingController:: class, 'index'])->name('tampil');
 
 Route::get('Cek-data-barang/Data-barang/{tracking}', [TrackingController::class, 'view'])->name('isidaftar');
@@ -50,8 +50,11 @@ Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('up
 
 Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
 
-Route::get('/', [TrackingController:: class, 'dasboard'])->name('dasboard');
+Route::get('/home', [TrackingController:: class, 'dasboard'])->name('dasboard');
 
 Route::get('/Tentang', [TrackingController:: class, 'about'])->name('tentang');
+
+
+
 
 

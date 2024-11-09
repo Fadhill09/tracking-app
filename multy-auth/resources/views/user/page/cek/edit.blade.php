@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    @include('style.gaya')
+    @include('user.style.gaya')
 
 </head>
 
 <body class="index-page">
 
-    @include('operasi.navbar')
+    @include('user.operasi.navbar')
 
     <main class="main">
         <div class="container mt-5">
@@ -112,14 +112,14 @@
 
                             <a href="{{ route('isidaftar', $tracking) }}" class="btn btn-danger mt-2"><i class="bi bi-x-circle"> </i>Batal </a>
                         </div>
-           
+
 
                 </form>
 
             </div>
     </main>
 
-    @include('operasi.footer')
+    @include('user.operasi.footer')
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
@@ -129,7 +129,7 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    @include('style.gaya')
+    @include('user.style.gaya')
 
 </body>
 

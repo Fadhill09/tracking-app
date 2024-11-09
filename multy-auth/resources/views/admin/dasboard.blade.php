@@ -41,17 +41,17 @@
 <body>
 
   <!-- ======= Header ======= -->
-    @include('operasi.navbar')<!-- End Header -->
+    @include('admin.operasi.navbar')<!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-    @include('operasi.sidebar')<!-- End Sidebar-->
+    @include('admin.operasi.sidebar')<!-- End Sidebar-->
 
   <main id="main" class="main">
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-    @include('operasi.footer')<!-- End Footer -->
+    @include('admin.operasi.footer')<!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
