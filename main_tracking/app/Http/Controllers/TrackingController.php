@@ -87,10 +87,7 @@ class TrackingController extends Controller
 
     public function destroy(Tracking $tracking)
     {
-        // Menghapus data tracking
         $tracking->delete();
-
-        // Mereset auto-increment ID agar dimulai dari 1
         DB::statement('ALTER TABLE trackings AUTO_INCREMENT = 1');
 
         return redirect()->route('tampil');
