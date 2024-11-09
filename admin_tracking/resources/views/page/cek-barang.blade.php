@@ -49,22 +49,32 @@
     @include('operasi.sidebar')<!-- End Sidebar-->
 
     <main id="main" class="main">
+       
+           
         <div class="row">
-            <div class="col-lg-3 col-sm-12">
-                <a href="{{ route('cekdetail') }}">
-                <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+            <div class="card">
+            <h1 class="card-body card-header text-center fw-bold mt-3">Data Barang</h1>
+            </div>
+            @foreach ($barang as $tracking)
+            <div class="col-12 col-sm-6 col-md-4 mb-4 mt-2">
+                    <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                            <h4 class="card-title">Resi Barang :<b>{{ $tracking->id }}</b></h4>
+                            <p class="card-text">Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
+                            <p class="card-text">No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
+                            <p class="card-text">Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p><br>
+                            <p class="card-text">Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
+                            <p class="card-text">No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b></p>
+                            <p class="card-text">Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p><br>
+                            <p class="card-text">Jenis Barang: <b>{{ $tracking->nama_barang }}</b></p>
+                            <p class="card-text">Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
+                            <p class="card-text">Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} ( Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }} )</b></p>
+                            <p class="card-text">Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>                      
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            @endforeach
+        </div>
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

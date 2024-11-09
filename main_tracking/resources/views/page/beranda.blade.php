@@ -76,12 +76,12 @@
                                 <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
                                 <h4 class="title">Layanan Ekonomis</h4>
                             </div>
-                        </div><!--End Icon Box -->
+                    
                     </div>
                 </div>
             </div>
 
-        </section><!-- /Hero Section -->
+        </section>
 
 
     </main>
