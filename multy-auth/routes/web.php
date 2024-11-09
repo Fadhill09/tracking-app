@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('admin/dasboard', [HomeController::class, 'index'])->middleware(['auth','admin']);
+Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth','user']);
 
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');
