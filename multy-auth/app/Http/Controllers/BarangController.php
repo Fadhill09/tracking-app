@@ -3,44 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Tracking;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
     function barang(){
-        return view('page.barang');
+        $trackings = Tracking::all();
+        return view('admin.page.barang', compact('trackings') );
 
     }
     function cek(){
-        return view('page.cek-barang');
+        return view('admin.page.cek-barang');
     }
     function cekdetail(){
-        $barang = Barang::get();
-        return view('page.detail-cek-barang', compact('barang'));
+        $trackings = Tracking::get();
+        return view('admin.page.detail-cek-barang', compact('trackings'));
     }
-    public function detail($id)
+    public function detail($id){
+        // Ambil data barang berdasarkan ID
+    $barang = Barang::findOrFail($id);
+
+    // Ambil semua data tracking
+    $trackings = Tracking::all();
+
+    return view('admin.page.detail-barang', compact('barang', 'trackings'));
+    }
+
+
+public function submit($id, Request $request)
 {
-    // Ambil data tracking berdasarkan ID
+    $barang = Barang::findOrFail($id);
+    $barang->date = $request->date;
+    $barang->keterangan = $request->keterangan;
+    $barang->deskripsi = $request->deskripsi;
+    $barang->save();
 
-
-    // Jika data tracking tidak ditemukan, redirect kembali ke halaman barang
-
-    // Ambil data barang
-    $barang = Barang::all(); // atau bisa menggunakan metode lain sesuai dengan kebutuhan
-
-    // Kirimkan data tracking dan barang ke view
-    return view('page.detail-barang', compact('tracking', 'barang'));
+    return redirect()->route('detail', ['id' => $barang->id]);
 }
 
-
-    function submit(Request $request){
-        $barang = new Barang();
-        $barang->date =$request->date;
-        $barang->keterangan =$request->keterangan;
-        $barang->deskripsi =$request->deskripsi;
-        $barang->save();
-        return redirect()->route('detail');
-    }
     function delete($id){
         $barang = Barang::find($id);
         $barang->delete();

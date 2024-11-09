@@ -43,15 +43,15 @@
 <body>
 
     <!-- ======= Header ======= -->
-    @include('operasi.navbar')<!-- End Header -->
+    @include('admin.operasi.navbar')<!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-    @include('operasi.sidebar')<!-- End Sidebar-->
+    @include('admin.operasi.sidebar')<!-- End Sidebar-->
 
     <main id="main" class="main">
         <div class="row">
             <div class="col-lg-4 col-sm-12">
-                <form action="{{ route('submit') }}" method="POST">
+                <form action="{{ route('submit',['id' => $barang->id]) }}" method="POST">
                     @csrf
                     <div class="card">
                         <div class="card-body">
@@ -93,6 +93,8 @@
                         </div>
 
                         <div class="col-12">
+                            @foreach($trackings as $tracking)
+
                             <div class="card shadow-lg rounded-3">
                                 <div class="card-body">
                                     <p>No Resi: <b>{{ $tracking->id }}</b></p>
@@ -108,36 +110,28 @@
                                     <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
 
-
-
-
-
                     </div>
-
                     <!-- Card Riwayat Pengiriman -->
                     <div class="card border border-1 mx-2 my-2">
                         <div class="card-body">
                             <hr>
-                            @foreach ($barang as $data)
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <span class="badge text-secondary">{{ $data->date }} <i
-                                                class="bi bi-calendar-fill"></i></span>
-                                        <span class="badge text-secondary">{{ $data->keterangan }} <i
-                                                class="bi bi-geo-alt-fill"></i></span>
-                                        <span class="badge text-secondary">{{ $data->deskripsi }}</span>
-                                    </div>
-                                    <form action="{{ route('delete', $data->id) }}" method="post">
-                                        @csrf
-                                        <button class="btn" type="submit">
-                                            <i class="bi bi-trash3-fill"></i>
-                                        </button>
-                                    </form>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge text-secondary">{{ $barang->date }} <i class="bi bi-calendar-fill"></i></span>
+                                    <span class="badge text-secondary">{{ $barang->keterangan }} <i class="bi bi-geo-alt-fill"></i></span>
+                                    <span class="badge text-secondary">{{ $barang->deskripsi }}</span>
                                 </div>
-                                <hr>
-                            @endforeach
+                                <form action="{{ route('delete', $barang->id) }}" method="post">
+                                    @csrf
+                                    <button class="btn" type="submit">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <hr>
                         </div>
                     </div>
                 </div>
@@ -147,7 +141,7 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    @include('operasi.footer')<!-- End Footer -->
+    @include('admin.operasi.footer')<!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
