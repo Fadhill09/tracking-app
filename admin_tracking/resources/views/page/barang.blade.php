@@ -50,23 +50,33 @@
 
     <main id="main" class="main">
         <div class="row">
+            <div class="card">
+            <h1 class="card-body card-header text-center fw-bold mt-3">Data Barang</h1>
+            </div>
             @foreach ($data as $tracking)
-                <div class="col-lg-3 col-sm-12">
+            <div class="col-12 col-sm-6 col-md-4 mb-4 mt-2">
                     <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
                         <div class="card-body">
                             <h4 class="card-title">Resi Barang :<b>{{ $tracking->id }}</b></h4>
-                            <!-- Tampilkan atribut lainnya sesuai kebutuhan -->
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                            </p>
+                            <p class="card-text">Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
+                            <p class="card-text">No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
+                            <p class="card-text">Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p><br>
+                            <p class="card-text">Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
+                            <p class="card-text">No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b></p>
+                            <p class="card-text">Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p><br>
+                            <p class="card-text">Jenis Barang: <b>{{ $tracking->nama_barang }}</b></p>
+                            <p class="card-text">Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
+                            <p class="card-text">Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} ( Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }} )</b></p>
+                            <p class="card-text">Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>                      
                             <div class="mt-5 d-flex justify-content-between">
+
                                 <form action="" method="post">
                                     @csrf
-                                    <button class="btn btn-danger">Tolak</button>
+                                    <button class="btn btn-danger"  onsubmit="return confirmDelete()"><i class="bi bi-x-circle"></i>  Tolak</button>
                                 </form>
+
                                 <form action="{{ route('detail', $tracking->id) }}" method="get">
-                                    <button class="btn btn-success">Terima</button>
+                                    <button class="btn btn-success"><i class="bi bi-check-circle"></i> Terima</button>
                                 </form>
 
 
@@ -100,5 +110,11 @@
     <script src="{{ asset('NiceAdmin/assets/js/main.js') }}"></script>
 
 </body>
+
+<script>
+    function confirmDelete() {
+        return confirm("Apakah Anda yakin ingin membatalkan pesanan ?");
+    }
+</script>
 
 </html>
