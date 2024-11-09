@@ -19,8 +19,7 @@ class TrackingController extends Controller
     }
     
     public function view(Tracking $tracking)
-    {
-        
+    {    
         return view('page.cek.isi_barang', compact('tracking'));
     }
 
@@ -88,8 +87,6 @@ class TrackingController extends Controller
     public function destroy(Tracking $tracking)
     {
         $tracking->delete();
-        DB::statement('ALTER TABLE trackings AUTO_INCREMENT = 1');
-
         return redirect()->route('tampil');
     }
 }
