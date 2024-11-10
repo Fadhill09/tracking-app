@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tracking;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 
 class TrackingController extends Controller
