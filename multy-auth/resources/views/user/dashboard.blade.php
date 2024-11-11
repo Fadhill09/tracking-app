@@ -11,13 +11,7 @@
 
     @include('user.style.gaya')
 
-    <!-- =======================================================
-  * Template Name: Impact
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+ 
 </head>
 
 <body class="index-page">
@@ -33,11 +27,11 @@
                 <div class="row gy-5 justify-content-between">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2><span>Selamat Datang di </span><span class="accent">APL Tracker</span></h2>
-                            <p>APL Tracker adalah aplikasi pelacakan yang dirancang khusus untuk membantu jurusan APL
-                                dalam memantau dan mengelola berbagai aktivitas pelacakan. Aplikasi ini memastikan bahwa
-                                Anda selalu mendapatkan informasi terbaru tentang status dan perkembangan setiap
-                                kegiatan yang dipantau. Dengan APL Tracker, pengelolaan pelacakan menjadi lebih mudah
-                                dan efisien, sehingga semua proses dapat berlangsung dengan lancar dan terstruktur.</p>
+                        <p>APL Tracker adalah aplikasi yang dirancang khusus untuk membantu jurusan APL
+                        dalam memantau dan mengelola berbagai aktivitas pengujian zat. Aplikasi ini memastikan bahwa
+                        Anda selalu mendapatkan informasi terbaru tentang status dan perkembangan setiap
+                        kegiatan yang dipantau. Dengan APL Tracker, pengujian menjadi lebih mudah
+                        dan efisien, sehingga semua proses dapat berlangsung dengan lancar dan terstruktur.</p>
 
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2">

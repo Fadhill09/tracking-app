@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('admin/dasboard', [HomeController::class, 'index'])->middleware(['auth','admin']);
-Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth','user']);
+Route::get('user/dasboard', [HomeController::class, 'user'])->name('user.dasboard')->middleware(['auth','user']);
 
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');
@@ -33,11 +33,6 @@ Route::get('/cek/detail', [BarangController::class, 'cekdetail'])->name('cekdeta
 Route::get('/barang/detail{id}', [BarangController::class, 'detail'])->name('detail');
 Route::post('/barang/submit{id}', [BarangController::class, 'submit'])->name('submit');
 Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('delete');
-Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
-// Pastikan route hapus sesuai dengan controller yang menangani penghapusan
-Route::delete('/barang/{id}/hapus', [BarangController::class, 'delete'])->name('hapus');
-Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapusTracking');
-
 
 
 
@@ -56,7 +51,7 @@ Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('up
 
 Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
 
-Route::get('/home', [TrackingController:: class, 'dasboard'])->name('dasboard');
+Route::get('/Beranda', [TrackingController:: class, 'dasboard'])->name('dasboard');
 
 Route::get('/Tentang', [TrackingController:: class, 'about'])->name('tentang');
 

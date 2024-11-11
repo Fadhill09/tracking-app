@@ -21,11 +21,19 @@ class BarangController extends Controller
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
     public function detail($id){
+<<<<<<< HEAD
+    $barang = Barang::findOrFail($id);
+
+    $trackings = Tracking::all();
+
+    return view('admin.page.detail-barang', compact('barang', 'trackings'));
+=======
         $barang = Barang::findOrFail($id);
         $trackings = Tracking::all();
 
         dd($barang, $trackings); // Menampilkan data untuk debug
         return view('admin.page.detail-barang', compact('barang', 'trackings'));
+>>>>>>> 630a740d5903f40b648759f7d517adb099dc9b34
     }
 
 
