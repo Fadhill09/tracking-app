@@ -33,7 +33,7 @@ Route::get('/cek/detail', [BarangController::class, 'cekdetail'])->name('cekdeta
 Route::get('/barang/detail{id}', [BarangController::class, 'detail'])->name('detail');
 Route::post('/barang/submit{id}', [BarangController::class, 'submit'])->name('submit');
 Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('delete');
-Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
+
 
 
 Route::get('Cek-data-barang', [TrackingController:: class, 'index'])->name('tampil');

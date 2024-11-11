@@ -21,10 +21,8 @@ class BarangController extends Controller
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
     public function detail($id){
-        // Ambil data barang berdasarkan ID
     $barang = Barang::findOrFail($id);
 
-    // Ambil semua data tracking
     $trackings = Tracking::all();
 
     return view('admin.page.detail-barang', compact('barang', 'trackings'));
