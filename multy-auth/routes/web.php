@@ -50,7 +50,7 @@ Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('up
 
 Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
 
-Route::get('/home', [TrackingController:: class, 'dasboard'])->name('dasboard');
+Route::get('/Beranda', [TrackingController:: class, 'dasboard'])->name('dasboard');
 
 Route::get('/Tentang', [TrackingController:: class, 'about'])->name('tentang');
 
