@@ -36,6 +36,7 @@ Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('de
 Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
+
 Route::get('Cek-data-barang', [TrackingController:: class, 'index'])->name('tampil');
 
 Route::get('Cek-data-barang/Data-barang/{tracking}', [TrackingController::class, 'view'])->name('isidaftar');
