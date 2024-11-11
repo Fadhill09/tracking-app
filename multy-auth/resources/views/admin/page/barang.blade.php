@@ -49,33 +49,41 @@
     @include('admin.operasi.sidebar')<!-- End Sidebar-->
 
     <main id="main" class="main">
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($trackings as $tracking)
-                <div class="col-lg-3 col-sm-12">
-                    <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+                <div class="col">
+                    <div class="card shadow-sm border-light rounded-3">
+                        <img class="card-img-top" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
                         <div class="card-body">
-                            <h4 class="card-title">Resi Barang :<b>{{ $tracking->id }}</b></h4>
-                            <!-- Tampilkan atribut lainnya sesuai kebutuhan -->
+                            <h5 class="card-title">Resi Barang: <b>{{ $tracking->id }}</b></h5>
                             <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
+                                <strong>Pengirim:</strong> {{ $tracking->nama_pengirim }}<br>
+                                <strong>No HP Pengirim:</strong> {{ $tracking->no_hp_pengirim }}<br>
+                                <strong>Alamat Pengirim:</strong> {{ $tracking->alamat_pengirim }}<br>
+                                <strong>Penerima:</strong> {{ $tracking->nama_penerima }}<br>
+                                <strong>No HP Penerima:</strong> {{ $tracking->no_hp_penerima }}<br>
+                                <strong>Alamat Penerima:</strong> {{ $tracking->alamat_penerima }}<br>
+                                <strong>Nama Barang:</strong> {{ $tracking->nama_barang }}<br>
+                                <strong>Jumlah Barang:</strong> {{ $tracking->jumlah_barang }}<br>
+                                <strong>Jenis Pengiriman:</strong> {{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})<br>
+                                <strong>Pesan Pengirim:</strong> {{ $tracking->pesan_pengirim }}
                             </p>
-                            <div class="mt-5 d-flex justify-content-between">
-                                <form action="" method="post">
-                                    @csrf
-                                    <button class="btn btn-danger">Tolak</button>
-                                </form>
-                                <form action="{{ route('detail', $tracking->id) }}" method="get">
-                                    <button class="btn btn-success">Terima</button>
-                                </form>
-
-
-                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <form action="" method="post" class="d-inline">
+                                @csrf
+                                <button class="btn btn-danger btn-sm w-100">Tolak</button>
+                            </form>
+                            <form action="{{ route('detail', $tracking->id) }}" method="get" class="d-inline">
+                                <button class="btn btn-success btn-sm w-100">Terima</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+
+
 
 
     </main><!-- End #main -->
