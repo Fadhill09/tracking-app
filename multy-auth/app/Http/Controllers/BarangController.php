@@ -41,9 +41,15 @@ public function submit($id, Request $request)
     return redirect()->route('detail', ['id' => $barang->id]);
 }
 
-    function delete($id){
-        $barang = Barang::find($id);
-        $barang->delete();
-        return redirect()->route('detail');
-    }
+public function destroy($tracking)
+{
+    // Cari tracking berdasarkan ID dan hapus
+    $tracking = Tracking::findOrFail($tracking);
+    $tracking->delete();
+
+    // Setelah dihapus, redirect ke halaman barang admin
+    return redirect()->route('barang');
 }
+
+}
+

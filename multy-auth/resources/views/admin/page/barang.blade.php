@@ -65,15 +65,20 @@
                                 <strong>Alamat Penerima:</strong> {{ $tracking->alamat_penerima }}<br>
                                 <strong>Nama Barang:</strong> {{ $tracking->nama_barang }}<br>
                                 <strong>Jumlah Barang:</strong> {{ $tracking->jumlah_barang }}<br>
-                                <strong>Jenis Pengiriman:</strong> {{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})<br>
+                                <strong>Jenis Pengiriman:</strong> {{ ucfirst($tracking->jenis_pengiriman) }} (Rp
+                                {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})<br>
                                 <strong>Pesan Pengirim:</strong> {{ $tracking->pesan_pengirim }}
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-between">
-                            <form action="" method="post" class="d-inline">
+                            <form action="{{ route('hapus', $tracking->id) }}" method="POST" class="d-inline ms-2" onsubmit="return confirmDelete()">
                                 @csrf
-                                <button class="btn btn-danger btn-sm w-100">Tolak</button>
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="bi bi-x-circle"></i> Batalkan Pesanan
+                                </button>
                             </form>
+
                             <form action="{{ route('detail', $tracking->id) }}" method="get" class="d-inline">
                                 <button class="btn btn-success btn-sm w-100">Terima</button>
                             </form>

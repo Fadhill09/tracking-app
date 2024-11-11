@@ -34,6 +34,11 @@ Route::get('/barang/detail{id}', [BarangController::class, 'detail'])->name('det
 Route::post('/barang/submit{id}', [BarangController::class, 'submit'])->name('submit');
 Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('delete');
 Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
+// Pastikan route hapus sesuai dengan controller yang menangani penghapusan
+Route::delete('/barang/{id}/hapus', [BarangController::class, 'delete'])->name('hapus');
+Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapusTracking');
+
+
 
 
 
