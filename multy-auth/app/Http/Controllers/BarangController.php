@@ -20,6 +20,7 @@ class BarangController extends Controller
         $trackings = Tracking::get();
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
+
     public function detail($id){
     $barang = Barang::findOrFail($id);
 

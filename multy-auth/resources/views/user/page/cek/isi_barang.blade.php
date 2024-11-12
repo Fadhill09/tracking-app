@@ -15,10 +15,10 @@
     @include('user.operasi.navbar')
     <main class="main">
         <div class="container">
-
             <div class="col-lg-12 col-sm-12">
                 <div class="card shadow-sm border-1 mb-4" style="margin-top: 100px ;">
                     <div class="card-body">
+                        <a href="{{route('tampil')}}" class="btn btn-outline-primary"><i class="bi bi-arrow-left-square me-2"></i>Kembali</a>
                         <h3 class="mb-4 text-center fw-bold text-uppercase">Keterangan Barang</h3>
 
                         <p>No Resi: <b>{{ $tracking->id }}</b></p>

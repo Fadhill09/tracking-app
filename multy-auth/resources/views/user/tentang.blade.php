@@ -64,26 +64,23 @@
                 <div class="row gy-4">
                     <div class="col-md-4">
                         <div class="card shadow m-2">
-                            <div class="card-body">
+                            <a href="https://www.instagram.com/nawall07_/" class="card-body">
                                 <h4 class="fw-bold text-center">Nawal Fadhilah Ramadhan</h4>
-                                <a href="https://www.instagram.com/nawall07_/"></a>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow m-2">
-                            <div class="card-body">
+                            <a href="https://www.instagram.com/ahea4r/" class="card-body">
                                 <h4 class="fw-bold text-center">Alif Ghea Yanuar</h4>
-                                <a href="https://www.instagram.com/ahea4r/"></a>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow  m-2">
-                            <div class="card-body">
+                            <a href="https://www.instagram.com/rahawaeh_113/" class="card-body">
                                 <h4 class="fw-bold text-center">Zein Ishaq Rahawaeh</h4>
-                                <a href="https://www.instagram.com/rahawaeh_113/"></a>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
