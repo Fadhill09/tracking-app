@@ -8,6 +8,7 @@ use App\Http\Controllers\TrackingController;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,7 +31,7 @@ Route::get('user/dasboard', [HomeController::class, 'user'])->name('user.dasboar
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');
 Route::get('/cek/detail', [BarangController::class, 'cekdetail'])->name('cekdetail');
-Route::get('/barang/detail{id}', [BarangController::class, 'detail'])->name('detail');
+Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 Route::post('/barang/submit{id}', [BarangController::class, 'submit'])->name('submit');
 Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('delete');
 

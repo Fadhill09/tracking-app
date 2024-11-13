@@ -82,6 +82,7 @@
                             <form action="{{ route('detail', $tracking->id) }}" method="get" class="d-inline">
                                 <button class="btn btn-success btn-sm w-100">Terima</button>
                             </form>
+
                         </div>
                     </div>
                 </div>
