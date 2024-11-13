@@ -54,6 +54,8 @@
 
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
                 <div class="card">
+
+
                     <div class="card-header">
                         <h4>Detail Barang</h4>
                     </div>
@@ -86,19 +88,20 @@
                                         <p class="badge text-secondary">{{ $data->deskripsi }} </p>
 
                                         <div class="d-flex justify-content-end">
-                                            <form action="{{ route('delete', $data->id) }}" method="post">
+                                            <form action="{{ route('delete', $data->id) }}" method="POST">
                                                 @csrf
+                                                @method('DELETE')
                                                 <button class="btn btn-danger" type="submit">
-                                                    <i class="bi bi-trash3-fill"></i>
+                                                    <i class="bi bi-trash3-fill"></i> Hapus
                                                 </button>
                                             </form>
+
                                         </div>
                                         <div class="border mt-2"></div>
                                     </div>
                                 @endforeach
                             </div>
-                            <a href="{{ route('tracking') }}">lanjut</a>
-                        </div>
+                            <a class="btn btn-success" href="{{ route('tracking') }}">lanjut</a>
                     </div>
                 </div>
             </div>

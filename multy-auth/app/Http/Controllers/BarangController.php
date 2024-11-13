@@ -28,52 +28,42 @@ class BarangController extends Controller
         $trackings = Tracking::get();
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
-<<<<<<< HEAD
 
-    public function detail(){
-        $barang = Barang::get();
+    public function detail($id)
+    {
+
+        $tracking = Tracking::findOrFail($id);
         $trackings = Tracking::get();
 
-        return view('admin.page.detail-barang', compact('trackings','barang'));
+        $barang = Barang::all();
+
+        return view('admin.page.detail-barang', compact('trackings', 'barang'));
     }
 
-    public function submit( Request $request)
+    public function submit(Request $request,)
     {
-        $barang = new Barang();
+        $barang = Barang::findOrFail();
         $barang->date = $request->date;
         $barang->keterangan = $request->keterangan;
         $barang->deskripsi = $request->deskripsi;
         $barang->save();
-=======
-    public function detail($id){
-        $barang = Barang::findOrFail($id);
-        $trackings = Tracking::all();
 
-        dd($barang, $trackings); // Menampilkan data untuk debug
-        return view('admin.page.detail-barang', compact('barang', 'trackings'));
+        return redirect()->route('detail', ['id' => $barang->id]);
     }
 
-
-
-public function submit($id, Request $request)
-{
-    $barang = Barang::findOrFail($id);
-    $barang->date = $request->date;
-    $barang->keterangan = $request->keterangan;
-    $barang->deskripsi = $request->deskripsi;
-    $barang->save();
->>>>>>> 3c569133f8b8822978d6156727cf79f06e1b7200
-
-        return redirect()->route('detail');
+    public function delete($id)
+    {
+        $barang = Barang::get($id);
+            $barang->delete();  // Menghapus data barang dari database
+            return redirect()->route('detail');
     }
+
 
 public function destroy($tracking)
 {
-    // Cari tracking berdasarkan ID dan hapus
     $tracking = Tracking::findOrFail($tracking);
     $tracking->delete();
 
-        // Setelah dihapus, redirect ke halaman barang admin
         return redirect()->route('barang');
     }
 }
