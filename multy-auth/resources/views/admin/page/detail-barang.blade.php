@@ -51,44 +51,57 @@
 
     <main id="main" class="main">
         <div class="row">
-            <div class="col-lg-4 col-sm-12">
 
-            </div>
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
                 <div class="card">
                     <div class="card-header">
                         <h4>Detail Barang</h4>
                     </div>
-                    <a href="{{ route('tracking') }}">adasd</a>
-                    <div class="card-body d-flex flex-column flex-sm-row">
-
-                        <div class="col-12">
-                            @if($trackings instanceof \Illuminate\Database\Eloquent\Collection && $trackings->count() > 0)
-
-                            @foreach($trackings as $tracking)
-
-                            <div class="card shadow-lg rounded-3">
-                                <div class="card-body">
-                                    <p>No Resi: <b>{{ $tracking->id }}</b></p>
-                                    <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
-                                    <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
-                                    <p>Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p>
-                                    <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
-                                    <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b> </p>
-                                    <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
-                                    <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
-                                    <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
-                                    <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
-                                    <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
-                                </div>
+                    <div class="card-body">
+                        @foreach($trackings as $tracking)
+                        <div class="card shadow-lg rounded-3">
+                            <div class="card-body">
+                                <p>No Resi: <b>{{ $tracking->id }}</b></p>
+                                <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
+                                <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
+                                <p>Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p>
+                                <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
+                                <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b> </p>
+                                <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
+                                <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
+                                <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
+                                <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
+                                <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
                             </div>
-                            @endforeach
-                            @endif
+                        </div>
+                    @endforeach
+                        <div class="container mt-4">
+                            <div class="card shadow-sm border-1 mb-2">
+                                @foreach ($barang as $data)
+                                    <div class="card-body ">
+                                        <span class="badge text-secondary">{{ $data->date }} <i
+                                                class="bi bi-calendar-fill"></i> </span><br>
+                                        <span class="badge text-secondary">{{ $data->keterangan }} <i
+                                                class="bi bi-geo-alt-fill"></i></span><br>
+                                        <p class="badge text-secondary">{{ $data->deskripsi }} </p>
+
+                                        <div class="d-flex justify-content-end">
+                                            <form action="{{ route('delete', $data->id) }}" method="post">
+                                                @csrf
+                                                <button class="btn btn-danger" type="submit">
+                                                    <i class="bi bi-trash3-fill"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div class="border mt-2"></div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <a href="{{ route('tracking') }}">lanjut</a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </main><!-- End #main -->
 

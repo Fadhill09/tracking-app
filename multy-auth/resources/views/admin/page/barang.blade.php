@@ -77,10 +77,7 @@
                                     <i class="bi bi-x-circle"></i> Batalkan Pesanan
                                 </button>
                             </form>
-
-                            <form action="{{ route('detail', $tracking->id) }}" method="get" class="d-inline">
-                                <button class="btn btn-success btn-sm w-100">Terima</button>
-                            </form>
+                            <a href="{{ route('detail') }}" class="btn btn-sm btn-primary">detail</a>
                         </div>
                     </div>
                 </div>
