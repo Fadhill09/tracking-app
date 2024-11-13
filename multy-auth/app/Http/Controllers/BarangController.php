@@ -13,6 +13,10 @@ class BarangController extends Controller
         return view('admin.page.barang', compact('trackings') );
 
     }
+
+    function tracking(){
+        return view('admin.page.tracking');
+    }
     function cek(){
         return view('admin.page.cek-barang');
     }
@@ -20,26 +24,25 @@ class BarangController extends Controller
         $trackings = Tracking::get();
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
+
     public function detail($id){
-    $barang = Barang::findOrFail($id);
 
-    $trackings = Tracking::all();
+        $trackings = Tracking::all();
 
-    return view('admin.page.detail-barang', compact('barang', 'trackings'));
+        return view('admin.page.detail-barang', compact('trackings'));
     }
 
+    public function submit($id, Request $request)
+    {
+        $barang = Barang::findOrFail($id);
+        $barang->date = $request->date;
+        $barang->keterangan = $request->keterangan;
+        $barang->deskripsi = $request->deskripsi;
+        $barang->save();
 
+        return redirect()->route('detail', ['id' => $barang->id]);
+    }
 
-public function submit($id, Request $request)
-{
-    $barang = Barang::findOrFail($id);
-    $barang->date = $request->date;
-    $barang->keterangan = $request->keterangan;
-    $barang->deskripsi = $request->deskripsi;
-    $barang->save();
-
-    return redirect()->route('detail', ['id' => $barang->id]);
-}
 
 public function destroy($tracking)
 {

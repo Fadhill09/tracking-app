@@ -24,7 +24,7 @@
                             dalam memantau dan mengelola berbagai aktivitas pengujian zat. Aplikasi ini memastikan bahwa
                             Anda selalu mendapatkan informasi terbaru tentang status dan perkembangan setiap
                             kegiatan yang dipantau. Dengan APL Tracker, pengujian menjadi lebih mudah
-                            dan efisien, sehingga semua proses dapat berlangsung dengan lancar dan terstruktur.</p>    
+                            dan efisien, sehingga semua proses dapat berlangsung dengan lancar dan terstruktur.</p>
                     </div>
 
                     <!-- Kolom untuk tombol Login dan Register -->
@@ -33,8 +33,8 @@
                         <div class="d-flex flex-column">
                             @if (Route::has('login'))
                                  @auth
-                                    {{-- <a href="{{ url('/dashboard') }}" class="">Dashboard</a> 
-                                @else --}}
+                                    <a href="{{ url('/admin/dasboard') }}" class="btn btn-info text-white mb-3">Dashboard</a>
+                                @else
                                     <a href="{{ route('login') }}" class="btn btn-info text-white mb-3">Login</a>
                                 @endauth
                             @endif
