@@ -13,6 +13,10 @@ class BarangController extends Controller
         $trackings = Tracking::all();
         return view('admin.page.barang', compact('trackings'));
     }
+
+    function tracking(){
+        return view('admin.page.tracking');
+    }
     function cek()
     {
         return view('admin.page.cek-barang');
@@ -22,33 +26,40 @@ class BarangController extends Controller
         $trackings = Tracking::get();
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
-    public function detail($id)
-    {
-        $barang = Barang::findOrFail($id); // Menemukan barang berdasarkan ID
+    public function detail($id){
+<<<<<<< HEAD
+    $barang = Barang::findOrFail($id);
+
+    $trackings = Tracking::all();
+
+    return view('admin.page.detail-barang', compact('barang', 'trackings'));
+=======
+        $barang = Barang::findOrFail($id);
         $trackings = Tracking::all();
 
+        dd($barang, $trackings); // Menampilkan data untuk debug
         return view('admin.page.detail-barang', compact('barang', 'trackings'));
+>>>>>>> 630a740d5903f40b648759f7d517adb099dc9b34
     }
 
 
 
-
-    public function submit($id, Request $request)
-    {
-        $barang = Barang::findOrFail($id);
-        $barang->date = $request->date;
-        $barang->keterangan = $request->keterangan;
-        $barang->deskripsi = $request->deskripsi;
-        $barang->save();
+public function submit($id, Request $request)
+{
+    $barang = Barang::findOrFail($id);
+    $barang->date = $request->date;
+    $barang->keterangan = $request->keterangan;
+    $barang->deskripsi = $request->deskripsi;
+    $barang->save();
 
         return redirect()->route('detail', ['id' => $barang->id]);
     }
 
-    public function destroy($tracking)
-    {
-        // Cari tracking berdasarkan ID dan hapus
-        $tracking = Tracking::findOrFail($tracking);
-        $tracking->delete();
+public function destroy($tracking)
+{
+    // Cari tracking berdasarkan ID dan hapus
+    $tracking = Tracking::findOrFail($tracking);
+    $tracking->delete();
 
         // Setelah dihapus, redirect ke halaman barang admin
         return redirect()->route('barang');

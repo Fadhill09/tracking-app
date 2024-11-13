@@ -26,16 +26,16 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('admin/dasboard', [HomeController::class, 'index'])->middleware(['auth','admin']);
-Route::get('user/dasboard', [HomeController::class, 'user'])->name('user.dasboard')->middleware(['auth','user']);
+Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth','user']);
 
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');
 Route::get('/cek/detail', [BarangController::class, 'cekdetail'])->name('cekdetail');
-Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
+Route::get('/barang/detail/trac', [BarangController::class, 'tracking'])->name('tracking');
+Route::get('/barang/detail{id}', [BarangController::class, 'detail'])->name('detail');
 Route::post('/barang/submit{id}', [BarangController::class, 'submit'])->name('submit');
 Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('delete');
-
-
+// Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
 Route::get('Cek-data-barang', [TrackingController:: class, 'index'])->name('tampil');

@@ -51,9 +51,8 @@
     <main id="main" class="main">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($trackings as $tracking)
-                <div class="col">
+                <div class="col-lg-3">
                     <div class="card shadow-sm border-light rounded-3">
-                        <img class="card-img-top" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Resi Barang: <b>{{ $tracking->id }}</b></h5>
                             <p class="card-text">
