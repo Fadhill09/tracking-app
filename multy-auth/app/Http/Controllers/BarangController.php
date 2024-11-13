@@ -30,7 +30,7 @@ class BarangController extends Controller
         $barang = Barang::findOrFail($id);
         $trackings = Tracking::all();
 
-        dd($barang, $trackings); // Menampilkan data untuk debug
+        // dd($barang, $trackings); // Menampilkan data untuk debug
         return view('admin.page.detail-barang', compact('barang', 'trackings'));
     }
 
