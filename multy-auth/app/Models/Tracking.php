@@ -21,4 +21,9 @@ class Tracking extends Model
         'biaya_pengiriman',
         'pesan_pengirim',
     ];
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
 }

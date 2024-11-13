@@ -8,6 +8,7 @@ use App\Http\Controllers\TrackingController;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });

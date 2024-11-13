@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
-    function barang(){
+    function barang()
+    {
         $trackings = Tracking::all();
-        return view('admin.page.barang', compact('trackings') );
-
+        return view('admin.page.barang', compact('trackings'));
     }
 
     function tracking(){
@@ -19,13 +19,16 @@ class BarangController extends Controller
         $trackings = Tracking::get();
         return view('admin.page.tracking', compact('barang','trackings') );
     }
-    function cek(){
+    function cek()
+    {
         return view('admin.page.cek-barang');
     }
-    function cekdetail(){
+    function cekdetail()
+    {
         $trackings = Tracking::get();
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
+<<<<<<< HEAD
 
     public function detail(){
         $barang = Barang::get();
@@ -41,10 +44,28 @@ class BarangController extends Controller
         $barang->keterangan = $request->keterangan;
         $barang->deskripsi = $request->deskripsi;
         $barang->save();
+=======
+    public function detail($id){
+        $barang = Barang::findOrFail($id);
+        $trackings = Tracking::all();
+
+        dd($barang, $trackings); // Menampilkan data untuk debug
+        return view('admin.page.detail-barang', compact('barang', 'trackings'));
+    }
+
+
+
+public function submit($id, Request $request)
+{
+    $barang = Barang::findOrFail($id);
+    $barang->date = $request->date;
+    $barang->keterangan = $request->keterangan;
+    $barang->deskripsi = $request->deskripsi;
+    $barang->save();
+>>>>>>> 3c569133f8b8822978d6156727cf79f06e1b7200
 
         return redirect()->route('detail');
     }
-
 
 public function destroy($tracking)
 {
@@ -52,9 +73,7 @@ public function destroy($tracking)
     $tracking = Tracking::findOrFail($tracking);
     $tracking->delete();
 
-    // Setelah dihapus, redirect ke halaman barang admin
-    return redirect()->route('barang');
+        // Setelah dihapus, redirect ke halaman barang admin
+        return redirect()->route('barang');
+    }
 }
-
-}
-
