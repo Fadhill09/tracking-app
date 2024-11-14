@@ -31,7 +31,6 @@ class BarangController extends Controller
 
     public function detail($id)
     {
-
         $tracking = Tracking::findOrFail($id);
         $tracking = Tracking::get();
         $barang = Barang::all();
