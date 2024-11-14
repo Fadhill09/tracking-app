@@ -30,7 +30,7 @@
                         <div class="d-flex flex-column ">
                             @if (Route::has('login'))
                                  @auth
-                                    <a href="{{ url('/dashboard') }}" class="">Dashboard</a>
+                                    <a href="{{ url('/dashboard') }}" class="btn btn-info text-white mb-3">Dashboard</a> 
                                 @else
                                     <a href="{{ route('login') }}" class="btn btn-info text-white mb-3">Login</a>
                                 @endauth

@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tracking extends Model
 {
-    protected $table = 'trackings';
-
     protected $fillable = [
         'nama_pengirim',
         'no_hp_pengirim',
