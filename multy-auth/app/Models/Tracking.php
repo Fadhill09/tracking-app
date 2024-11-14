@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tracking extends Model
 {
-    protected $table = 'trackings';
-
     protected $fillable = [
         'nama_pengirim',
         'no_hp_pengirim',
@@ -21,4 +19,9 @@ class Tracking extends Model
         'biaya_pengiriman',
         'pesan_pengirim',
     ];
+
+    public function barangs()
+    {
+        return $this->hasMany(Barang::class, 'tracking_id');
+    }
 }

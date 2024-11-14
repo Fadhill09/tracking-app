@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tracking;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,11 +19,15 @@ class TrackingController extends Controller
         return view('user.tentang');
     }
 
-    public function view(Tracking $tracking)
+    public function view($id)
     {
-
-        return view('user.page.cek.isi_barang', compact('tracking'));
+        $tracking = Tracking::findOrFail($id);
+    
+        $riwayatBarang = Barang::where('tracking_id', $id)->get();
+    
+        return view('user.page.cek.isi_barang', compact('tracking', 'riwayatBarang'));
     }
+    
 
 
     public function index()

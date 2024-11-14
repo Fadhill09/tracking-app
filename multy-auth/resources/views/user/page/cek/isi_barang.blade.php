@@ -18,7 +18,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class="card shadow-sm border-1 mb-4" style="margin-top: 100px ;">
                     <div class="card-body">
-                        <a href="{{route('tampil')}}" class="btn btn-outline-primary"><i class="bi bi-arrow-left-square me-2"></i>Kembali</a>
+                        <a href="{{ route('tampil') }}" class="btn btn-outline-primary"><i
+                                class="bi bi-arrow-left-square me-2"></i>Kembali</a>
                         <h3 class="mb-4 text-center fw-bold text-uppercase">Keterangan Barang</h3>
 
                         <p>No Resi: <b>{{ $tracking->id }}</b></p>
@@ -54,37 +55,22 @@
                         </div>
                     </div>
 
-                    <!-- Status Pengiriman Section -->
                     <div class="container mt-4">
                         <div class="card shadow-sm border-1 mb-2">
                             <div class="card-body">
-
-                                <div class="card-body">
-                                    <span class="badge text-secondary">11/12/2024</span><br>
-                                    <span class="badge text-secondary">Paket anda sedang di jalan</span><br>
-                                    <p class="badge text-secondary">Paket anda sedang menuju transit pondok gede
-                                    </p>
-                                    <div class="border mt-2"></div>
-                                </div>
-                                <div class="card-body">
-                                    <span class="badge text-secondary">11/13/2024</span><br>
-                                    <span class="badge text-secondary">Paket anda sedang di jalan</span><br>
-                                    <p class="badge text-secondary">Paket anda sedang menuju transit cakung</p>
-                                    <div class="border mt-2"></div>
-                                </div>
-                                <div class="card-body">
-                                    <span class="badge text-secondary">11/14/2024</span><br>
-                                    <span class="badge text-secondary">Paket anda sedang di jalan</span><br>
-                                    <p class="badge text-secondary">Paket anda sedang menuju transit pondok gede
-                                    </p>
-                                    <div class="border mt-2"></div>
-                                </div>
+                                @foreach ($riwayatBarang as $barang)
+                                    <div class="card-body">
+                                        <span class="badge text-secondary">{{ $barang->date }}</span><br>
+                                        <span class="badge text-secondary">{{ $barang->keterangan }}</span><br>
+                                        <p class="badge text-secondary">{{ $barang->deskripsi }}</p>
+                                        <div class="border mt-2"></div>
+                                    </div>
+                                    @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </main>
 </body>
@@ -94,9 +80,8 @@
 @include('user.operasi.footer')
 
 <!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-</a>
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center bg-info"><i
+    class="bi bi-arrow-up-short"></i></a>
 
 <!-- Preloader -->
 <div id="preloader"></div>
