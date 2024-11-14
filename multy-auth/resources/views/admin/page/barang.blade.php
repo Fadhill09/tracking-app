@@ -70,7 +70,7 @@
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-between">
-                            <form action="{{ route('hapus', $tracking->id) }}" method="POST" class="d-inline ms-2" onsubmit="return confirmDelete()">
+                            <form action="{{ route('hapus', $tracking->id) }}" method="get" class="d-inline ms-2" onsubmit="return confirmDelete()">
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-danger">
                                     <i class="bi bi-x-circle"></i> Batalkan Pesanan

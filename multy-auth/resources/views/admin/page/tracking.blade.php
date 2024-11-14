@@ -45,7 +45,7 @@
     <main id="main" class="main">
         <div class="row">
             <div class="col-lg-4 col-sm-12">
-                <form action="{{ route('submit' ['id' => $data->id]) }}" method="POST">
+                <form action="{{ route('submit', ['id' => $data->id]) }}" method="POST">
                     @csrf
                     <div class="card shadow-sm border-1">
                         <div class="card-body">
