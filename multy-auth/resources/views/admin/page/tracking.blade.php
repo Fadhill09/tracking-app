@@ -31,13 +31,7 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('NiceAdmin/assets/css/style.css') }}" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Apr 20 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -50,54 +44,42 @@
 
     <main id="main" class="main">
         <div class="row">
-            <div class="col-lg-3 col-sm-12">
-                <a href="{{ route('cekdetail') }}">
-                <div class="card">
-                        <img class="card-header" src="{{ asset('gambar/350x200.png') }}" alt="card-img-top">
+            <div class="col-lg-4 col-sm-12">
+                <form action="{{ route('submit' ['id' => $data->id]) }}" method="POST">
+                    @csrf
+                    <div class="card shadow-sm border-1">
                         <div class="card-body">
-                            <h4 class="card-title">Nama barang</h4>
-                            <p class="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores voluptatem
-                                voluptatum quos nobis recusandae distinctio delectus dolorem temporibus sunt, vero
-                                incidunt obcaecati alias velit provident assumenda necessitatibus ex quisquam accusamus.
-                            </p>
+                            <div class="mt-3">
+                                <label class="form-label" for="">Tanggal</label>
+                                <input type="date" name="date" class="form-control">
+                            </div>
+                            <div class="mt-3">
+                                <label class="form-label" for="">Keterangan</label>
+                                <select class="form-select" name="keterangan" aria-label="Default select example">
+                                    <option selected>--Paket--</option>
+                                    <option value="Kemas">Di kemas</option>
+                                    <option value="Perjalanan">Di perjalanan</option>
+                                    <option value="Sampai">Sampai</option>
+                                </select>
+                            </div>
+                            <div class="mt-3">
+                                <label class="form-label" for="">Deskripsi</label>
+                                <textarea class="form-control" name="deskripsi"></textarea>
+                            </div>
+                            <div class="mt-5 d-flex justify-content-between">
+                                <a href="{{ route('barang') }}" class="btn btn-danger"><i class="bi bi-x-circle"></i>
+                                    Batal</a>
+                                <button class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
+                            </div>
                         </div>
                     </div>
-                </a>
+                </form>
+
             </div>
+        </div>
+
     </main><!-- End #main -->
 
-    <div class="col-lg-4 col-sm-12">
-        <form action="{{ route('submit') }}" method="POST">
-            @csrf
-            <div class="card">
-                <div class="card-body">
-
-                    <div class="mt-3">
-                        <label class="form-label" for="">Tanggal</label>
-                        <input type="date" name="date" class="form-control">
-                    </div>
-                    <div class="mt-3">
-                        <label class="form-label" for="">Keterangan</label>
-                        <select class="form-select" name="keterangan" aria-label="Default select example">
-                            <option selected>--Paket--</option>
-                            <option value="Kemas">Di kemas</option>
-                            <option value="Perjalanan">Di perjalanan</option>
-                            <option value="Sampai">Sampai</option>
-                        </select>
-                    </div>
-                    <div class="mt-3">
-                        <label class="form-label" for="">Deskripsi</label>
-                        <textarea class="form-control" name="deskripsi"></textarea>
-                    </div>
-                    <div class="mt-5 d-flex justify-content-between">
-                        <a href="{{ route('barang') }}" class="btn btn-secondary mt">Batal</a>
-                        <button class="btn btn-primary">Lanjut</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
     <!-- ======= Footer ======= -->
     @include('admin.operasi.footer')<!-- End Footer -->
 

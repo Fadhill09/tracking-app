@@ -83,7 +83,6 @@
                     </div>
                     <div class="card-body">
                         <div class="col-12">
-<<<<<<< HEAD
                             <div class="card-body">
                                 <p>No Resi: <b>{{ $tracking->id }}</b></p>
                                 <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
@@ -97,23 +96,6 @@
                                 <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp
                                         {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
                                 <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
-=======
-                            <div class="card shadow-lg rounded-3">
-                                <div class="card-body">
-                                    <p>No Resi: <b>{{ $tracking->id }}</b></p>
-                                    <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
-                                    <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
-                                    <p>Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p>
-                                    <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
-                                    <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b> </p>
-                                    <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
-                                    <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
-                                    <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
-                                    <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp
-                                            {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
-                                    <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
-                                </div>
->>>>>>> b1db97f913c9eb74a26633727aea7c70cad7f1f9
                             </div>
                         </div>
 
@@ -138,21 +120,8 @@
                                         <div class="border mt-2"></div>
 
                                     </div>
-<<<<<<< HEAD
                                 @endforeach
                             </div>
-=======
-                                    <form action="{{ route('delete', $data->id) }}" method="post">
-                                        @csrf
-                                        <button class="btn" type="submit">
-                                            <i class="bi bi-trash3-fill"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                                <hr>
-                            @endforeach
-
->>>>>>> b1db97f913c9eb74a26633727aea7c70cad7f1f9
                         </div>
                     </div>
                 </div>

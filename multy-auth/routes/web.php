@@ -8,6 +8,7 @@ use App\Http\Controllers\TrackingController;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,9 +31,10 @@ Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth'
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');
 Route::get('/cek/detail', [BarangController::class, 'cekdetail'])->name('cekdetail');
-Route::get('/barang/detail{id}', [BarangController::class, 'detail'])->name('detail');
-Route::post('/barang/submit{id}', [BarangController::class, 'submit'])->name('submit');
-Route::post('/barang/delete{id}', [BarangController::class, 'delete'])->name('delete');
+Route::get('/barang/detail/trac', [BarangController::class, 'tracking'])->name('tracking');
+Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
+Route::post('/barang/submit/{id}', [BarangController::class, 'submit'])->name('submit');
+Route::delete('/barang/delete/{id}', [BarangController::class, 'delete'])->name('delete');
 // Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
@@ -46,7 +48,7 @@ Route::get('Data-Barang/{tracking}/Edit', [TrackingController:: class, 'edit'])-
 
 Route::post('new', [TrackingController:: class, 'store'])->name('store');
 
-Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('update');
+Route::post('update/{tracking}', [TrackingController::class, 'update'])->name('update');
 
 Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
 

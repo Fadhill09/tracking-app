@@ -20,8 +20,8 @@ class Tracking extends Model
         'pesan_pengirim',
     ];
 
-    public function barangs()
+    public function barang()
     {
-        return $this->hasMany(Barang::class, 'tracking_id');
+        return $this->belongsTo(Barang::class);
     }
 }
