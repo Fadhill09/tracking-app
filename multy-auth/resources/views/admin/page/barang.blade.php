@@ -52,10 +52,10 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($trackings as $tracking)
                 <div class="col-lg-3">
-                    <div class="card shadow-sm border-light rounded-3">
+                    <div class="card shadow border-0 rounded-4 h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Resi Barang: <b>{{ $tracking->id }}</b></h5>
-                            <p class="card-text">
+                            <h5 class="card-title text-primary">Resi Barang: <b>{{ $tracking->id }}</b></h5>
+                            <p class="card-text text-muted">
                                 <strong>Pengirim:</strong> {{ $tracking->nama_pengirim }}<br>
                                 <strong>No HP Pengirim:</strong> {{ $tracking->no_hp_pengirim }}<br>
                                 <strong>Alamat Pengirim:</strong> {{ $tracking->alamat_pengirim }}<br>
@@ -69,27 +69,26 @@
                                 <strong>Pesan Pengirim:</strong> {{ $tracking->pesan_pengirim }}
                             </p>
                         </div>
-                        <div class="card-footer d-flex justify-content-between">
+                        <div class="card-footer bg-light d-flex justify-content-between align-items-center">
                             <form action="{{ route('hapus', $tracking->id) }}" method="get" class="d-inline ms-2" onsubmit="return confirmDelete()">
                                 @csrf
-                                <button type="submit" class="btn btn-sm btn-danger">
-                                    <i class="bi bi-x-circle"></i> Batalkan Pesanan
+                                <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+                                    <i class="bi bi-x-circle-fill me-1"></i> Batalkan
                                 </button>
                             </form>
 
                             <form action="{{ route('detail', $tracking->id) }}" method="get" class="d-inline">
-                                <button class="btn btn-success btn-sm w-100">Terima</button>
+                                <button class="btn btn-outline-success btn-sm rounded-pill px-3">
+                                    <i class="bi bi-check-circle-fill me-1"></i> Terima
+                                </button>
                             </form>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-
-
-
-
-    </main><!-- End #main -->
+    </main>
+    <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     @include('admin.operasi.footer')<!-- End Footer -->

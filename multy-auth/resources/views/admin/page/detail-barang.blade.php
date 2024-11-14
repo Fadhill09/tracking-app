@@ -51,61 +51,51 @@
 
     <main id="main" class="main">
         <div class="row">
-
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-                <div class="card">
-
-
-                    <div class="card-header">
-                        <h4>Detail Barang</h4>
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-header bg-primary text-white rounded-top-4">
+                        <h4 class="mb-0">Detail Barang</h4>
                     </div>
-                    <div class="card-body">
-                     
-                        <div class="card shadow-lg rounded-3">
-                            <div class="card-body">
-                                <p>No Resi: <b>{{ $tracking->id }}</b></p>
-                                <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
-                                <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
-                                <p>Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p>
-                                <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
-                                <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b> </p>
-                                <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
-                                <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
-                                <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
-                                <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
-                                <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
-                            </div>
-                        </div>
-            
+                    <div class="card-body p-4">
+                        <p><strong>No Resi:</strong> <span class="text-primary">{{ $tracking->id }}</span></p>
+                        <p><strong>Pengirim:</strong> <span class="text-primary">{{ $tracking->nama_pengirim }}</span></p>
+                        <p><strong>No HP Pengirim:</strong> <span class="text-primary">{{ $tracking->no_hp_pengirim }}</span></p>
+                        <p><strong>Alamat Pengirim:</strong> <span class="text-primary">{{ $tracking->alamat_pengirim }}</span></p>
+                        <p><strong>Penerima:</strong> <span class="text-primary">{{ $tracking->nama_penerima }}</span></p>
+                        <p><strong>No HP Penerima:</strong> <span class="text-primary">{{ $tracking->no_hp_penerima }}</span></p>
+                        <p><strong>Alamat Penerima:</strong> <span class="text-primary">{{ $tracking->alamat_penerima }}</span></p>
+                        <p><strong>Nama Barang:</strong> <span class="text-primary">{{ $tracking->nama_barang }}</span></p>
+                        <p><strong>Jumlah Barang:</strong> <span class="text-primary">{{ $tracking->jumlah_barang }}</span></p>
+                        <p><strong>Jenis Pengiriman:</strong> <span class="text-primary">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
+                        <p><strong>Pesan Pengirim:</strong> <span class="text-primary">{{ $tracking->pesan_pengirim }}</span></p>
+
                         <div class="container mt-4">
-                            <div class="card shadow-sm border-1 mb-2">
+                            <div class="card shadow-sm border-0 rounded-3">
                                 @foreach ($barang as $data)
-                                    <div class="card-body ">
-                                        <span class="badge text-secondary">{{ $data->date }} <i
-                                                class="bi bi-calendar-fill"></i> </span><br>
-                                        <span class="badge text-secondary">{{ $data->keterangan }} <i
-                                                class="bi bi-geo-alt-fill"></i></span><br>
-                                        <p class="badge text-secondary">{{ $data->deskripsi }} </p>
+                                <div class="card-body border-bottom p-3">
+                                    <span class="badge bg-light text-dark mb-1">{{ $data->date }} <i class="bi bi-calendar-fill ms-1"></i></span><br>
+                                    <span class="badge bg-light text-dark">{{ $data->keterangan }} <i class="bi bi-geo-alt-fill ms-1"></i></span>
+                                    <p class="mt-2 text-secondary">{{ $data->deskripsi }}</p>
 
-                                        <div class="d-flex justify-content-end">
-                                            <form action="{{ route('delete', $data->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">
-                                                    <i class="bi bi-trash3-fill"></i> Hapus
-                                                </button>
-                                            </form>
-
-                                        </div>
-                                        <div class="border mt-2"></div>
+                                    <div class="d-flex justify-content-end">
+                                        <form action="{{ route('delete', $data->id) }}" method="POST" class="me-2">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-outline-danger btn-sm" type="submit">
+                                                <i class="bi bi-trash3-fill"></i> Hapus
+                                            </button>
+                                        </form>
                                     </div>
+                                </div>
                                 @endforeach
                             </div>
-                            <a class="btn btn-success" href="{{ route('tracking') }}">lanjut</a>
+                            <a class="btn btn-success mt-3" href="{{ route('tracking') }}">Lanjut</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
