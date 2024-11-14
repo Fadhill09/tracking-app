@@ -33,11 +33,10 @@ class BarangController extends Controller
     {
 
         $tracking = Tracking::findOrFail($id);
-        $trackings = Tracking::get();
-
+        $tracking = Tracking::get();
         $barang = Barang::all();
 
-        return view('admin.page.detail-barang', compact('trackings', 'barang'));
+        return view('admin.page.detail-barang', compact('tracking', 'barang'));
     }
 
     public function submit(Request $request,)

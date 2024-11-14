@@ -60,7 +60,7 @@
                         <h4>Detail Barang</h4>
                     </div>
                     <div class="card-body">
-                        @foreach($trackings as $tracking)
+                        
                         <div class="card shadow-lg rounded-3">
                             <div class="card-body">
                                 <p>No Resi: <b>{{ $tracking->id }}</b></p>
@@ -76,7 +76,7 @@
                                 <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
                             </div>
                         </div>
-                    @endforeach
+
                         <div class="container mt-4">
                             <div class="card shadow-sm border-1 mb-2">
                                 @foreach ($barang as $data)
