@@ -51,32 +51,25 @@
 
     <main id="main" class="main">
         <div class="row">
-
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-                <div class="card">
-
-
-                    <div class="card-header">
-                        <h4>Detail Barang</h4>
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-header bg-primary text-white rounded-top-4">
+                        <h4 class="mb-0">Detail Barang</h4>
                     </div>
-                    <div class="card-body">
-                     
-                        <div class="card shadow-lg rounded-3">
-                            <div class="card-body">
-                                <p>No Resi: <b>{{ $tracking->id }}</b></p>
-                                <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
-                                <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
-                                <p>Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p>
-                                <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
-                                <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b> </p>
-                                <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
-                                <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
-                                <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
-                                <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
-                                <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
-                            </div>
-                        </div>
-            
+                    <div class="card-body p-4">
+                        <p>No Resi: <span class="fw-bold">{{ $tracking->id }}</span></p>
+                        <p>Pengirim: <span class="fw-bold">{{ $tracking->nama_pengirim }}</span></p>
+                        <p>No HP Pengirim: <span class="fw-bold">{{ $tracking->no_hp_pengirim }}</span></p>
+                        <p>Alamat Pengirim: <span class="fw-bold">{{ $tracking->alamat_pengirim }}</span></p>
+                        <p>Pesan Pengirim: <span class="fw-bold">{{ $tracking->pesan_pengirim }}</span></p><br>
+                        <p>Penerima: <span class="fw-bold">{{ $tracking->nama_penerima }}</span></p>
+                        <p>No HP Penerima: <span class="fw-bold">{{ $tracking->no_hp_penerima }}</span></p>
+                        <p>Alamat Penerima: <span class="fw-bold">{{ $tracking->alamat_penerima }}</span></p><br>
+                        <p>Nama Barang: <span class="fw-bold">{{ $tracking->nama_barang }}</span></p>
+                        <p>Jumlah Barang: <span class="fw-bold">{{ $tracking->jumlah_barang }}</span></p>
+                        <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
+                      
+
                         <div class="container mt-4">
                             <div class="card shadow-sm border-1 mb-2">
                                 @foreach ($tracking->barang as $barang)
@@ -99,13 +92,17 @@
                                         </div>
                                         <div class="border mt-2"></div>
                                     </div>
+                                </div>
                                 @endforeach
                             </div>
-                            <a class="btn btn-success" href="{{ route('tracking', ['id' => $tracking->id]) }}">lanjut</a>
+                           
+                            <a class="btn btn-success mb-2" href="{{ route('tracking', ['id' => $tracking->id]) }}">Tambah Tracking</a>
+                      
                     </div>
                 </div>
             </div>
         </div>
+
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

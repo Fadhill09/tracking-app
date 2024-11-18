@@ -35,6 +35,7 @@ Route::get('/barang/detail/trac/{id}', [BarangController::class, 'tracking'])->n
 Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 Route::post('/barang/submit/{trackingId}', [BarangController::class, 'submit'])->name('submit');
 Route::delete('/barang/delete/{id}', [BarangController::class, 'delete'])->name('delete');
+Route::delete('/barang/hapus/{id}', [BarangController::class, 'destroy'])->name('destroy');
 // Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
@@ -48,7 +49,7 @@ Route::get('Data-Barang/{tracking}/Edit', [TrackingController:: class, 'edit'])-
 
 Route::post('new', [TrackingController:: class, 'store'])->name('store');
 
-Route::post('update/{tracking}', [TrackingController::class, 'update'])->name('update');
+Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('update');
 
 Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
 

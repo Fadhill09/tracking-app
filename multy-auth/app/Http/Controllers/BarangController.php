@@ -18,19 +18,11 @@ class BarangController extends Controller
     {
         $tracking = Tracking::with('barang')->findOrFail($id);
     
-        // Kirim data $tracking dan relasi barang ke view
+      
         return view('admin.page.tracking', compact('tracking'));
     }
     
-    function cek()
-    {
-        return view('admin.page.cek-barang');
-    }
-    function cekdetail()
-    {
-        $trackings = Tracking::get();
-        return view('admin.page.detail-cek-barang', compact('trackings'));
-    }
+
 
     public function detail($id)
     {
@@ -49,7 +41,7 @@ class BarangController extends Controller
         
      
         $barang = new Barang();
-        $barang->tracking_id = $trackingid; // Hubungkan dengan Tracking
+        $barang->tracking_id = $trackingid; 
         $barang->date = $request->date;
         $barang->keterangan = $request->keterangan;
         $barang->deskripsi = $request->deskripsi;
@@ -61,10 +53,10 @@ class BarangController extends Controller
     public function delete($id)
     {
         $barang = Barang::findOrFail($id);
-        $trackingId = $barang->tracking_id;  // Ambil tracking_id barang sebelum dihapus
-        $barang->delete();  // Menghapus data barang dari database
+        $trackingId = $barang->tracking_id;
+        $barang->delete(); 
         
-        return redirect()->route('detail', ['id' => $trackingId]);  // Kembali ke halaman detail
+        return redirect()->route('detail', ['id' => $trackingId]); 
     }
     
 
@@ -73,6 +65,8 @@ public function destroy($tracking)
 {
     $tracking = Tracking::findOrFail($tracking);
     $tracking->delete();
+
+    session()->flash('message', 'Pesanan ditolak dan data telah dihapus.');
 
         return redirect()->route('barang');
     }

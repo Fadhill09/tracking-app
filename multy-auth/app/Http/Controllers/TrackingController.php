@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tracking;
 use App\Models\Barang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 
 class TrackingController extends Controller
@@ -98,4 +98,3 @@ class TrackingController extends Controller
 }
 
 
-// $tracking = Tracking::findOrFail($tracking);

@@ -20,9 +20,9 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('cek') }}">
+            {{-- <a href="{{ route('cek') }}">
               <i class="bi bi-truck fs-3"></i><span>Cek Barang</span>
-            </a>
+            </a> --}}
           </li>
         </ul>
       </li><!-- End Components Nav -->

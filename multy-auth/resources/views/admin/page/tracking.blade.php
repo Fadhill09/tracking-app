@@ -44,18 +44,18 @@
 
     <main id="main" class="main">
         <div class="row">
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-sm-12">
                 <form action="{{ route('submit', ['trackingId' => $tracking->id]) }}" method="POST">
                     @csrf
                     <div class="card shadow-sm border-1">
                         <div class="card-body">
-                            <!-- Input Tanggal -->
+                     
                             <div class="mt-3">
                                 <label class="form-label" for="date">Tanggal</label>
                                 <input type="date" name="date" id="date" class="form-control" required>
                             </div>
                             
-                            <!-- Input Keterangan -->
+                      
                             <div class="mt-3">
                                 <label class="form-label" for="keterangan">Keterangan</label>
                                 <select class="form-select" name="keterangan" id="keterangan" required>
@@ -66,7 +66,6 @@
                                 </select>
                             </div>
                             
-                            <!-- Input Deskripsi -->
                             <div class="mt-3">
                                 <label class="form-label" for="deskripsi">Deskripsi</label>
                                 <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukkan deskripsi tambahan"></textarea>
@@ -74,7 +73,7 @@
                             
                             <!-- Tombol -->
                             <div class="mt-5 d-flex justify-content-between">
-                                {{-- <a href="{{ route('barang') }}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Batal</a> --}}
+                                <a href="{{ route('detail', ['id' => $tracking->id]) }}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Batal</a>
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
                             </div>
                         </div>
