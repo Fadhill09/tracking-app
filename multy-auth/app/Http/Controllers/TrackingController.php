@@ -93,8 +93,9 @@ class TrackingController extends Controller
     public function destroy(Tracking $tracking)
     {
         $tracking->delete();
-        DB::statement('ALTER TABLE trackings AUTO_INCREMENT = 1');
-
         return redirect()->route('tampil');
     }
 }
+
+
+// $tracking = Tracking::findOrFail($tracking);

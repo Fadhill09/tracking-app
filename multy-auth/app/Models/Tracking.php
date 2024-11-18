@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tracking extends Model
 {
+    protected $table = 'trackings';
     protected $fillable = [
+        'tracking_id',
         'nama_pengirim',
         'no_hp_pengirim',
         'alamat_pengirim',
@@ -22,6 +24,6 @@ class Tracking extends Model
 
     public function barang()
     {
-        return $this->belongsTo(Barang::class);
+        return $this->hasMany(Barang::class, 'tracking_id');
     }
 }

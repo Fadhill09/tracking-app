@@ -14,4 +14,9 @@ class Barang extends Model
         'deskripsi',
     ];
 
+    public function tracking()
+    {
+        return $this->belongsTo(Tracking::class, 'tracking_id');
+    }
+
 }

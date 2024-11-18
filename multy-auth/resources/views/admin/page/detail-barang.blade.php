@@ -79,16 +79,16 @@
             
                         <div class="container mt-4">
                             <div class="card shadow-sm border-1 mb-2">
-                                @foreach ($barang as $data)
+                                @foreach ($tracking->barang as $barang)
                                     <div class="card-body ">
-                                        <span class="badge text-secondary">{{ $data->date }} <i
+                                        <span class="badge text-secondary">{{ $barang->date }} <i
                                                 class="bi bi-calendar-fill"></i> </span><br>
-                                        <span class="badge text-secondary">{{ $data->keterangan }} <i
+                                        <span class="badge text-secondary">{{ $barang->keterangan }} <i
                                                 class="bi bi-geo-alt-fill"></i></span><br>
-                                        <p class="badge text-secondary">{{ $data->deskripsi }} </p>
+                                        <p class="badge text-secondary">{{ $barang->deskripsi }} </p>
 
                                         <div class="d-flex justify-content-end">
-                                            <form action="{{ route('delete', $data->id) }}" method="POST">
+                                            <form action="{{ route('delete', $barang->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger" type="submit">
@@ -101,7 +101,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <a class="btn btn-success" href="{{ route('tracking') }}">lanjut</a>
+                            <a class="btn btn-success" href="{{ route('tracking', ['id' => $tracking->id]) }}">lanjut</a>
                     </div>
                 </div>
             </div>
