@@ -23,24 +23,29 @@ class BarangController extends Controller
     {
         return view('admin.page.cek-barang');
     }
+
     function cekdetail()
     {
         $trackings = Tracking::get();
         return view('admin.page.detail-cek-barang', compact('trackings'));
     }
+public function detail($id)
+{
+    // Mengambil satu item Tracking berdasarkan id
+    $tracking = Tracking::findOrFail($id);
 
-    public function detail($id)
+    // Mengambil semua riwayat tracking yang berhubungan dengan tracking_id tertentu
+    $barang = Barang::where('tracking_id', $id)->get();
+
+
+    // Mengirim data $tracking dan $barang ke tampilan
+    return view('admin.page.detail-barang', compact('tracking', 'barang'));
+}
+
+
+    public function submit(Request $request,$id)
     {
-        $tracking = Tracking::findOrFail($id);
-        $tracking = Tracking::get();
-        $barang = Barang::all();
-
-        return view('admin.page.detail-barang', compact('tracking', 'barang'));
-    }
-
-    public function submit(Request $request,)
-    {
-        $barang = Barang::findOrFail();
+        $barang = Barang::findOrFail($id);
         $barang->date = $request->date;
         $barang->keterangan = $request->keterangan;
         $barang->deskripsi = $request->deskripsi;

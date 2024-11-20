@@ -54,13 +54,41 @@
 
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
                 <div class="card">
-
+                    <form action="{{ route('submit', ['id' => $barang->id]) }}" method="POST">
+                        @csrf
+                        <div class="card shadow-sm border-1">
+                            <div class="card-body">
+                                <div class="mt-3">
+                                    <label class="form-label" for="">Tanggal</label>
+                                    <input type="date" name="date" class="form-control">
+                                </div>
+                                <div class="mt-3">
+                                    <label class="form-label" for="">Keterangan</label>
+                                    <select class="form-select" name="keterangan" aria-label="Default select example">
+                                        <option selected>--Paket--</option>
+                                        <option value="Kemas">Di kemas</option>
+                                        <option value="Perjalanan">Di perjalanan</option>
+                                        <option value="Sampai">Sampai</option>
+                                    </select>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="form-label" for="">Deskripsi</label>
+                                    <textarea class="form-control" name="deskripsi"></textarea>
+                                </div>
+                                <div class="mt-5 d-flex justify-content-between">
+                                    <a href="{{ route('barang') }}" class="btn btn-danger"><i class="bi bi-x-circle"></i>
+                                        Batal</a>
+                                    <button class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
                     <div class="card-header">
                         <h4>Detail Barang</h4>
                     </div>
                     <div class="card-body">
-                        
+
                         <div class="card shadow-lg rounded-3">
                             <div class="card-body">
                                 <p>No Resi: <b>{{ $tracking->id }}</b></p>
@@ -76,7 +104,6 @@
                                 <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
                             </div>
                         </div>
-
                         <div class="container mt-4">
                             <div class="card shadow-sm border-1 mb-2">
                                 @foreach ($barang as $data)
