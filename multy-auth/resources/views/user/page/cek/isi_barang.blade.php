@@ -56,19 +56,33 @@
                     </div>
 
                     <div class="container mt-4">
-                        <div class="card shadow-sm border-1 mb-2">
+                        <div class="card shadow-sm border-1 mb-4">
                             <div class="card-body">
                                 @foreach ($riwayatBarang as $barang)
-                                    <div class="card-body">
-                                        <span class="badge text-secondary">{{ $barang->date }}</span><br>
-                                        <span class="badge text-secondary">{{ $barang->keterangan }}</span><br>
-                                        <p class="badge text-secondary">{{ $barang->deskripsi }}</p>
-                                        <div class="border mt-2"></div>
+                                    <div class="card shadow-sm mb-3 p-3 border">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div>
+                                                <span class="badge bg-primary text-white"><i class="bi bi-calendar-fill"></i> {{ $barang->date }}</span>
+                                                <span class="badge bg-success text-white ms-2"><i class="bi bi-geo-alt-fill"></i> {{ $barang->keterangan }}</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mb-3">{{ $barang->deskripsi }}</p>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="badge text-info"><i class="bi bi-info-circle-fill"></i> Detail</span>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i> Hapus</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    @endforeach
+                                @endforeach
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
