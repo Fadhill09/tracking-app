@@ -44,37 +44,47 @@
 
     <main id="main" class="main">
         <div class="row">
+<<<<<<< HEAD
             <div class="col-lg-4 col-sm-12">
                 <form action="{{ route('submit' ['id']) }}" method="POST">
+=======
+            <div class="col-sm-12">
+                <form action="{{ route('submit', ['trackingId' => $tracking->id]) }}" method="POST">
+>>>>>>> 1e7c7209d8e00b436cdd2f27820c375d5acf4ec7
                     @csrf
                     <div class="card shadow-sm border-1">
                         <div class="card-body">
+                     
                             <div class="mt-3">
-                                <label class="form-label" for="">Tanggal</label>
-                                <input type="date" name="date" class="form-control">
+                                <label class="form-label" for="date">Tanggal</label>
+                                <input type="date" name="date" id="date" class="form-control" required>
                             </div>
+                            
+                      
                             <div class="mt-3">
-                                <label class="form-label" for="">Keterangan</label>
-                                <select class="form-select" name="keterangan" aria-label="Default select example">
-                                    <option selected>--Paket--</option>
-                                    <option value="Kemas">Di kemas</option>
-                                    <option value="Perjalanan">Di perjalanan</option>
+                                <label class="form-label" for="keterangan">Keterangan</label>
+                                <select class="form-select" name="keterangan" id="keterangan" required>
+                                    <option value="" selected disabled>--Pilih Status Paket--</option>
+                                    <option value="Kemas">Di Kemas</option>
+                                    <option value="Perjalanan">Di Perjalanan</option>
                                     <option value="Sampai">Sampai</option>
                                 </select>
                             </div>
+                            
                             <div class="mt-3">
-                                <label class="form-label" for="">Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi"></textarea>
+                                <label class="form-label" for="deskripsi">Deskripsi</label>
+                                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukkan deskripsi tambahan"></textarea>
                             </div>
+                            
+                            <!-- Tombol -->
                             <div class="mt-5 d-flex justify-content-between">
-                                <a href="{{ route('barang') }}" class="btn btn-danger"><i class="bi bi-x-circle"></i>
-                                    Batal</a>
-                                <button class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
+                                <a href="{{ route('detail', ['id' => $tracking->id]) }}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Batal</a>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
                             </div>
                         </div>
                     </div>
                 </form>
-
+                
             </div>
         </div>
 

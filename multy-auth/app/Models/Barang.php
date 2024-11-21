@@ -18,4 +18,9 @@ class Barang extends Model
         return $this->belongsTo(Tracking::class);
     }
 
+    public function tracking()
+    {
+        return $this->belongsTo(Tracking::class, 'tracking_id');
+    }
+
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tracking;
 use App\Models\Barang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 
 class TrackingController extends Controller
@@ -93,8 +93,8 @@ class TrackingController extends Controller
     public function destroy(Tracking $tracking)
     {
         $tracking->delete();
-        DB::statement('ALTER TABLE trackings AUTO_INCREMENT = 1');
-
         return redirect()->route('tampil');
     }
 }
+
+

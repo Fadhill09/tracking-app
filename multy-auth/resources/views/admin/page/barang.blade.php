@@ -51,51 +51,57 @@
     <main id="main" class="main">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($trackings as $tracking)
-                <div class="col-lg-3">
-                    <div class="card shadow-sm border-light rounded-3">
+                <div class="col-lg-5">
+                    <div class="card shadow border-0 rounded-4 h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Resi Barang: <b>{{ $tracking->id }}</b></h5>
-                            <p class="card-text">
-                                <strong>Pengirim:</strong> {{ $tracking->nama_pengirim }}<br>
-                                <strong>No HP Pengirim:</strong> {{ $tracking->no_hp_pengirim }}<br>
-                                <strong>Alamat Pengirim:</strong> {{ $tracking->alamat_pengirim }}<br>
-                                <strong>Penerima:</strong> {{ $tracking->nama_penerima }}<br>
-                                <strong>No HP Penerima:</strong> {{ $tracking->no_hp_penerima }}<br>
-                                <strong>Alamat Penerima:</strong> {{ $tracking->alamat_penerima }}<br>
-                                <strong>Nama Barang:</strong> {{ $tracking->nama_barang }}<br>
-                                <strong>Jumlah Barang:</strong> {{ $tracking->jumlah_barang }}<br>
-                                <strong>Jenis Pengiriman:</strong> {{ ucfirst($tracking->jenis_pengiriman) }} (Rp
-                                {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})<br>
-                                <strong>Pesan Pengirim:</strong> {{ $tracking->pesan_pengirim }}
-                            </p>
+                            <h5 class="card-title ">Resi Barang: <b>{{ $tracking->id }}</b></h5>
+                            <p>No Resi: <span class="fw-bold">{{ $tracking->id }}</span></p>
+                            <p>Pengirim: <span class="fw-bold">{{ $tracking->nama_pengirim }}</span></p>
+                            <p>No HP Pengirim: <span class="fw-bold">{{ $tracking->no_hp_pengirim }}</span></p>
+                            <p>Alamat Pengirim: <span class="fw-bold">{{ $tracking->alamat_pengirim }}</span></p>
+                            <p>Pesan Pengirim: <span class="fw-bold">{{ $tracking->pesan_pengirim }}</span></p><br>
+                            <p>Penerima: <span class="fw-bold">{{ $tracking->nama_penerima }}</span></p>
+                            <p>No HP Penerima: <span class="fw-bold">{{ $tracking->no_hp_penerima }}</span></p>
+                            <p>Alamat Penerima: <span class="fw-bold">{{ $tracking->alamat_penerima }}</span></p><br>
+                            <p>Nama Barang: <span class="fw-bold">{{ $tracking->nama_barang }}</span></p>
+                            <p>Jumlah Barang: <span class="fw-bold">{{ $tracking->jumlah_barang }}</span></p>
+                            <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
+                              
+                            
                         </div>
-                        <div class="card-footer d-flex justify-content-between">
-                            <form action="{{ route('hapus', $tracking->id) }}" method="POST" class="d-inline ms-2" onsubmit="return confirmDelete()">
+                        <div class="card-footer bg-light d-flex justify-content-between align-items-center">
+                            <form action="{{ route('destroy', $tracking->id) }}" method="post" class="d-inline ms-2" >
                                 @csrf
-                                <button type="submit" class="btn btn-sm btn-danger">
-                                    <i class="bi bi-x-circle"></i> Batalkan Pesanan
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3"    onsubmit="return confirmDelete()">
+                                    <i class="bi bi-x-circle-fill me-1"></i> Tolak Pesanan
                                 </button>
                             </form>
 
                             <form action="{{ route('detail', $tracking->id) }}" method="get" class="d-inline">
-                                <button class="btn btn-success btn-sm w-100">Terima</button>
+                                <button class="btn btn-outline-success btn-sm rounded-pill px-3">
+                                    <i class="bi bi-check-circle-fill me-1"></i> Terima
+                                </button>
                             </form>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-
-
-
-
-    </main><!-- End #main -->
+    </main>
+    <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     @include('admin.operasi.footer')<!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
+
+            <script>
+                function confirmDelete() {
+                    return confirm("Apakah Anda yakin ingin membatalkan pesanan ?");
+                }
+            </script>
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>

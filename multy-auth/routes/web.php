@@ -31,10 +31,15 @@ Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth'
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');
 Route::get('/cek/detail', [BarangController::class, 'cekdetail'])->name('cekdetail');
-Route::get('/barang/detail/trac', [BarangController::class, 'tracking'])->name('tracking');
+Route::get('/barang/detail/trac/{id}', [BarangController::class, 'tracking'])->name('tracking');
 Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
+<<<<<<< HEAD
 Route::post('/barang/submit', [BarangController::class, 'submit'])->name('submit');
+=======
+Route::post('/barang/submit/{trackingId}', [BarangController::class, 'submit'])->name('submit');
+>>>>>>> 1e7c7209d8e00b436cdd2f27820c375d5acf4ec7
 Route::delete('/barang/delete/{id}', [BarangController::class, 'delete'])->name('delete');
+Route::delete('/barang/hapus/{id}', [BarangController::class, 'destroy'])->name('destroy');
 // Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
@@ -48,7 +53,7 @@ Route::get('Data-Barang/{tracking}/Edit', [TrackingController:: class, 'edit'])-
 
 Route::post('new', [TrackingController:: class, 'store'])->name('store');
 
-Route::post('update/{tracking}', [TrackingController::class, 'update'])->name('update');
+Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('update');
 
 Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
 
