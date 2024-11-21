@@ -14,7 +14,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.dasboard');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -27,6 +27,7 @@ require __DIR__.'/auth.php';
 
 Route::get('admin/dasboard', [HomeController::class, 'index'])->middleware(['auth','admin']);
 Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth','user']);
+Route::get('drifer/dasboard', [HomeController::class, 'drifer'])->middleware(['auth','drifer']);
 
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');

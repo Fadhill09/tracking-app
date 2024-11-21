@@ -12,4 +12,7 @@ class HomeController extends Controller
     function user(){
         return view('user.dashboard');
     }
+    function drifer(){
+        return view('drifer.dasboard');
+    }
 }
