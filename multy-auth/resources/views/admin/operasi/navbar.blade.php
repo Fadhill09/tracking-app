@@ -25,11 +25,6 @@
           </li>
 
           <a class="nav-link nav-icon" href="{{ route('barang') }}">
-            <i class="bi bi-box2"></i>
-            <span class="badge bg-primary badge-number"></span>
-          </a>
-
-          <a class="nav-link nav-icon" href="{{ route('cek') }}">
             <i class="bi bi-truck"></i>
             <span class="badge bg-primary badge-number"></span>
           </a>

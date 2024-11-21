@@ -17,11 +17,11 @@ class BarangController extends Controller
     function tracking($id)
     {
         $tracking = Tracking::with('barang')->findOrFail($id);
-    
-      
+
+
         return view('admin.page.tracking', compact('tracking'));
     }
-    
+
 
 
     public function detail($id)
@@ -31,8 +31,7 @@ class BarangController extends Controller
 
         return view('admin.page.detail-barang', compact('tracking'));
     }
-<<<<<<< HEAD
-public function detail($id)
+    public function detail($id)
 {
     // Mengambil satu item Tracking berdasarkan id
     $tracking = Tracking::findOrFail($id);
@@ -49,36 +48,23 @@ public function detail($id)
     public function submit(Request $request,$id)
     {
         $barang = Barang::findOrFail($id);
-=======
-    public function submit(Request $request, $trackingid)
-    {
-        $request->validate([
-            'date' => 'required|date',
-            'keterangan' => 'required|string',
-            'deskripsi' => 'nullable|string',
-        ]);
-        
-     
-        $barang = new Barang();
-        $barang->tracking_id = $trackingid; 
->>>>>>> 1e7c7209d8e00b436cdd2f27820c375d5acf4ec7
         $barang->date = $request->date;
         $barang->keterangan = $request->keterangan;
         $barang->deskripsi = $request->deskripsi;
         $barang->save();
-        
+
         return redirect()->route('detail', ['id' => $trackingid])->with('success', 'Keterangan berhasil ditambahkan!');
     }
-    
+
     public function delete($id)
     {
         $barang = Barang::findOrFail($id);
         $trackingId = $barang->tracking_id;
-        $barang->delete(); 
-        
-        return redirect()->route('detail', ['id' => $trackingId]); 
+        $barang->delete();
+
+        return redirect()->route('detail', ['id' => $trackingId]);
     }
-    
+
 
 
 public function destroy($tracking)

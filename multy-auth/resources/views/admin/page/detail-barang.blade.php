@@ -52,7 +52,7 @@
     <main id="main" class="main">
         <div class="row">
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-<<<<<<< HEAD
+
                 <div class="card">
                     <form action="{{ route('submit', ['id' => $barang->id]) }}" method="POST">
                         @csrf
@@ -120,38 +120,47 @@
                         <p>Alamat Penerima: <span class="fw-bold">{{ $tracking->alamat_penerima }}</span></p><br>
                         <p>Nama Barang: <span class="fw-bold">{{ $tracking->nama_barang }}</span></p>
                         <p>Jumlah Barang: <span class="fw-bold">{{ $tracking->jumlah_barang }}</span></p>
-                        <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
-                      
+                        <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp
+                                {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
+
 
 >>>>>>> 1e7c7209d8e00b436cdd2f27820c375d5acf4ec7
                         <div class="container mt-4">
-                            <div class="card shadow-sm border-1 mb-2">
+                            <div class="card shadow-sm border-1 mb-4">
                                 @foreach ($tracking->barang as $barang)
-                                    <div class="card-body ">
-                                        <span class="badge text-secondary">{{ $barang->date }} <i
-                                                class="bi bi-calendar-fill"></i> </span><br>
-                                        <span class="badge text-secondary">{{ $barang->keterangan }} <i
-                                                class="bi bi-geo-alt-fill"></i></span><br>
-                                        <p class="badge text-secondary">{{ $barang->deskripsi }} </p>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="badge text-secondary">
+                                                <i class="bi bi-calendar-fill"></i> {{ $barang->date }}
+                                            </span>
+                                            <span class="badge text-secondary">
+                                                <i class="bi bi-geo-alt-fill"></i> {{ $barang->keterangan }}
+                                            </span>
+                                        </div>
+                                        <p class="badge text-secondary mb-3">{{ $barang->deskripsi }}</p>
 
                                         <div class="d-flex justify-content-end">
                                             <form action="{{ route('delete', $barang->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">
+                                                <button class="btn btn-danger btn-sm" type="submit">
                                                     <i class="bi bi-trash3-fill"></i> Hapus
                                                 </button>
                                             </form>
-
                                         </div>
-                                        <div class="border mt-2"></div>
+
+                                        <div class="border-top mt-3 pt-2"></div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
-                           
-                            <a class="btn btn-success mb-2" href="{{ route('tracking', ['id' => $tracking->id]) }}">Tambah Tracking</a>
-                      
+                        </div>
+
+
+                        <form action="{{ route('tracking', ['id' => $tracking->id]) }}" method="GET">
+                            @csrf
+                            <button type="submit" class="btn btn-success mb-2">Tambah Tracking</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
