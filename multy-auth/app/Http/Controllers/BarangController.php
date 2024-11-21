@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Tracking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class BarangController extends Controller
 {
@@ -23,14 +25,24 @@ class BarangController extends Controller
     }
     public function detail($id)
     {
+        // Mengambil satu item Tracking berdasarkan id
+        $tracking = Tracking::findOrFail($id);
 
-        $tracking = Tracking::with('barang')->findOrFail($id);
+        // Mengambil semua riwayat tracking yang berhubungan dengan tracking_id tertentu
+        $barang = Barang::where('tracking_id', $id)->get();
 
-        return view('admin.page.detail-barang', compact('tracking'));
+
+        // Mengirim data $tracking dan $barang ke tampilan
+        return view('admin.page.detail-barang', compact('tracking', 'barang'));
     }
 
 
+<<<<<<< HEAD
     public function submit(Request $request, $trackingid)
+=======
+
+    public function submit(Request $request,$id)
+>>>>>>> 27fdc7301de6791c28be1bf2137dcca8db867c7d
     {
         $request->validate([
             'date' => 'required|date',
@@ -59,13 +71,15 @@ class BarangController extends Controller
     }
 
 
+    public function destroy($tracking)
+    {
+        $tracking = Tracking::findOrFail($tracking);
+        $tracking->delete();
 
-public function destroy($tracking)
-{
-    $tracking = Tracking::findOrFail($tracking);
-    $tracking->delete();
+        // Reset auto increment untuk tabel tracking
+        DB::statement('ALTER TABLE tracking AUTO_INCREMENT = 1;');
 
-    session()->flash('message', 'Pesanan ditolak dan data telah dihapus.');
+        session()->flash('message', 'Pesanan ditolak dan data telah dihapus.');
 
         return redirect()->route('barang');
     }

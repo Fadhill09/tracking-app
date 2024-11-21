@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tracking;
 use App\Models\Barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -22,12 +24,12 @@ class TrackingController extends Controller
     public function view($id)
     {
         $tracking = Tracking::findOrFail($id);
-    
+
         $riwayatBarang = Barang::where('tracking_id', $id)->get();
-    
+
         return view('user.page.cek.isi_barang', compact('tracking', 'riwayatBarang'));
     }
-    
+
 
 
     public function index()
@@ -94,6 +96,7 @@ class TrackingController extends Controller
     {
         $tracking->delete();
         return redirect()->route('tampil');
+        DB::statement('ALTER TABLE nama_tabel AUTO_INCREMENT = 1;');
     }
 }
 
