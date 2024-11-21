@@ -70,7 +70,7 @@
 
                         </div>
                         <div class="card-footer bg-light d-flex justify-content-between align-items-center">
-                            <form action="{{ route('hapus', $barang->id) }}" method="post" class="d-inline ms-2" >
+                            <form action="{{ route('destroy', $barang->id) }}" method="post" class="d-inline ms-2" >
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3"    onsubmit="return confirmDelete()">

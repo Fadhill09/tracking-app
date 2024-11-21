@@ -25,10 +25,10 @@ class TrackingController extends Controller
     
     public function detail($id)
     {
-        
         $barang = Barang::with('trackings')->findOrFail($id);
         return view('admin.page.detail-barang', compact('barang'));
     }
+    
     
     public function submit(Request $request, $barangid)
     {
@@ -49,22 +49,21 @@ class TrackingController extends Controller
         return redirect()->route('detail', ['id' => $barangid])->with('success', 'Keterangan berhasil ditambahkan!');
     }
     
-    
     public function delete($id)
     {
-        $barang = Barang::findOrFail($id);
-        $trackingId = $barang->tracking_id;
-        $barang->delete(); 
-        
-        return redirect()->route('detail', ['id' => $trackingId]); 
-    }
+        $tracking = Tracking::findOrFail($id);
+        $barangId = $tracking->barang_id;
+        $tracking->delete();
     
+        return redirect()->route('detail', ['id' => $barangId]);
+    }
+     
 
 
-public function destroy($tracking)
+public function destroy($barang)
 {
-    $tracking = Tracking::findOrFail($tracking);
-    $tracking->delete();
+    $barang = Barang::findOrFail($barang);
+    $barang->delete();
 
     session()->flash('message', 'Pesanan ditolak dan data telah dihapus.');
 
