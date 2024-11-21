@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mx-auto text-center">
-                <h2 class="section-title">Para Kuli </h2>
+                <h2 class="section-title">Para Drifter </h2>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
                                                     class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Zein Ishak Rahawaeh</h3>
-                                            <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
+                                            <span class="position d-block mb-3">Tefatie Inc.</span>
                                         </div>
                                     </div>
 
@@ -57,7 +57,7 @@
                                                     class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Nawal Ramadhan Ekod</h3>
-                                            <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
+                                            <span class="position d-block mb-3">Tefatie Inc.</span>
                                         </div>
                                     </div>
 
@@ -81,7 +81,7 @@
                                                     class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Alif Ghea Yanto</h3>
-                                            <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
+                                            <span class="position d-block mb-3">Tefatie Inc.</span>
                                         </div>
                                     </div>
 

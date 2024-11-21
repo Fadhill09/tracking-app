@@ -31,7 +31,7 @@
 
         <div class="row g-5 mb-5">
             <div class="col-lg-4">
-                <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a>
+                <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Drifter<span>.</span></a>
                 </div>
                 <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl
                     dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor
@@ -40,7 +40,7 @@
                 <ul class="list-unstyled custom-social">
                     <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
                     <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                    <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+                    <li><a href="https://www.instagram.com/"><span class="fa fa-brands fa-instagram"></span></a></li>
                     <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
                 </ul>
             </div>
@@ -92,8 +92,8 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script>. All Rights Reserved. &mdash; Designed with love by <a
-                            href="https://untree.co">Untree.co</a> Distributed By <a
-                            hreff="https://themewagon.com">ThemeWagon</a>
+                            href="https://untree.co">@rahawaeh_113</a> Distributed By <a
+                            hreff="https://themewagon.com">Tefatie</a>
                         <!-- License information: https://untree.co/license/ -->
                     </p>
                 </div>
