@@ -30,6 +30,7 @@ Route::get('admin/dasboard', [HomeController::class, 'index'])->middleware(['aut
 Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth','user']);
 Route::get('drifer/dasboard', [HomeController::class, 'drifer'])->middleware(['auth','drifer']);
 
+<<<<<<< HEAD
 Route::get('/Admin/Data-operator', [AdminController::class, 'tampilOperator'])->name('tampil.operator')->middleware(['auth','drifer']);
 Route::get('/Admin/Tambah-operator', [AdminController::class, 'tambahOperator'])->name('tambah.operator')->middleware(['auth','drifer']);
 
@@ -42,26 +43,36 @@ Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('de
 Route::post('/barang/submit', [BarangController::class, 'submit'])->name('submit');
 Route::delete('/barang/delete/{id}', [BarangController::class, 'delete'])->name('delete');
 Route::delete('/barang/hapus/{id}', [BarangController::class, 'destroy'])->name('destroy');
+=======
+Route::get('/barang', [TrackingController::class, 'barang'])->name('barang');
+Route::get('/cek', [TrackingController::class, 'cek'])->name('cek');
+Route::get('/cek/detail', [TrackingController::class, 'cekdetail'])->name('cekdetail');
+Route::get('/barang/detail/tracking/{id}', [TrackingController::class, 'tracking'])->name('tracking');
+Route::get('/barang/detail/{id}', [TrackingController::class, 'detail'])->name('detail');
+Route::post('/barang/submit/{barangid}', [TrackingController::class, 'submit'])->name('submit');
+Route::delete('/barang/delete/{id}', [TrackingController::class, 'delete'])->name('delete');
+Route::delete('/barang/hapus/{id}', [TrackingController::class, 'destroy'])->name('destroy');
+>>>>>>> eb793347823b5b86acba81d647922616438cb54c
 // Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
-Route::get('Cek-data-barang', [TrackingController:: class, 'index'])->name('tampil');
+Route::get('Cek-data-barang', [BarangController:: class, 'index'])->name('tampil');
 
-Route::get('Cek-data-barang/Data-barang/{tracking}', [TrackingController::class, 'view'])->name('isidaftar');
+Route::get('Cek-data-barang/Data-barang/{barang}', [BarangController::class, 'view'])->name('isidaftar');
 
-Route::get('Tambah/Data-Barang', [TrackingController:: class, 'create'])->name('create');
+Route::get('Tambah/Data-Barang', [BarangController:: class, 'create'])->name('create');
 
-Route::get('Data-Barang/{tracking}/Edit', [TrackingController:: class, 'edit'])->name('edit');
+Route::get('Data-Barang/{barang}/Edit', [BarangController:: class, 'edit'])->name('edit');
 
-Route::post('new', [TrackingController:: class, 'store'])->name('store');
+Route::post('new', [BarangController:: class, 'store'])->name('store');
 
-Route::put('update/{tracking}', [TrackingController::class, 'update'])->name('update');
+Route::put('update/{barang}', [BarangController::class, 'update'])->name('update');
 
-Route::delete('delete/{tracking}', [TrackingController::class, 'destroy'])->name('hapus');
+Route::delete('delete/{barang}', [BarangController::class, 'destroy'])->name('hapus');
 
-Route::get('/Beranda', [TrackingController:: class, 'dasboard'])->name('dasboard');
+Route::get('/Beranda', [BarangController:: class, 'dasboard'])->name('dasboard');
 
-Route::get('/Tentang', [TrackingController:: class, 'about'])->name('tentang');
+Route::get('/Tentang', [BarangController:: class, 'about'])->name('tentang');
 
 
 

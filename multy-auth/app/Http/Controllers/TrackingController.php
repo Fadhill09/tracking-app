@@ -2,102 +2,105 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tracking;
 use App\Models\Barang;
+use App\Models\Tracking;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-
-
 
 class TrackingController extends Controller
 {
-    public function dasboard() {
-        return view('user.dashboard');
+    function barang()
+    {
+        $barangs = Barang::all();
+        return view('admin.page.barang', compact('barangs'));
     }
 
-
-    public function about() {
-        return view('user.tentang');
+    public function tracking($id)
+    {
+       
+        $barang = Barang::with('trackings')->findOrFail($id);
+        
+        return view('admin.page.tracking', compact('barang'));
     }
+    
+    
+    public function detail($id)
+    {
+        $barang = Barang::with('trackings')->findOrFail($id);
+        return view('admin.page.detail-barang', compact('barang'));
+    }
+    
+    public function submit(Request $request, $barangid)
+    {
 
-    public function view($id)
+        $validated = $request->validate([
+            'date' => 'required|date',
+            'keterangan' => 'required|string',
+            'deskripsi' => 'nullable|string',
+            'foto' => 'required_if:keterangan,Sampai|image|mimes:jpg,jpeg,png|max:2048',
+            'konfirmasi' => 'required_if:keterangan,Sampai|accepted',
+        ]);
+    
+        $tracking = new Tracking();
+        $tracking->barang_id = $barangid;
+        $tracking->date = $validated['date']; 
+        $tracking->keterangan = $validated['keterangan']; 
+        $tracking->deskripsi = $validated['deskripsi'] ?? '';
+    
+        if ($validated['keterangan'] === 'Sampai' && $request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('uploads/foto-pesanan', 'public');
+            $tracking->foto = $fotoPath;
+        }
+        $tracking->save();
+    
+        return redirect()->route('detail', ['id' => $barangid])->with('success', 'Keterangan berhasil ditambahkan!');
+    }
+    
+
+    // public function submit(Request $request, $barangid)
+    // {
+
+    //     $request->validate([
+    //         'date' => 'required|date',
+    //         'keterangan' => 'required|string',
+    //         'deskripsi' => 'nullable|string',
+    //         'foto' => 'required_if:keterangan,Sampai|image|mimes:jpg,jpeg,png|max:2048',
+    //         'konfirmasi' => 'required_if:keterangan,Sampai|accepted',
+    //     ]);
+    
+    //     $tracking = new Tracking();
+    //     $tracking->barang_id = $barangid;  
+    //     $tracking->date = $request->date;
+    //     $tracking->keterangan = $request->keterangan;
+    //     $tracking->deskripsi = $request->deskripsi;
+
+    //     if ($request->keterangan === 'Sampai' && $request->hasFile('foto')) {
+            
+    //         $fotoPath = $request->file('foto')->store('uploads/foto-pesanan', 'public');
+    //      $tracking->foto = $fotoPath;
+            
+    //     $tracking->save();
+
+    //     return redirect()->route('detail', ['id' => $barangid])->with('success', 'Keterangan berhasil ditambahkan!');
+    // }
+    
+    public function delete($id)
     {
         $tracking = Tracking::findOrFail($id);
-
-        $riwayatBarang = Barang::where('tracking_id', $id)->get();
-
-        return view('user.page.cek.isi_barang', compact('tracking', 'riwayatBarang'));
-    }
-
-
-
-    public function index()
-    {
-        $trackings = Tracking::all();
-        return view('user.data_barang', compact('trackings'));
-    }
-
-    public function create()
-    {
-        return view('user.page.kirim.create');
-    }
-
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'nama_pengirim' => 'required|string',
-            'no_hp_pengirim' => 'required|string',
-            'alamat_pengirim' => 'required|string',
-            'nama_penerima' => 'required|string',
-            'no_hp_penerima' => 'required|string',
-            'alamat_penerima' => 'required|string',
-            'nama_barang' => 'required|string',
-            'jumlah_barang' => 'required|integer',
-            'jenis_pengiriman' => 'required|in:reguler,cepat',
-            'pesan_pengirim' => 'nullable|string',
-        ]);
-
-        $validated['biaya_pengiriman'] = $request->jenis_pengiriman === 'reguler' ? 10000 : 20000;
-
-        Tracking::create($validated);
-
-        return redirect()->route('tampil');
-    }
-
-    public function edit(Tracking $tracking)
-    {
-        return view('user.page.cek.edit', compact('tracking'));
-    }
-
-    public function update(Request $request, Tracking $tracking)
-    {
-        $validated = $request->validate([
-            'nama_pengirim' => 'required|string',
-            'no_hp_pengirim' => 'required|string',
-            'alamat_pengirim' => 'required|string',
-            'nama_penerima' => 'required|string',
-            'no_hp_penerima' => 'required|string',
-            'alamat_penerima' => 'required|string',
-            'nama_barang' => 'required|string',
-            'jumlah_barang' => 'required|integer',
-            'jenis_pengiriman' => 'required|in:reguler,cepat',
-            'pesan_pengirim' => 'nullable|string',
-        ]);
-
-        $validated['biaya_pengiriman'] = $request->jenis_pengiriman === 'reguler' ? 10000 : 20000;
-
-        $tracking->update($validated);
-
-        return redirect()->route('tampil');
-    }
-
-    public function destroy(Tracking $tracking)
-    {
+        $barangId = $tracking->barang_id;
         $tracking->delete();
-        return redirect()->route('tampil');
-        DB::statement('ALTER TABLE nama_tabel AUTO_INCREMENT = 1;');
+    
+        return redirect()->route('detail', ['id' => $barangId]);
+    }
+     
+
+
+public function destroy($barang)
+{
+    $barang = Barang::findOrFail($barang);
+    $barang->delete();
+
+    session()->flash('message', 'Pesanan ditolak dan data telah dihapus.');
+
+        return redirect()->route('barang');
     }
 }
-
-

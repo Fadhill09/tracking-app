@@ -2,80 +2,103 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang;
 use App\Models\Tracking;
+use App\Models\Barang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 
 class BarangController extends Controller
 {
-    function barang()
-    {
-        $trackings = Tracking::all();
-        return view('admin.page.barang', compact('trackings'));
-    }
-
-    function tracking($id)
-    {
-        $tracking = Tracking::with('barang')->findOrFail($id);
-
-
-        return view('admin.page.tracking', compact('tracking'));
-    }
-    public function detail($id)
-    {
-        // Mengambil satu item Tracking berdasarkan id
-        $tracking = Tracking::findOrFail($id);
-
-        // Mengambil semua riwayat tracking yang berhubungan dengan tracking_id tertentu
-        $barang = Barang::where('tracking_id', $id)->get();
-
-
-        // Mengirim data $tracking dan $barang ke tampilan
-        return view('admin.page.detail-barang', compact('tracking', 'barang'));
+    public function dasboard() {
+        return view('user.dashboard');
     }
 
 
+<<<<<<< HEAD
     public function submit(Request $request, $trackingid)
+=======
+    public function about() {
+        return view('user.tentang');
+    }
+
+    public function view($id)
+>>>>>>> eb793347823b5b86acba81d647922616438cb54c
     {
-        $request->validate([
-            'date' => 'required|date',
-            'keterangan' => 'required|string',
-            'deskripsi' => 'nullable|string',
+       $barang = Barang::findOrFail($id);
+    
+        $tracking = Tracking::where('barang_id', $id)->get();
+    
+        return view('user.page.cek.isi_barang', compact('barang', 'tracking'));
+    }
+    
+
+
+    public function index()
+    {
+       $barangs = Barang::all();
+        return view('user.data_barang', compact('barangs'));
+    }
+
+    public function create()
+    {
+        return view('user.page.kirim.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'nama_pengirim' => 'required|string',
+            'no_hp_pengirim' => 'required|string',
+            'alamat_pengirim' => 'required|string',
+            'nama_penerima' => 'required|string',
+            'no_hp_penerima' => 'required|string',
+            'alamat_penerima' => 'required|string',
+            'nama_barang' => 'required|string',
+            'jumlah_barang' => 'required|integer',
+            'jenis_pengiriman' => 'required|in:reguler,cepat',
+            'pesan_pengirim' => 'nullable|string',
         ]);
 
+        $validated['biaya_pengiriman'] = $request->jenis_pengiriman === 'reguler' ? 10000 : 20000;
 
-        $barang = new Barang();
-        $barang->tracking_id = $trackingid;
-        $barang->date = $request->date;
-        $barang->keterangan = $request->keterangan;
-        $barang->deskripsi = $request->deskripsi;
-        $barang->save();
+        Barang::create($validated);
 
-        return redirect()->route('detail', ['id' => $trackingid])->with('success', 'Keterangan berhasil ditambahkan!');
+        return redirect()->route('tampil');
     }
 
-    public function delete($id)
+    public function edit(Barang $barang)
     {
-        $barang = Barang::findOrFail($id);
-        $trackingId = $barang->tracking_id;
-        $barang->delete();
-
-        return redirect()->route('detail', ['id' => $trackingId]);
+        return view('user.page.cek.edit', compact('barang'));
     }
 
-
-    public function destroy($tracking)
+    public function update(Request $request, Barang $barang)
     {
-        $tracking = Tracking::findOrFail($tracking);
-        $tracking->delete();
+        $validated = $request->validate([
+            'nama_pengirim' => 'required|string',
+            'no_hp_pengirim' => 'required|string',
+            'alamat_pengirim' => 'required|string',
+            'nama_penerima' => 'required|string',
+            'no_hp_penerima' => 'required|string',
+            'alamat_penerima' => 'required|string',
+            'nama_barang' => 'required|string',
+            'jumlah_barang' => 'required|integer',
+            'jenis_pengiriman' => 'required|in:reguler,cepat',
+            'pesan_pengirim' => 'nullable|string',
+        ]);
 
-        // Reset auto increment untuk tabel tracking
-        DB::statement('ALTER TABLE tracking AUTO_INCREMENT = 1;');
+        $validated['biaya_pengiriman'] = $request->jenis_pengiriman === 'reguler' ? 10000 : 20000;
 
-        session()->flash('message', 'Pesanan ditolak dan data telah dihapus.');
+       $barang->update($validated);
 
-        return redirect()->route('barang');
+        return redirect()->route('tampil');
+    }
+
+    public function destroy(Barang $barang)
+    {
+       $barang->delete();
+        return redirect()->route('tampil');
     }
 }
+
+

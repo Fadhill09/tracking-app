@@ -52,101 +52,50 @@
     <main id="main" class="main">
         <div class="row">
             <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-
-                <div class="card">
-                    <form action="{{ route('submit', ['id' => $barang->id]) }}" method="POST">
-                        @csrf
-                        <div class="card shadow-sm border-1">
-                            <div class="card-body">
-                                <div class="mt-3">
-                                    <label class="form-label" for="">Tanggal</label>
-                                    <input type="date" name="date" class="form-control">
-                                </div>
-                                <div class="mt-3">
-                                    <label class="form-label" for="">Keterangan</label>
-                                    <select class="form-select" name="keterangan" aria-label="Default select example">
-                                        <option selected>--Paket--</option>
-                                        <option value="Kemas">Di kemas</option>
-                                        <option value="Perjalanan">Di perjalanan</option>
-                                        <option value="Sampai">Sampai</option>
-                                    </select>
-                                </div>
-                                <div class="mt-3">
-                                    <label class="form-label" for="">Deskripsi</label>
-                                    <textarea class="form-control" name="deskripsi"></textarea>
-                                </div>
-                                <div class="mt-5 d-flex justify-content-between">
-                                    <a href="{{ route('barang') }}" class="btn btn-danger"><i class="bi bi-x-circle"></i>
-                                        Batal</a>
-                                    <button class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <div class="card-header">
-                        <h4>Detail Barang</h4>
-                    </div>
-                    <div class="card-body">
-
-                        <div class="card shadow-lg rounded-3">
-                            <div class="card-body">
-                                <p>No Resi: <b>{{ $tracking->id }}</b></p>
-                                <p>Pengirim: <b>{{ $tracking->nama_pengirim }}</b></p>
-                                <p>No HP Pengirim: <b>{{ $tracking->no_hp_pengirim }}</b></p>
-                                <p>Alamat Pengirim: <b>{{ $tracking->alamat_pengirim }}</b></p>
-                                <p>Penerima: <b>{{ $tracking->nama_penerima }}</b></p>
-                                <p>No HP Penerima: <b>{{ $tracking->no_hp_penerima }}</b> </p>
-                                <p>Alamat Penerima: <b>{{ $tracking->alamat_penerima }}</b></p>
-                                <p>Nama Barang: <b>{{ $tracking->nama_barang }}</b></p>
-                                <p>Jumlah Barang: <b>{{ $tracking->jumlah_barang }}</b></p>
-                                <p>Jenis Pengiriman: <b>{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</b> </p>
-                                <p>Pesan Pengirim: <b>{{ $tracking->pesan_pengirim }}</b></p>
-                            </div>
-                        </div>
-=======
                 <div class="card shadow-lg border-0 rounded-4">
                     <div class="card-header bg-primary text-white rounded-top-4">
                         <h4 class="mb-0">Detail Barang</h4>
                     </div>
                     <div class="card-body p-4">
-                        <p>No Resi: <span class="fw-bold">{{ $tracking->id }}</span></p>
-                        <p>Pengirim: <span class="fw-bold">{{ $tracking->nama_pengirim }}</span></p>
-                        <p>No HP Pengirim: <span class="fw-bold">{{ $tracking->no_hp_pengirim }}</span></p>
-                        <p>Alamat Pengirim: <span class="fw-bold">{{ $tracking->alamat_pengirim }}</span></p>
-                        <p>Pesan Pengirim: <span class="fw-bold">{{ $tracking->pesan_pengirim }}</span></p><br>
-                        <p>Penerima: <span class="fw-bold">{{ $tracking->nama_penerima }}</span></p>
-                        <p>No HP Penerima: <span class="fw-bold">{{ $tracking->no_hp_penerima }}</span></p>
-                        <p>Alamat Penerima: <span class="fw-bold">{{ $tracking->alamat_penerima }}</span></p><br>
-                        <p>Nama Barang: <span class="fw-bold">{{ $tracking->nama_barang }}</span></p>
-                        <p>Jumlah Barang: <span class="fw-bold">{{ $tracking->jumlah_barang }}</span></p>
-                        <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp
-                                {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
+                        <p>No Resi: <span class="fw-bold">{{ $barang->id }}</span></p>
+                        <p>Pengirim: <span class="fw-bold">{{ $barang->nama_pengirim }}</span></p>
+                        <p>No HP Pengirim: <span class="fw-bold">{{ $barang->no_hp_pengirim }}</span></p>
+                        <p>Alamat Pengirim: <span class="fw-bold">{{ $barang->alamat_pengirim }}</span></p>
+                        <p>Pesan Pengirim: <span class="fw-bold">{{ $barang->pesan_pengirim }}</span></p><br>
+                        <p>Penerima: <span class="fw-bold">{{ $barang->nama_penerima }}</span></p>
+                        <p>No HP Penerima: <span class="fw-bold">{{ $barang->no_hp_penerima }}</span></p>
+                        <p>Alamat Penerima: <span class="fw-bold">{{ $barang->alamat_penerima }}</span></p><br>
+                        <p>Nama Barang: <span class="fw-bold">{{ $barang->nama_barang }}</span></p>
+                        <p>Jumlah Barang: <span class="fw-bold">{{ $barang->jumlah_barang }}</span></p>
+                        <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($barang->jenis_pengiriman) }} (Rp
+                                {{ number_format($barang->biaya_pengiriman, 0, ',', '.') }})</span></p>
 
 
->>>>>>> 1e7c7209d8e00b436cdd2f27820c375d5acf4ec7
                         <div class="container mt-4">
                             <div class="card shadow-sm border-1 mb-4">
-                                @foreach ($tracking->barang as $barang)
+                                @foreach ($barang->trackings as $tracking)
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                    
                                             <span class="badge text-secondary">
-                                                <i class="bi bi-calendar-fill"></i> {{ $barang->date }}
-                                            </span>
+                                                <i class="bi bi-calendar-fill  me-2"></i> {{ $tracking->date }}
+                                            </span><br>
                                             <span class="badge text-secondary">
-                                                <i class="bi bi-geo-alt-fill"></i> {{ $barang->keterangan }}
+                                                <i class="bi bi-geo-alt-fill  me-2"></i> {{ $tracking->keterangan }}
+                                            </span><br>
+                                      
+                                            <span class="badge text-secondary mb-3 ">
+                                                <i class="bi bi-box-fill me-2"></i> {{ $tracking->deskripsi }}
                                             </span>
-                                        </div>
-                                        <p class="badge text-secondary mb-3">{{ $barang->deskripsi }}</p>
 
                                         <div class="d-flex justify-content-end">
-                                            <form action="{{ route('delete', $barang->id) }}" method="POST">
+                                            <form action="{{ route('delete', $tracking->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm" type="submit">
                                                     <i class="bi bi-trash3-fill"></i> Hapus
                                                 </button>
                                             </form>
+                                            
                                         </div>
 
                                         <div class="border-top mt-3 pt-2"></div>
@@ -156,7 +105,7 @@
                         </div>
 
 
-                        <form action="{{ route('tracking', ['id' => $tracking->id]) }}" method="GET">
+                        <form action="{{ route('tracking', ['id' => $barang->id]) }}" method="GET">
                             @csrf
                             <button type="submit" class="btn btn-success mb-2">Tambah Tracking</button>
                         </form>

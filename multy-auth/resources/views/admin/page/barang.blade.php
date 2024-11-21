@@ -50,27 +50,27 @@
 
     <main id="main" class="main">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach ($trackings as $tracking)
+            @foreach ($barangs as $barang)
                 <div class="col-lg-5">
                     <div class="card shadow border-0 rounded-4 h-100">
                         <div class="card-body">
-                            <h5 class="card-title ">Resi Barang: <b>{{ $tracking->id }}</b></h5>
-                            <p>No Resi: <span class="fw-bold">{{ $tracking->id }}</span></p>
-                            <p>Pengirim: <span class="fw-bold">{{ $tracking->nama_pengirim }}</span></p>
-                            <p>No HP Pengirim: <span class="fw-bold">{{ $tracking->no_hp_pengirim }}</span></p>
-                            <p>Alamat Pengirim: <span class="fw-bold">{{ $tracking->alamat_pengirim }}</span></p>
-                            <p>Pesan Pengirim: <span class="fw-bold">{{ $tracking->pesan_pengirim }}</span></p><br>
-                            <p>Penerima: <span class="fw-bold">{{ $tracking->nama_penerima }}</span></p>
-                            <p>No HP Penerima: <span class="fw-bold">{{ $tracking->no_hp_penerima }}</span></p>
-                            <p>Alamat Penerima: <span class="fw-bold">{{ $tracking->alamat_penerima }}</span></p><br>
-                            <p>Nama Barang: <span class="fw-bold">{{ $tracking->nama_barang }}</span></p>
-                            <p>Jumlah Barang: <span class="fw-bold">{{ $tracking->jumlah_barang }}</span></p>
-                            <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
+                            <h5 class="card-title ">Resi Barang: <b>{{ $barang->id }}</b></h5>
+                            <p>No Resi: <span class="fw-bold">{{ $barang->id }}</span></p>
+                            <p>Pengirim: <span class="fw-bold">{{ $barang->nama_pengirim }}</span></p>
+                            <p>No HP Pengirim: <span class="fw-bold">{{ $barang->no_hp_pengirim }}</span></p>
+                            <p>Alamat Pengirim: <span class="fw-bold">{{ $barang->alamat_pengirim }}</span></p>
+                            <p>Pesan Pengirim: <span class="fw-bold">{{ $barang->pesan_pengirim }}</span></p><br>
+                            <p>Penerima: <span class="fw-bold">{{ $barang->nama_penerima }}</span></p>
+                            <p>No HP Penerima: <span class="fw-bold">{{ $barang->no_hp_penerima }}</span></p>
+                            <p>Alamat Penerima: <span class="fw-bold">{{ $barang->alamat_penerima }}</span></p><br>
+                            <p>Nama Barang: <span class="fw-bold">{{ $barang->nama_barang }}</span></p>
+                            <p>Jumlah Barang: <span class="fw-bold">{{ $barang->jumlah_barang }}</span></p>
+                            <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($barang->jenis_pengiriman) }} (Rp {{ number_format($barang->biaya_pengiriman, 0, ',', '.') }})</span></p>
 
 
                         </div>
                         <div class="card-footer bg-light d-flex justify-content-between align-items-center">
-                            <form action="{{ route('hapus', $tracking->id) }}" method="post" class="d-inline ms-2" >
+                            <form action="{{ route('destroy', $barang->id) }}" method="post" class="d-inline ms-2" >
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3"    onsubmit="return confirmDelete()">
@@ -78,7 +78,7 @@
                                 </button>
                             </form>
 
-                            <form action="{{ route('detail', $tracking->id) }}" method="get" class="d-inline">
+                            <form action="{{ route('detail', $barang->id) }}" method="get" class="d-inline">
                                 <button class="btn btn-outline-success btn-sm rounded-pill px-3">
                                     <i class="bi bi-check-circle-fill me-1"></i> Terima
                                 </button>
