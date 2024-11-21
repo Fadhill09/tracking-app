@@ -12,7 +12,14 @@ class Tracking extends Model
         'keterangan',
         'deskripsi',
         'barang_id', 
+        'foto', 
+        'konfirmasi'
     ];
+
+    public function getFotoUrlAttribute()
+    {
+        return asset('storage/' . $this->foto);
+    }
 
     public function barang()
     {

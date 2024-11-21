@@ -29,25 +29,59 @@ class TrackingController extends Controller
         return view('admin.page.detail-barang', compact('barang'));
     }
     
-    
     public function submit(Request $request, $barangid)
     {
 
-        $request->validate([
+        $validated = $request->validate([
             'date' => 'required|date',
             'keterangan' => 'required|string',
             'deskripsi' => 'nullable|string',
+            'foto' => 'required_if:keterangan,Sampai|image|mimes:jpg,jpeg,png|max:2048',
+            'konfirmasi' => 'required_if:keterangan,Sampai|accepted',
         ]);
     
         $tracking = new Tracking();
-        $tracking->barang_id = $barangid;  
-        $tracking->date = $request->date;
-        $tracking->keterangan = $request->keterangan;
-        $tracking->deskripsi = $request->deskripsi;
+        $tracking->barang_id = $barangid;
+        $tracking->date = $validated['date']; 
+        $tracking->keterangan = $validated['keterangan']; 
+        $tracking->deskripsi = $validated['deskripsi'] ?? '';
+    
+        if ($validated['keterangan'] === 'Sampai' && $request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('uploads/foto-pesanan', 'public');
+            $tracking->foto = $fotoPath;
+        }
         $tracking->save();
-
+    
         return redirect()->route('detail', ['id' => $barangid])->with('success', 'Keterangan berhasil ditambahkan!');
     }
+    
+
+    // public function submit(Request $request, $barangid)
+    // {
+
+    //     $request->validate([
+    //         'date' => 'required|date',
+    //         'keterangan' => 'required|string',
+    //         'deskripsi' => 'nullable|string',
+    //         'foto' => 'required_if:keterangan,Sampai|image|mimes:jpg,jpeg,png|max:2048',
+    //         'konfirmasi' => 'required_if:keterangan,Sampai|accepted',
+    //     ]);
+    
+    //     $tracking = new Tracking();
+    //     $tracking->barang_id = $barangid;  
+    //     $tracking->date = $request->date;
+    //     $tracking->keterangan = $request->keterangan;
+    //     $tracking->deskripsi = $request->deskripsi;
+
+    //     if ($request->keterangan === 'Sampai' && $request->hasFile('foto')) {
+            
+    //         $fotoPath = $request->file('foto')->store('uploads/foto-pesanan', 'public');
+    //      $tracking->foto = $fotoPath;
+            
+    //     $tracking->save();
+
+    //     return redirect()->route('detail', ['id' => $barangid])->with('success', 'Keterangan berhasil ditambahkan!');
+    // }
     
     public function delete($id)
     {

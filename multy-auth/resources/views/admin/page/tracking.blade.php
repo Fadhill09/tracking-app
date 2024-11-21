@@ -70,8 +70,22 @@
                                 <label class="form-label" for="deskripsi">Deskripsi</label>
                                 <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukkan deskripsi tambahan"></textarea>
                             </div>
+
+                            <div id="fotoKonfirmasi" style="display: none;">
+                                <div class="mt-3">
+                                    <label class="form-label" for="foto">Unggah Foto</label>
+                                    <input type="file" name="foto" id="foto" class="form-control" accept="image/*">
+                                </div>
+                             
+                                <div class="mt-3">
+                                    <label>
+                                        <input type="checkbox" name="konfirmasi" id="konfirmasi" required>
+                                        Saya mengonfirmasi bahwa pesanan ini telah diterima.
+                                    </label>
+                                </div>
+                            </div>
                             
-                            <!-- Tombol -->
+                          
                             <div class="mt-5 d-flex justify-content-between">
                                 <a href="{{ route('detail', ['id' => $barang->id]) }}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Batal</a>
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
@@ -91,6 +105,23 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
+            <script>
+                document.getElementById('keterangan').addEventListener('change', function () {
+                    const fotoKonfirmasi = document.getElementById('fotoKonfirmasi');
+                    
+                    // Tampilkan bagian foto & konfirmasi jika status "Sampai"
+                    if (this.value === 'Sampai') {
+                        fotoKonfirmasi.style.display = 'block';
+                    } else {
+                        fotoKonfirmasi.style.display = 'none';
+            
+                        // Reset nilai input jika disembunyikan
+                        document.getElementById('foto').value = '';
+                        document.getElementById('konfirmasi').checked = false;
+                    }
+                });
+            </script>
+            
     <!-- Vendor JS Files -->
     <script src="{{ asset('NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
