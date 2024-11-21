@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -28,6 +29,10 @@ require __DIR__.'/auth.php';
 Route::get('admin/dasboard', [HomeController::class, 'index'])->middleware(['auth','admin']);
 Route::get('user/dasboard', [HomeController::class, 'user'])->middleware(['auth','user']);
 Route::get('drifer/dasboard', [HomeController::class, 'drifer'])->middleware(['auth','drifer']);
+
+Route::get('/Admin/Data-operator', [AdminController::class, 'tampilOperator'])->name('tampil.operator')->middleware(['auth','drifer']);
+Route::get('/Admin/Tambah-operator', [AdminController::class, 'tambahOperator'])->name('tambah.operator')->middleware(['auth','drifer']);
+
 
 Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
 Route::get('/cek', [BarangController::class, 'cek'])->name('cek');

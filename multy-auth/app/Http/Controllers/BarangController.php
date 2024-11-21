@@ -37,12 +37,7 @@ class BarangController extends Controller
     }
 
 
-<<<<<<< HEAD
     public function submit(Request $request, $trackingid)
-=======
-
-    public function submit(Request $request,$id)
->>>>>>> 27fdc7301de6791c28be1bf2137dcca8db867c7d
     {
         $request->validate([
             'date' => 'required|date',
