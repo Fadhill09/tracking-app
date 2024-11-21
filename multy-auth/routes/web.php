@@ -32,7 +32,7 @@ Route::get('drifer/dasboard', [HomeController::class, 'drifer'])->middleware(['a
 Route::get('/barang', [TrackingController::class, 'barang'])->name('barang');
 Route::get('/cek', [TrackingController::class, 'cek'])->name('cek');
 Route::get('/cek/detail', [TrackingController::class, 'cekdetail'])->name('cekdetail');
-Route::get('/barang/detail/trac/{id}', [TrackingController::class, 'tracking'])->name('tracking');
+Route::get('/barang/detail/tracking/{id}', [TrackingController::class, 'tracking'])->name('tracking');
 Route::get('/barang/detail/{id}', [TrackingController::class, 'detail'])->name('detail');
 Route::post('/barang/submit/{barangid}', [TrackingController::class, 'submit'])->name('submit');
 Route::delete('/barang/delete/{id}', [TrackingController::class, 'delete'])->name('delete');

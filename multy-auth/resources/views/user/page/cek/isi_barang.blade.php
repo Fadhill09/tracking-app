@@ -66,7 +66,7 @@
                                         <span class="badge text-secondary">
                                             <i class="bi bi-geo-alt-fill me-2"></i> {{ $barang->keterangan }}
                                         </span><br>
-                                        <span class="badge text-secondary mb-3 ms-4">
+                                        <span class="badge text-secondary mb-3">
                                             <i class="bi bi-box-fill me-2"></i>{{ $barang->deskripsi }}
                                         </span>
 
