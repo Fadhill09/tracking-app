@@ -8,22 +8,17 @@ class Tracking extends Model
 {
     protected $table = 'trackings';
     protected $fillable = [
-        'tracking_id',
-        'nama_pengirim',
-        'no_hp_pengirim',
-        'alamat_pengirim',
-        'nama_penerima',
-        'no_hp_penerima',
-        'alamat_penerima',
-        'nama_barang',
-        'jumlah_barang',
-        'jenis_pengiriman',
-        'biaya_pengiriman',
-        'pesan_pengirim',
+        'date',
+        'keterangan',
+        'deskripsi',
+        'barang_id', 
     ];
 
     public function barang()
     {
-        return $this->hasMany(Barang::class, 'tracking_id');
+        return $this->belongsTo(Barang::class, 'barang_id'); 
     }
 }
+
+
+

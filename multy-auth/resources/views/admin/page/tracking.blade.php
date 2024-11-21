@@ -45,7 +45,7 @@
     <main id="main" class="main">
         <div class="row">
             <div class="col-sm-12">
-                <form action="{{ route('submit', ['trackingId' => $tracking->id]) }}" method="POST">
+                <form action="{{ route('submit', ['barangid' => $barang->id]) }}" method="POST">
                     @csrf
                     <div class="card shadow-sm border-1">
                         <div class="card-body">
@@ -73,7 +73,7 @@
                             
                             <!-- Tombol -->
                             <div class="mt-5 d-flex justify-content-between">
-                                <a href="{{ route('detail', ['id' => $tracking->id]) }}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Batal</a>
+                                <a href="{{ route('detail', ['id' => $barang->id]) }}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Batal</a>
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
                             </div>
                         </div>

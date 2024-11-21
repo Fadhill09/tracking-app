@@ -57,36 +57,38 @@
                         <h4 class="mb-0">Detail Barang</h4>
                     </div>
                     <div class="card-body p-4">
-                        <p>No Resi: <span class="fw-bold">{{ $tracking->id }}</span></p>
-                        <p>Pengirim: <span class="fw-bold">{{ $tracking->nama_pengirim }}</span></p>
-                        <p>No HP Pengirim: <span class="fw-bold">{{ $tracking->no_hp_pengirim }}</span></p>
-                        <p>Alamat Pengirim: <span class="fw-bold">{{ $tracking->alamat_pengirim }}</span></p>
-                        <p>Pesan Pengirim: <span class="fw-bold">{{ $tracking->pesan_pengirim }}</span></p><br>
-                        <p>Penerima: <span class="fw-bold">{{ $tracking->nama_penerima }}</span></p>
-                        <p>No HP Penerima: <span class="fw-bold">{{ $tracking->no_hp_penerima }}</span></p>
-                        <p>Alamat Penerima: <span class="fw-bold">{{ $tracking->alamat_penerima }}</span></p><br>
-                        <p>Nama Barang: <span class="fw-bold">{{ $tracking->nama_barang }}</span></p>
-                        <p>Jumlah Barang: <span class="fw-bold">{{ $tracking->jumlah_barang }}</span></p>
-                        <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp
-                                {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
+                        <p>No Resi: <span class="fw-bold">{{ $barang->id }}</span></p>
+                        <p>Pengirim: <span class="fw-bold">{{ $barang->nama_pengirim }}</span></p>
+                        <p>No HP Pengirim: <span class="fw-bold">{{ $barang->no_hp_pengirim }}</span></p>
+                        <p>Alamat Pengirim: <span class="fw-bold">{{ $barang->alamat_pengirim }}</span></p>
+                        <p>Pesan Pengirim: <span class="fw-bold">{{ $barang->pesan_pengirim }}</span></p><br>
+                        <p>Penerima: <span class="fw-bold">{{ $barang->nama_penerima }}</span></p>
+                        <p>No HP Penerima: <span class="fw-bold">{{ $barang->no_hp_penerima }}</span></p>
+                        <p>Alamat Penerima: <span class="fw-bold">{{ $barang->alamat_penerima }}</span></p><br>
+                        <p>Nama Barang: <span class="fw-bold">{{ $barang->nama_barang }}</span></p>
+                        <p>Jumlah Barang: <span class="fw-bold">{{ $barang->jumlah_barang }}</span></p>
+                        <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($barang->jenis_pengiriman) }} (Rp
+                                {{ number_format($barang->biaya_pengiriman, 0, ',', '.') }})</span></p>
 
 
                         <div class="container mt-4">
                             <div class="card shadow-sm border-1 mb-4">
-                                @foreach ($tracking->barang as $barang)
+                                @foreach ($barang->trackings as $tracking)
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                    
                                             <span class="badge text-secondary">
-                                                <i class="bi bi-calendar-fill"></i> {{ $barang->date }}
-                                            </span>
+                                                <i class="bi bi-calendar-fill  me-2"></i> {{ $tracking->date }}
+                                            </span><br>
                                             <span class="badge text-secondary">
-                                                <i class="bi bi-geo-alt-fill"></i> {{ $barang->keterangan }}
+                                                <i class="bi bi-geo-alt-fill  me-2"></i> {{ $tracking->keterangan }}
+                                            </span><br>
+                                      
+                                            <span class="badge text-secondary mb-3 ">
+                                                <i class="bi bi-box-fill me-2"></i> {{ $tracking->deskripsi }}
                                             </span>
-                                        </div>
-                                        <p class="badge text-secondary mb-3">{{ $barang->deskripsi }}</p>
 
                                         <div class="d-flex justify-content-end">
-                                            <form action="{{ route('delete', $barang->id) }}" method="POST">
+                                            <form action="{{ route('delete', $tracking->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm" type="submit">
@@ -102,7 +104,7 @@
                         </div>
 
 
-                        <form action="{{ route('tracking', ['id' => $tracking->id]) }}" method="GET">
+                        <form action="{{ route('tracking', ['id' => $barang->id]) }}" method="GET">
                             @csrf
                             <button type="submit" class="btn btn-success mb-2">Tambah Tracking</button>
                         </form>
