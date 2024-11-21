@@ -28,23 +28,17 @@ class BarangController extends Controller
 
     public function detail($id)
     {
+        // Mengambil satu item Tracking berdasarkan id
+        $tracking = Tracking::findOrFail($id);
 
-        $tracking = Tracking::with('barang')->findOrFail($id);
+        // Mengambil semua riwayat tracking yang berhubungan dengan tracking_id tertentu
+        $barang = Barang::where('tracking_id', $id)->get();
 
-        return view('admin.page.detail-barang', compact('tracking'));
+
+        // Mengirim data $tracking dan $barang ke tampilan
+        return view('admin.page.detail-barang', compact('tracking', 'barang'));
     }
-    public function detail($id)
-{
-    // Mengambil satu item Tracking berdasarkan id
-    $tracking = Tracking::findOrFail($id);
 
-    // Mengambil semua riwayat tracking yang berhubungan dengan tracking_id tertentu
-    $barang = Barang::where('tracking_id', $id)->get();
-
-
-    // Mengirim data $tracking dan $barang ke tampilan
-    return view('admin.page.detail-barang', compact('tracking', 'barang'));
-}
 
 
     public function submit(Request $request,$id)
