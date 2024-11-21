@@ -44,8 +44,13 @@
 
     <main id="main" class="main">
         <div class="row">
+<<<<<<< HEAD
+            <div class="col-lg-4 col-sm-12">
+                <form action="{{ route('submit' ['id']) }}" method="POST">
+=======
             <div class="col-sm-12">
                 <form action="{{ route('submit', ['trackingId' => $tracking->id]) }}" method="POST">
+>>>>>>> 1e7c7209d8e00b436cdd2f27820c375d5acf4ec7
                     @csrf
                     <div class="card shadow-sm border-1">
                         <div class="card-body">

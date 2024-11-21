@@ -33,17 +33,23 @@ class BarangController extends Controller
 
         return view('admin.page.detail-barang', compact('tracking'));
     }
-    public function submit(Request $request, $trackingid)
+    public function detail($id)
+{
+    // Mengambil satu item Tracking berdasarkan id
+    $tracking = Tracking::findOrFail($id);
+
+    // Mengambil semua riwayat tracking yang berhubungan dengan tracking_id tertentu
+    $barang = Barang::where('tracking_id', $id)->get();
+
+
+    // Mengirim data $tracking dan $barang ke tampilan
+    return view('admin.page.detail-barang', compact('tracking', 'barang'));
+}
+
+
+    public function submit(Request $request,$id)
     {
-        $request->validate([
-            'date' => 'required|date',
-            'keterangan' => 'required|string',
-            'deskripsi' => 'nullable|string',
-        ]);
-
-
-        $barang = new Barang();
-        $barang->tracking_id = $trackingid;
+        $barang = Barang::findOrFail($id);
         $barang->date = $request->date;
         $barang->keterangan = $request->keterangan;
         $barang->deskripsi = $request->deskripsi;
@@ -58,11 +64,9 @@ class BarangController extends Controller
         $trackingId = $barang->tracking_id;
         $barang->delete();
 
-        // Reset auto increment untuk tabel barang
-        DB::statement('ALTER TABLE barang AUTO_INCREMENT = 1;');
-
         return redirect()->route('detail', ['id' => $trackingId]);
     }
+
 
     public function destroy($tracking)
     {
