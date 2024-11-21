@@ -4,13 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Tentang</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <title>Tentang Kami</title>
+    <meta name="description" content="Informasi tentang visi, misi, dan anggota tim kami.">
+    <meta name="keywords" content="tentang, visi, misi, anggota, tim, tracking, APL">
 
     @include('user.style.gaya')
-
-
 </head>
 
 <body class="index-page">
@@ -19,77 +17,72 @@
 
     <main class="main">
 
-
         <!-- About Section -->
-        <section id="" class="section">
+        <section id="tentang" class="section">
 
             <!-- Section Title -->
-            <div class="container p-4 section-title" data-aos="fade-up">
-                <h2>Tentang kami<br></h2>
+            <div class="container text-center p-5" data-aos="fade-up">
+                <h2 class="fw-bold">Tentang Kami</h2>
+                <p class="text-muted">Aplikasi pelacakan APL untuk mempermudah manajemen dan efisiensi.</p>
             </div><!-- End Section Title -->
 
-            <div class="container-md ">
-                <div class="row gy-4">
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="container-md">
+                <div class="row gy-5">
+                    <div class="col-lg-6" data-aos="fade-right">
                         <h3 class="fw-bold text-center mb-4">Visi</h3>
-                        <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat
-                            debitis quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur
-                            fugiat voluptas ea.</p>
-                        <p>Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo
-                            officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut
-                            ut repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut
-                            omnis beatae neque deleniti repellendus.</p>
+                        <p class="text-justify">
+                            Menjadi solusi utama dalam manajemen pelacakan APL dengan memberikan kemudahan,
+                            transparansi, dan keakuratan dalam setiap proses yang dilakukan.
+                        </p>
+                        <p class="text-justify">
+                            Membantu pengguna dalam mengelola data pelacakan secara efisien melalui platform yang
+                            andal dan mudah digunakan.
+                        </p>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="col-lg-6" data-aos="fade-left">
                         <h3 class="fw-bold text-center mb-4">Misi</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
-                        </p>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident
-                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> Mengintegrasikan teknologi
+                                modern untuk meningkatkan akurasi dan efisiensi pelacakan.</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> Menyediakan antarmuka yang
+                                ramah pengguna untuk semua kalangan.</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> Mendukung pengguna dalam
+                                membuat keputusan berbasis data dengan laporan yang informatif.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="container p-3 section-title" data-aos="fade-up">
-                <h2>Anggota</h2>
+            <!-- Team Section -->
+            <div class="container text-center mt-5" data-aos="fade-up">
+                <h2 class="fw-bold">Anggota</h2>
+                <p class="text-muted">Tim di balik aplikasi tracking APL.</p>
             </div>
             <div class="container-md">
                 <div class="row gy-4">
                     <div class="col-md-4">
-                        <div class="card shadow m-2">
-                            <a href="https://www.instagram.com/nawall07_/" class="card-body">
+                        <div class="card shadow border-0 m-2" data-aos="zoom-in" data-aos-delay="100">
+                            <a href="https://www.instagram.com/nawall07_/" class="card-body text-decoration-none">
                                 <h4 class="fw-bold text-center">Nawal Fadhilah Ramadhan</h4>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card shadow m-2">
-                            <a href="https://www.instagram.com/ahea4r/" class="card-body">
+                        <div class="card shadow border-0 m-2" data-aos="zoom-in" data-aos-delay="200">
+                            <a href="https://www.instagram.com/ahea4r/" class="card-body text-decoration-none">
                                 <h4 class="fw-bold text-center">Alif Ghea Yanuar</h4>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card shadow  m-2">
-                            <a href="https://www.instagram.com/rahawaeh_113/" class="card-body">
+                        <div class="card shadow border-0 m-2" data-aos="zoom-in" data-aos-delay="300">
+                            <a href="https://www.instagram.com/rahawaeh_113/" class="card-body text-decoration-none">
                                 <h4 class="fw-bold text-center">Zein Ishaq Rahawaeh</h4>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </section><!-- /About Section -->
 
     </main>
@@ -97,11 +90,16 @@
     @include('user.operasi.footer')
 
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center bg-info"><i
-        class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center bg-dark rounded-circle shadow">
+        <i class="bi bi-arrow-up-short text-white"></i>
+    </a>
 
     <!-- Preloader -->
-    <div id="preloader"></div>
+    <div id="preloader" class="d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 
     <!-- Vendor JS Files -->
     @include('user.style.gaya')

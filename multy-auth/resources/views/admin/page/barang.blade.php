@@ -66,11 +66,11 @@
                             <p>Nama Barang: <span class="fw-bold">{{ $tracking->nama_barang }}</span></p>
                             <p>Jumlah Barang: <span class="fw-bold">{{ $tracking->jumlah_barang }}</span></p>
                             <p>Jenis Pengiriman: <span class="fw-bold">{{ ucfirst($tracking->jenis_pengiriman) }} (Rp {{ number_format($tracking->biaya_pengiriman, 0, ',', '.') }})</span></p>
-                              
-                            
+
+
                         </div>
                         <div class="card-footer bg-light d-flex justify-content-between align-items-center">
-                            <form action="{{ route('destroy', $tracking->id) }}" method="post" class="d-inline ms-2" >
+                            <form action="{{ route('hapus', $tracking->id) }}" method="post" class="d-inline ms-2" >
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3"    onsubmit="return confirmDelete()">
