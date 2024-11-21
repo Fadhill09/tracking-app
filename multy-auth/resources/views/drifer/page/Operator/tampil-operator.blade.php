@@ -1,8 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
 
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
+<head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -16,7 +15,9 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -37,64 +38,63 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
-  </head>
+</head>
 
-  <body>
+<body>
 
     <!-- ======= Header ======= -->
-      @include('drifer.operasi.navbar')<!-- End Header -->
+    @include('drifer.operasi.navbar')<!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-      @include('drifer.operasi.sidebar')<!-- End Sidebar-->
+    @include('drifer.operasi.sidebar')<!-- End Sidebar-->
 
     <main id="main" class="main">
         <section class="section">
             <div class="row">
-              <div class="col-lg-12">
-                <div class="card">
-                  <div class="card-body p-3">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Operator</th>
-                            <th>Email</th>
-                            <th>No Hp</th>
-                            <th>Alamat</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td>1</td>
-                              <td>Alif</td>
-                              <td>Cianjur</td>
-                              <td>bunabun29@gmail.com</td>
-                              <td>083822880497</td>
-                              <td>
-                                Ds.Hegarmanah,
-                                kec.Bojongpicung,
-                                Kab.Cianjur.
-                              </td>
-                          </tr>
-                      </tbody>
-                    </table>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Operator</th>
+                                        <th>Email</th>
+                                        <th>No Hp</th>
+                                        <th>Alamat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($operators as $no => $operator)
+                                        <tr>
+                                            <td>{{ $no+1 }}</td>
+                                            <td>{{ $operator->nama_operator }}</td>
+                                            <td>{{ $operator->operator }}</td>
+                                            <td>{{ $operator->email_operator }}</td>
+                                            <td>{{ $operator->nohp_operator }}</td>
+                                            <td>{{ $operator->alamat_operator }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
 
-                    <a href="{{ route('tambah.operator') }}" class="btn btn-success">Tambah operator</a>
-                    <!-- End Table with stripped rows -->
+                            <a href="{{ route('tambah.operator') }}" class="btn btn-success">Tambah operator</a>
+                            <!-- End Table with stripped rows -->
 
-                  </div>
+                        </div>
+                    </div>
+
                 </div>
-
-              </div>
             </div>
-          </section>
+        </section>
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-      @include('drifer.operasi.footer')<!-- End Footer -->
+    @include('drifer.operasi.footer')<!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
@@ -109,6 +109,6 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('NiceAdmin/assets/js/main.js') }}"></script>
 
-  </body>
+</body>
 
-  </html>
+</html>

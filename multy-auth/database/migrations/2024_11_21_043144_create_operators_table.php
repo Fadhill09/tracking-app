@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('operators', function (Blueprint $table) {
             $table->id();
-            $table->string('name_operator');
+            $table->string('nama_operator');
             $table->string('operator');
             $table->string('email_operator');
             $table->string('nohp_operator');

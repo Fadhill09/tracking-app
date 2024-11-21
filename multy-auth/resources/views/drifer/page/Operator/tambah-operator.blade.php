@@ -52,46 +52,49 @@
         <section class="section">
             <div class="card">
                 <div class="card-body mt-4">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="">Nama</label>
-                                <input type="text" name="name_operator" class="form-control" id="">
+                    <form action="{{ route('submit.operator') }}" method="post">
+                        <div class="row">
+                            @csrf
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="">Nama</label>
+                                    <input type="text" name="nama_operator" class="form-control" id="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="">Operator</label>
+                                    <select class="form-select" name="operator" aria-label="Default select example">
+                                        <option selected>--Operator--</option>
+                                        <option value="Cianjur">Cianjur</option>
+                                        <option value="Bekasi">Bekasi</option>
+                                        <option value="Jakarta">Jakarta</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="">Email</label>
+                                    <input type="email" name="email_operator" class="form-control" id="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="">No HP</label>
+                                    <input type="number" name="nohp_operator" class="form-control" id="">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="">Alamat</label>
+                                    <textarea name="alamat_operator" id="" cols="30" rows="3" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="card-body d-flex justify-content-end">
+                                <button type="submit" class="btn btn-success">Tambah</button>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="">Operator</label>
-                                <select class="form-select" name="operator" aria-label="Default select example">
-                                    <option selected>--Operator--</option>
-                                    <option value="Cianjur">Cianjur</option>
-                                    <option value="Bekasi">Bekasi</option>
-                                    <option value="Jakarta">Jakarta</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="">Email</label>
-                                <input type="email" name="email_operator" class="form-control" id="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="">No HP</label>
-                                <input type="number" name="nohp_operator" class="form-control" id="">
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label for="">Alamat</label>
-                                <textarea name="alamat_operator" id="" cols="30" rows="3" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="card-body d-flex justify-content-end">
-                            <button type="submit" class="btn btn-success">Tambah</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
         </section>
         </div>
