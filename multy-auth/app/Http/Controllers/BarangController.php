@@ -15,11 +15,23 @@ class BarangController extends Controller
     }
 
 
+<<<<<<< HEAD
     public function submit(Request $request, $trackingid)
     {
        $barang = Barang::findOrFail($trackingid);
 
         $tracking = Tracking::where('barang_id', $trackingid)->get();
+=======
+    public function about() {
+        return view('user.tentang');
+    }
+
+    public function view($id)
+    {
+       $barang = Barang::findOrFail($id);
+
+        $tracking = Tracking::where('barang_id', $id)->get();
+>>>>>>> aa9ce5b486d8f45529c0e07975c6db76983ce79e
 
         return view('user.page.cek.isi_barang', compact('barang', 'tracking'));
     }
