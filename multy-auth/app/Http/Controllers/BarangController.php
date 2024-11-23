@@ -10,18 +10,20 @@ use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
-    public function dasboard() {
+    public function dasboard()
+    {
         return view('user.dashboard');
     }
 
 
-    public function about() {
+    public function about()
+    {
         return view('user.tentang');
     }
 
     public function view($id)
     {
-       $barang = Barang::findOrFail($id);
+        $barang = Barang::findOrFail($id);
 
         $tracking = Tracking::where('barang_id', $id)->get();
 
@@ -32,9 +34,16 @@ class BarangController extends Controller
 
     public function index()
     {
-       $barangs = Barang::all();
+        $barangs = Barang::all();
         return view('user.data_barang', compact('barangs'));
     }
+
+    // public function barang()
+    // {
+    //     $barangs = Barang::all();  // Atau logika lain yang kamu inginkan
+    //     return view('user.data_barang', compact('barangs'));
+    // }
+
 
     public function create()
     {
@@ -85,16 +94,14 @@ class BarangController extends Controller
 
         $validated['biaya_pengiriman'] = $request->jenis_pengiriman === 'reguler' ? 10000 : 20000;
 
-       $barang->update($validated);
+        $barang->update($validated);
 
         return redirect()->route('tampil');
     }
 
     public function destroy(Barang $barang)
     {
-       $barang->delete();
+        $barang->delete();
         return redirect()->route('tampil');
     }
 }
-
-
