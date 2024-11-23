@@ -10,16 +10,13 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-
-                    <li><a href="{{ route('tentang') }}">Tentang</a></li>
-
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="dropdown-item d-flex align-items-center" href="route('logout')"
                                 onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                
+
                                 <span>Sign Out</span>
                             </a>
                         </form>
