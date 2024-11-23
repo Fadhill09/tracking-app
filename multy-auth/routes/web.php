@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrackingController;
 use App\Models\Barang;
+use App\Models\Tracking;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,14 +36,14 @@ Route::post('/Admin/Submit-operator', [AdminController::class, 'submitOperator']
 Route::post('/Admin/Store-operator', [AdminController::class, 'storeOperator'])->name('store.operator')->middleware(['auth','drifer']);
 
 
-Route::get('/barang', [BarangController::class, 'barang'])->name('barang');
-Route::get('/cek', [BarangController::class, 'cek'])->name('cek');
-Route::get('/cek/detail', [BarangController::class, 'cekdetail'])->name('cekdetail');
-Route::get('/barang/detail/trac/{id}', [BarangController::class, 'tracking'])->name('tracking');
-Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
-Route::post('/barang/submit', [BarangController::class, 'submit'])->name('submit');
-Route::delete('/barang/delete/{id}', [BarangController::class, 'delete'])->name('delete');
-Route::delete('/barang/hapus/{id}', [BarangController::class, 'destroy'])->name('destroy');
+Route::get('/barang', [TrackingController::class, 'barang'])->name('barang');
+Route::get('/cek', [TrackingController::class, 'cek'])->name('cek');
+Route::get('/cek/detail', [TrackingController::class, 'cekdetail'])->name('cekdetail');
+Route::get('/barang/detail/trac/{id}', [TrackingController::class, 'tracking'])->name('tracking');
+Route::get('/barang/detail/{id}', [TrackingController::class, 'detail'])->name('detail');
+Route::post('/barang/submit', [TrackingController::class, 'submit'])->name('submit');
+Route::delete('/barang/delete/{id}', [TrackingController::class, 'delete'])->name('delete');
+Route::delete('/barang/hapus/{id}', [TrackingController::class, 'destroy'])->name('destroy');
 // Route::get('/barang/detail/{id}', [BarangController::class, 'detail'])->name('detail');
 
 
