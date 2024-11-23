@@ -11,7 +11,7 @@
 
     @include('user.style.gaya')
 
- 
+
 </head>
 
 <body class="index-page">
@@ -28,10 +28,10 @@
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                         <h2><span>Selamat Datang di </span><span class="accent">APL Tracker</span></h2>
                         <p>APL Tracker adalah aplikasi yang dirancang khusus untuk membantu jurusan APL
-                        dalam memantau dan mengelola berbagai aktivitas pengujian zat. Aplikasi ini memastikan bahwa
-                        Anda selalu mendapatkan informasi terbaru tentang status dan perkembangan setiap
-                        kegiatan yang dipantau. Dengan APL Tracker, pengujian menjadi lebih mudah
-                        dan efisien, sehingga semua proses dapat berlangsung dengan lancar dan terstruktur.</p>
+                            dalam memantau dan mengelola berbagai aktivitas pengujian zat. Aplikasi ini memastikan bahwa
+                            Anda selalu mendapatkan informasi terbaru tentang status dan perkembangan setiap
+                            kegiatan yang dipantau. Dengan APL Tracker, pengujian menjadi lebih mudah
+                            dan efisien, sehingga semua proses dapat berlangsung dengan lancar dan terstruktur.</p>
 
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2">
@@ -71,9 +71,9 @@
                                 <h4 class="title">Layanan Ekonomis</h4>
                             </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
         </section>
 
@@ -90,7 +90,7 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-        @include('user.style.gaya')
+    @include('user.style.gaya')
 
 </body>
 
