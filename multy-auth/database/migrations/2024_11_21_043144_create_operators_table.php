@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email_operator');
             $table->string('nohp_operator');
             $table->string('alamat_operator');
+            $table->string('password_operator');
             $table->timestamps();
         });
     }

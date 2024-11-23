@@ -61,6 +61,7 @@
                                         <th>Nama</th>
                                         <th>Operator</th>
                                         <th>Email</th>
+                                        <th>Password</th>
                                         <th>No Hp</th>
                                         <th>Alamat</th>
                                     </tr>
@@ -72,6 +73,7 @@
                                             <td>{{ $operator->nama_operator }}</td>
                                             <td>{{ $operator->operator }}</td>
                                             <td>{{ $operator->email_operator }}</td>
+                                            <td>{{ $operator->password_operator }}</td>
                                             <td>{{ $operator->nohp_operator }}</td>
                                             <td>{{ $operator->alamat_operator }}</td>
                                         </tr>

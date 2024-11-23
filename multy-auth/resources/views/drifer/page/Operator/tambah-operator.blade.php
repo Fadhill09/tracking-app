@@ -84,10 +84,16 @@
                                     <input type="number" name="nohp_operator" class="form-control" id="">
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="">Alamat</label>
                                     <textarea name="alamat_operator" id="" cols="30" rows="3" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="">Password</label>
+                                    <input type="password" name="password_operator" class="form-control" id="">
                                 </div>
                             </div>
                             <div class="card-body d-flex justify-content-end">

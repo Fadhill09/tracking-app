@@ -14,5 +14,6 @@ class Operator extends Model
         'email_operator',
         'nohp_operator',
         'alamat_operator',
+        'password_operator',
     ];
 }

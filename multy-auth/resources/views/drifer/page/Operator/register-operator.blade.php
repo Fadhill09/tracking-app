@@ -23,7 +23,7 @@
                                     </div>
 
 
-                                    <form action="{{ route('register') }}" class="row g-3 needs-validation" method="POST" novalidate>
+                                    <form action="{{ route('store.operator') }}" class="row g-3 needs-validation" method="POST" novalidate>
                                         @csrf
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
@@ -64,10 +64,6 @@
 
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Register</button>
-                                        </div>
-                                        <div class="col-12">
-                                            <p class="small mb-0"><a class="text-decoration-none"
-                                                    href="{{ route('login') }}">Already register?</a></p>
                                         </div>
                                     </form>
 
