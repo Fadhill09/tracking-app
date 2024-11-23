@@ -22,12 +22,12 @@ class BarangController extends Controller
     public function view($id)
     {
        $barang = Barang::findOrFail($id);
-    
+
         $tracking = Tracking::where('barang_id', $id)->get();
-    
+
         return view('user.page.cek.isi_barang', compact('barang', 'tracking'));
     }
-    
+
 
 
     public function index()

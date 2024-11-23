@@ -10,23 +10,14 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('dasboard') }}">Beranda</a></li>
-                    <li class="dropdown"><a href="#"><span>Layanan</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="{{ route('create') }}">Kirim Barang</a></li>
-                            <li><a href="{{ route('tampil') }}">Cek Barang</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('tentang') }}">Tentang</a></li>
-
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a href="route('logout')"
+                            <a class="dropdown-item d-flex align-items-center" href="route('logout')"
                                 onclick="event.preventDefault();
-                    this.closest('form').submit();">
-                                <span>Keluar Akun</span>
+                                    this.closest('form').submit();">
+
+                                <span>Sign Out</span>
                             </a>
                         </form>
                     </li>
