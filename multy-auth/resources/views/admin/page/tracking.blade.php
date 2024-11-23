@@ -49,13 +49,13 @@
                     @csrf
                     <div class="card shadow-sm border-1">
                         <div class="card-body">
-                     
+
                             <div class="mt-3">
                                 <label class="form-label" for="date">Tanggal</label>
                                 <input type="date" name="date" id="date" class="form-control" required>
                             </div>
-                            
-                      
+
+
                             <div class="mt-3">
                                 <label class="form-label" for="keterangan">Keterangan</label>
                                 <select class="form-select" name="keterangan" id="keterangan" required>
@@ -65,12 +65,12 @@
                                     <option value="Sampai">Sampai</option>
                                 </select>
                             </div>
-                            
+
                             <div class="mt-3">
                                 <label class="form-label" for="deskripsi">Deskripsi</label>
                                 <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Masukkan deskripsi tambahan"></textarea>
                             </div>
-                                  
+
                             <div class="mt-5 d-flex justify-content-between">
                                 <a href="{{ route('detail', ['id' => $barang->id]) }}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Batal</a>
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Post</button>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </form>
-                
+
             </div>
         </div>
 
@@ -90,7 +90,7 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-            
+
     <!-- Vendor JS Files -->
     <script src="{{ asset('NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
