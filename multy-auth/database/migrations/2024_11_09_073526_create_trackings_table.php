@@ -12,11 +12,9 @@ class CreateTrackingsTable extends Migration
         Schema::create('trackings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('barang_id')->constrained()->onDelete('cascade');  
-            $table->date('date');
+            $table->char('date');
             $table->string('keterangan');
-            $table->text('deskripsi')->nullable();
-            $table->string('foto')->nullable(); 
-            $table->boolean('konfirmasi')->default(false); 
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
     }

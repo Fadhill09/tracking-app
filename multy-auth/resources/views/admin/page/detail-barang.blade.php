@@ -74,33 +74,33 @@
                         <div class="container mt-4">
                             <div class="card shadow-sm border-1 mb-4">
                                 @foreach ($barang->trackings as $tracking)
-                                    <div class="card-body">
+                                <div class="card-body">
+                                    <span class="badge text-secondary">
+                                        <i class="bi bi-calendar-fill me-2"></i> {{ $tracking->date }}
+                                    </span><br>
+                                    <span class="badge text-secondary">
+                                        <i class="bi bi-geo-alt-fill me-2"></i> {{ $tracking->keterangan }}
+                                    </span><br>
+                                    <span class="badge text-secondary mb-3">
+                                        <i class="bi bi-box-fill me-2"></i> {{ $tracking->deskripsi }}
+                                    </span>
                                     
-                                            <span class="badge text-secondary">
-                                                <i class="bi bi-calendar-fill  me-2"></i> {{ $tracking->date }}
-                                            </span><br>
-                                            <span class="badge text-secondary">
-                                                <i class="bi bi-geo-alt-fill  me-2"></i> {{ $tracking->keterangan }}
-                                            </span><br>
-                                      
-                                            <span class="badge text-secondary mb-3 ">
-                                                <i class="bi bi-box-fill me-2"></i> {{ $tracking->deskripsi }}
-                                            </span>
-
-                                        <div class="d-flex justify-content-end">
-                                            <form action="{{ route('delete', $tracking->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger btn-sm" type="submit">
-                                                    <i class="bi bi-trash3-fill"></i> Hapus
-                                                </button>
-                                            </form>
-                                            
-                                        </div>
-
-                                        <div class="border-top mt-3 pt-2"></div>
+                                   
+                                
+                                    
+                                    <div class="d-flex justify-content-end mt-2">
+                                        <form action="{{ route('delete', $tracking->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm" type="submit">
+                                                <i class="bi bi-trash3-fill"></i> Hapus
+                                            </button>
+                                        </form>
                                     </div>
-                                @endforeach
+                                </div>
+                            @endforeach
+                            
+                            
                             </div>
                         </div>
 
