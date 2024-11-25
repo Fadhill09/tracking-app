@@ -35,8 +35,6 @@
 
                                 {{-- opsi tampilan yg lain --}}
 
-                          
-
                                 <p>No Resi: <b>{{ $barang->id }}</b></p>
                                 <div class="d-flex flex-wrap">
                                     <div class="col-lg-6 col-12">
