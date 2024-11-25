@@ -30,8 +30,7 @@ class TrackingController extends Controller
     }
     
     public function submit(Request $request, $barangid)
-    {
-    
+    {   
         $tracking = new Tracking();
         $tracking->barang_id = $barangid;  
         $tracking->date = $request->date;  

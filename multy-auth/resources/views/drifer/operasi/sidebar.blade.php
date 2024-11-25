@@ -21,7 +21,7 @@
           </li>
           <li>
             <a href="{{ route('tampil.operator') }}">
-              <i class="ri-nurse-fill fs-3"></i><span>Drifer</span>
+              <i class="ri-nurse-fill fs-3"></i><span>Driver</span>
             </a>
           </li>
         </ul>

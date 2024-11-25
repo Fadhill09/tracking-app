@@ -39,10 +39,10 @@
                             @endif
                         </div>
 
-                        <h5 class=" accent fw-bold text-center">Belum punya akun ? Daftar</h5>
+                        {{-- <h5 class=" accent fw-bold text-center">Belum punya akun ? Daftar</h5>
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="btn btn-outline-info text-white mb-5">Daftar</a>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
